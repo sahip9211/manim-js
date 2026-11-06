@@ -1,6 +1,6 @@
 # Third-party notices
 
-ManimJS is an independent project inspired by [ManimGL](https://github.com/3b1b/manim). It is not affiliated with or endorsed by 3Blue1Brown. ManimGL is a research and API reference; its runtime is not bundled. Retain the following upstream notice with any ManimGL code incorporated or translated into this project.
+ManimJS is an independent project inspired by [ManimGL](https://github.com/3b1b/manim). It is not affiliated with or endorsed by 3Blue1Brown. The projection, lighting, and finite-difference normal calculations in `src/surface/shaders.js` are adapted from ManimGL shaders. The benchmark timestamp wrapper in `experiments/parity/reference.py` follows its render-pass wrapper. Its Python runtime is not bundled. The distributed JavaScript retains the upstream copyright and MIT permission notice.
 
 ## ManimGL
 

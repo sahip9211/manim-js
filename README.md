@@ -2,7 +2,7 @@
 
 Mathematical graphics and animation for the browser, inspired by [ManimGL](https://github.com/3b1b/manim). ManimJS uses its own renderer and ships as a self-contained JavaScript file with no runtime dependencies.
 
-**Early research prototype.** The current API provides a frame scheduler and an experimental animated grid. A general scene API, text, equations, and a complete animation system are still under development. Python ManimGL scenes cannot run directly in this library.
+**Early research prototype.** The current API provides a frame scheduler, an experimental animated grid, and a shaded animated torus. A general scene API, text, equations, and a complete animation system are still under development. Python ManimGL scenes cannot run directly in this library.
 
 ## Try it
 
@@ -40,6 +40,21 @@ grid.play();
 ```
 
 Both builds are independent single files. Neither downloads shaders, workers, WebAssembly, or other assets. [The build manifest](dist/manifest.json) records file sizes, hashes, and external-import checks.
+
+## Animated surface
+
+[The travelling-wave torus example](examples/wave-torus.html) renders 262,144 animated triangles with perspective, lighting, and depth testing:
+
+```js
+const scene = await ManimJS.experimental.createWaveTorus(canvas);
+scene.play();
+// Deterministically render a phase for inspection or export:
+scene.render(0.7);
+```
+
+It uses WebGL2 in both Firefox and Chromium. `set({ phase })`, `play()`, `pause()`, and `dispose()` follow the grid lifecycle. Automatic animation stops when hidden; explicit `render(phase)` also works for offscreen capture. Keep a 16:9 canvas for the current default camera and recreate the scene after resizing. The surface remains an experimental fixture, not a general scene interpreter.
+
+[ManimGL comparison and frame captures](results/experiment-009.md) document matching images, timing, and CPU/RAM/GPU measurements. On the recorded dense-torus workload, the tiled renderer completes frames about 13× faster in Chromium and 16× faster in Firefox even against the fastest full native repeat. These are offscreen throughput results, not displayed FPS or whole-library speedups. Browser process-tree RAM is higher despite smaller geometry buffers. [Reproduce the comparison](docs/manimgl-parity.md).
 
 ## Rendering and compatibility
 

@@ -1,3 +1,3 @@
 export { createFrameLoop } from './frame-loop.js';
-// Explicitly experimental: the first rendering fixture, not the final scene API.
-export * as experimental from './experimental-grid.js';
+// Rendering APIs are experimental while the general scene API develops.
+export * as experimental from './experimental.js';

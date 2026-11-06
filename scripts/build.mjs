@@ -4,7 +4,10 @@ import { gzipSync, brotliCompressSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 
 await mkdir('dist', { recursive: true });
-const license = await readFile('LICENSE', 'utf8');
+const license = (await readFile('LICENSE', 'utf8')).replace(
+  'Copyright (c) 2026 ManimJS contributors',
+  'Copyright (c) 2026 ManimJS contributors\nCopyright (c) 2020-2026 3Blue1Brown LLC (adapted surface shading and projection)',
+);
 const outputs = [];
 for (const [format, outfile] of [
   ['iife', 'dist/manim.js'],

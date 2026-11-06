@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManimJS — Travelling-wave torus</title>
+    <style>
+      body{margin:0;background:#101217;color:#e8eaf0;font:16px system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:24px}h1{font-size:24px}canvas{width:100%;height:auto;background:black;border-radius:12px}nav{display:flex;align-items:center;gap:12px;margin:16px 0}input{flex:1}button{padding:8px 16px}#status{color:#a9b4c8}
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Travelling waves on a torus</h1>
+      <p>
+        A rippling surface with perspective, lighting, and rotation. Pause to inspect the shape or
+        scrub through the animation.
+      </p>
+      <canvas
+        id="view"
+        width="1280"
+        height="720"
+        aria-label="Animated torus with travelling waves"
+      ></canvas>
+      <nav>
+        <button id="play" disabled>Play</button><button id="pause" disabled>Pause</button
+        ><label for="phase">Phase</label
+        ><input id="phase" type="range" min="0" max="25.132741229" step="0.01" value="0" disabled />
+      </nav>
+      <p id="status" role="status">Loading…</p>
+    </main>
+    <script src="../dist/manim.js"></script>
+    <script>
+      (async()=>{
+        const status=document.querySelector('#status');
+        try{
+          const scene=await ManimJS.experimental.createWaveTorus(document.querySelector('#view'));
+          const play=document.querySelector('#play'),pause=document.querySelector('#pause'),phase=document.querySelector('#phase');
+          play.disabled=pause.disabled=phase.disabled=false;
+          play.onclick=()=>{scene.play();status.textContent='Playing';};
+          pause.onclick=()=>{scene.pause();status.textContent='Paused';};
+          phase.oninput=()=>{scene.pause();scene.set({phase:Number(phase.value)});status.textContent='Paused — drag the slider to explore';};
+          window.addEventListener('pagehide',()=>scene.dispose(),{once:true});
+          status.textContent='Ready';scene.play();
+        }catch(error){status.textContent='Unable to render: '+error.message;}
+      })();
+    </script>
+  </body>
+</html>

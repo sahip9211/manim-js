@@ -1,0 +1,2776 @@
+{
+  "generatedAt": "2026-11-06T13:55:00.341Z",
+  "note": "Only completed full browser runs with pixel parity, synchronous framebuffer readback, and sustained windows enter the comparison. All full native repeats with corrected timestamps are retained, including an earlier repeat without a sustained window. Native CPU time and browser process-tree CPU samples are different measurements. Browser completion includes a one-pixel readback per batch; native completion uses a queue fence. Timings exclude video encoding, full image readback and screenshot comparison.",
+  "runs": [
+    {
+      "directory": "results/runs/2026-11-06T13-30-09-540Z-451402-parity-manimgl",
+      "engine": "manimgl",
+      "status": "invalid-timing",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 128,
+        "vSegments": 64,
+        "frames": 16,
+        "rounds": 1,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": {
+        "vendor": "Intel open-source Mesa driver",
+        "architecture": "",
+        "device": "Intel(R) UHD Graphics (CML GT2)",
+        "description": "Mesa 26.2.5-arch1.1",
+        "stackgroup_min_size": 4,
+        "stackgroup_max_size": 128,
+        "vendor_id": 32902,
+        "device_id": 39745,
+        "adapter_type": "IntegratedGPU",
+        "backend_type": "Vulkan"
+      },
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": {
+        "gpuMs": "Invalid: native timestamp ticks were not multiplied by the device timestamp period. Retained as a failed instrumentation attempt.",
+        "images": "Valid; timing rerun required."
+      },
+      "upstreamRevision": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 2,
+            "median": 3.4075441253662575,
+            "p95": 3.4075441253662575,
+            "p99": 3.4075441253662575,
+            "min": 3.250400124670705,
+            "max": 3.4075441253662575
+          },
+          "gpuMs": {
+            "n": 16,
+            "median": 0.004892,
+            "p95": 0.02594,
+            "p99": 0.02594,
+            "min": 0.003932,
+            "max": 0.02594
+          },
+          "submissionMs": {
+            "n": 16,
+            "median": 2.2030060026736464,
+            "p95": 2.738689996476751,
+            "p99": 2.738689996476751,
+            "min": 1.5660009994462598,
+            "max": 2.738689996476751
+          },
+          "updateMs": {
+            "n": 16,
+            "median": 0.9390060004079714,
+            "p95": 1.1873500006913673,
+            "p99": 1.1873500006913673,
+            "min": 0.7620180003868882,
+            "max": 1.1873500006913673
+          },
+          "processCPUMs": {
+            "n": 2,
+            "median": 3.1338037499999416,
+            "p95": 3.1338037499999416,
+            "p99": 3.1338037499999416,
+            "min": 3.0540332499999767,
+            "max": 3.1338037499999416
+          },
+          "gpuBufferBytes": 946288,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 436416512
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-30-23-996Z-451402-parity-chromium",
+      "engine": "chromium",
+      "status": "diagnostic",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 128,
+        "vSegments": 64,
+        "frames": 16,
+        "rounds": 1,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-30-09-540Z-451402-parity-manimgl",
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": {
+        "drainedMs": "Not accepted: gl.finish completion semantics were not verified against framebuffer readback. Later runs use synchronous readPixels.",
+        "images": "Valid pixel-parity evidence."
+      },
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "direct",
+          "drainedMs": {
+            "n": 2,
+            "median": 0.21562499972060323,
+            "p95": 0.21562499972060323,
+            "p99": 0.21562499972060323,
+            "min": 0.17499999981373549,
+            "max": 0.21562499972060323
+          },
+          "gpuMs": {
+            "n": 16,
+            "median": 0.20425,
+            "p95": 3.849083,
+            "p99": 3.849083,
+            "min": 0.158333,
+            "max": 3.849083
+          },
+          "submissionMs": {
+            "n": 16,
+            "median": 0.015000000596046448,
+            "p95": 0.22500000149011612,
+            "p99": 0.22500000149011612,
+            "min": 0.004999998956918716,
+            "max": 0.22500000149011612
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 196608,
+          "gpuTextureBytes": 7375904,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1413099520
+        },
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 2,
+            "median": 0.17750000022351742,
+            "p95": 0.17750000022351742,
+            "p99": 0.17750000022351742,
+            "min": 0.15749999973922968,
+            "max": 0.17750000022351742
+          },
+          "gpuMs": {
+            "n": 16,
+            "median": 0.165416,
+            "p95": 0.17375,
+            "p99": 0.17375,
+            "min": 0.156,
+            "max": 0.17375
+          },
+          "submissionMs": {
+            "n": 16,
+            "median": 0.015000000596046448,
+            "p95": 0.2199999988079071,
+            "p99": 0.2199999988079071,
+            "min": 0.004999998956918716,
+            "max": 0.2199999988079071
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 196608,
+          "gpuTextureBytes": 7375904,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1413099520
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-33-47-401Z-456982-parity-manimgl",
+      "engine": "manimgl",
+      "status": "failed",
+      "config": null,
+      "adapter": null,
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": null,
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 124145664
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-35-09-042Z-458938-parity-manimgl",
+      "engine": "manimgl",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": {
+        "vendor": "Intel open-source Mesa driver",
+        "architecture": "",
+        "device": "Intel(R) UHD Graphics (CML GT2)",
+        "description": "Mesa 26.2.5-arch1.1",
+        "stackgroup_min_size": 4,
+        "stackgroup_max_size": 128,
+        "vendor_id": 32902,
+        "device_id": 39745,
+        "adapter_type": "IntegratedGPU",
+        "backend_type": "Vulkan"
+      },
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": null,
+      "upstreamRevision": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+      "timestampPeriodNs": 83.33333587646484,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 18,
+            "median": 23.39767950024907,
+            "p95": 34.87269800007198,
+            "p99": 34.87269800007198,
+            "min": 16.954406749846385,
+            "max": 34.87269800007198
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 4.995083485771179,
+            "p95": 9.450666955078125,
+            "p99": 10.699583659858703,
+            "min": 2.479166742324829,
+            "max": 11.646000355407715
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 6.2782419990981,
+            "p95": 9.939758001564769,
+            "p99": 12.300600999878952,
+            "min": 3.781177001656033,
+            "max": 15.95144199745846
+          },
+          "updateMs": {
+            "n": 144,
+            "median": 15.558105002128286,
+            "p95": 24.84450700285379,
+            "p99": 37.52655900098034,
+            "min": 9.270874001231277,
+            "max": 47.7566100016702
+          },
+          "processCPUMs": {
+            "n": 18,
+            "median": 21.815922750000105,
+            "p95": 32.293382375000014,
+            "p99": 32.293382375000014,
+            "min": 15.95506987499995,
+            "max": 32.293382375000014
+          },
+          "gpuBufferBytes": 14708848,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 445460480
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-35-28-173Z-458938-parity-chromium",
+      "engine": "chromium",
+      "status": "diagnostic",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-35-09-042Z-458938-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "direct",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.008068938078703704,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008597129463720113,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "direct",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.0072001591435185185,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008129567236037468,
+          "motionFromPreviousMeanError": 9.643115234375
+        },
+        {
+          "mode": "direct",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.006185619212962963,
+          "maxChannelError": 222,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.000049561381771323785,
+          "motionFromPreviousMeanError": 13.666877531828703
+        },
+        {
+          "mode": "direct",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007512659143518519,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007209220593138624,
+          "motionFromPreviousMeanError": 13.619010416666667
+        },
+        {
+          "mode": "direct",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007615740740740741,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007678028643563328,
+          "motionFromPreviousMeanError": 16.165377604166668
+        }
+      ],
+      "measurementValidity": {
+        "drainedMs": "Not accepted: gl.finish completion semantics were not verified against framebuffer readback. Later runs use synchronous readPixels.",
+        "images": "Valid pixel-parity evidence."
+      },
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "direct",
+          "drainedMs": {
+            "n": 18,
+            "median": 0.3143750000745058,
+            "p95": 0.6643749997019768,
+            "p99": 0.6643749997019768,
+            "min": 0.19750000024214387,
+            "max": 0.6643749997019768
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 0.8465,
+            "p95": 3.835833,
+            "p99": 7.434916,
+            "min": 0.556166,
+            "max": 7.9425
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.019999999552965164,
+            "p95": 0.2799999974668026,
+            "p99": 0.9849999994039536,
+            "min": 0.004999998956918716,
+            "max": 1.4200000017881393
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1535143936
+        },
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 0.2618749998509884,
+            "p95": 0.4337499998509884,
+            "p99": 0.4337499998509884,
+            "min": 0.16625000024214387,
+            "max": 0.4337499998509884
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 0.955583,
+            "p95": 4.015416,
+            "p99": 7.7505,
+            "min": 0.55575,
+            "max": 9.7755
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.019999999552965164,
+            "p95": 0.14999999850988388,
+            "p99": 0.30000000074505806,
+            "min": 0.004999998956918716,
+            "max": 0.35500000044703484
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1535143936
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-35-53-062Z-458938-parity-firefox",
+      "engine": "firefox",
+      "status": "diagnostic",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-35-09-042Z-458938-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "direct",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.008068938078703704,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008597129463720113,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "direct",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.0072001591435185185,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008129567236037468,
+          "motionFromPreviousMeanError": 9.643115234375
+        },
+        {
+          "mode": "direct",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.006185619212962963,
+          "maxChannelError": 222,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.000049561381771323785,
+          "motionFromPreviousMeanError": 13.666877531828703
+        },
+        {
+          "mode": "direct",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007512659143518519,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007209220593138624,
+          "motionFromPreviousMeanError": 13.619010416666667
+        },
+        {
+          "mode": "direct",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007615740740740741,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007678028643563328,
+          "motionFromPreviousMeanError": 16.165377604166668
+        }
+      ],
+      "measurementValidity": {
+        "drainedMs": "Not accepted: gl.finish completion semantics were not verified against framebuffer readback. Later runs use synchronous readPixels.",
+        "images": "Valid pixel-parity evidence."
+      },
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "direct",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.5099999999993088,
+            "p95": 2.942500000000109,
+            "p99": 2.942500000000109,
+            "min": 0.9049999999999727,
+            "max": 2.942500000000109
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0,
+            "p95": 0.20000000000436557,
+            "p99": 0.4000000000014552,
+            "min": 0,
+            "max": 0.5200000000004366
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1769971712
+        },
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.3800000000001091,
+            "p95": 2.2200000000002547,
+            "p99": 2.2200000000002547,
+            "min": 0.757499999999709,
+            "max": 2.2200000000002547
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0,
+            "p95": 0.15999999999985448,
+            "p99": 0.2599999999983993,
+            "min": 0,
+            "max": 0.4000000000014552
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": null,
+          "activeResources": {
+            "samples": 0,
+            "treeCPUPercentOneCore": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 0,
+              "median": null,
+              "p95": null,
+              "p99": null,
+              "min": null,
+              "max": null
+            },
+            "peakTreeRSSBytes": null,
+            "peakIntelResidentBytes": null
+          },
+          "wholeRunPeakTreeRSSBytes": 1769971712
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-39-11-269Z-466065-parity-manimgl",
+      "engine": "manimgl",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": {
+        "vendor": "Intel open-source Mesa driver",
+        "architecture": "",
+        "device": "Intel(R) UHD Graphics (CML GT2)",
+        "description": "Mesa 26.2.5-arch1.1",
+        "stackgroup_min_size": 4,
+        "stackgroup_max_size": 128,
+        "vendor_id": 32902,
+        "device_id": 39745,
+        "adapter_type": "IntegratedGPU",
+        "backend_type": "Vulkan"
+      },
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": null,
+      "upstreamRevision": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+      "timestampPeriodNs": 83.33333587646484,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 18,
+            "median": 37.71768037495349,
+            "p95": 43.98525750002591,
+            "p99": 43.98525750002591,
+            "min": 21.25274587478998,
+            "max": 43.98525750002591
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 5.310666828735352,
+            "p95": 9.260750282615662,
+            "p99": 10.522666987792968,
+            "min": 2.452583408180237,
+            "max": 10.653166991775512
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 9.39261899839039,
+            "p95": 14.23500699820579,
+            "p99": 17.483775998698547,
+            "min": 3.908078000677051,
+            "max": 25.176875002216548
+          },
+          "updateMs": {
+            "n": 144,
+            "median": 25.96151000034297,
+            "p95": 37.53093900013482,
+            "p99": 46.03056199994171,
+            "min": 11.0366310000245,
+            "max": 54.88061199866934
+          },
+          "processCPUMs": {
+            "n": 18,
+            "median": 34.22515400000003,
+            "p95": 38.44809137499983,
+            "p99": 38.44809137499983,
+            "min": 20.01554274999995,
+            "max": 38.44809137499983
+          },
+          "gpuBufferBytes": 14708848,
+          "gpuTextureBytes": 7372800,
+          "sustained": {
+            "startUnixMs": 1793972374534.063,
+            "endUnixMs": 1793972377585.3254,
+            "frames": 72,
+            "elapsedMs": 3051.3224890019046,
+            "processCPUMs": 2773.541286999997
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 101.9936190752035,
+              "p95": 106.0139139021437,
+              "p99": 106.0139139021437,
+              "min": 96.06754874408925,
+              "max": 106.0139139021437
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 12.04700792527882,
+              "p95": 13.25868632727316,
+              "p99": 13.25868632727316,
+              "min": 9.38507054217386,
+              "max": 13.25868632727316
+            },
+            "peakTreeRSSBytes": 444170240,
+            "peakIntelResidentBytes": 281694208
+          },
+          "wholeRunPeakTreeRSSBytes": 444350464
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-39-39-223Z-466065-parity-chromium",
+      "engine": "chromium",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-39-11-269Z-466065-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "direct",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.008068938078703704,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008597129463720113,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "direct",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.0072001591435185185,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008129567236037468,
+          "motionFromPreviousMeanError": 9.643115234375
+        },
+        {
+          "mode": "direct",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.006185619212962963,
+          "maxChannelError": 222,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.000049561381771323785,
+          "motionFromPreviousMeanError": 13.666877531828703
+        },
+        {
+          "mode": "direct",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007512659143518519,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007209220593138624,
+          "motionFromPreviousMeanError": 13.619010416666667
+        },
+        {
+          "mode": "direct",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007615740740740741,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007678028643563328,
+          "motionFromPreviousMeanError": 16.165377604166668
+        }
+      ],
+      "measurementValidity": null,
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "direct",
+          "drainedMs": {
+            "n": 18,
+            "median": 2.0668750000186265,
+            "p95": 3.6374999997206032,
+            "p99": 3.6374999997206032,
+            "min": 1.0262500001117587,
+            "max": 3.6374999997206032
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 1.050333,
+            "p95": 4.423333,
+            "p99": 7.096666,
+            "min": 0.539666,
+            "max": 7.1705
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.015000000596046448,
+            "p95": 0.1850000023841858,
+            "p99": 1.2650000005960464,
+            "min": 0,
+            "max": 1.625
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972392035,
+            "endUnixMs": 1793972395047,
+            "frames": 1264,
+            "elapsedMs": 3011.570000000298,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 28.035191566706985,
+              "p95": 31.95181697951266,
+              "p99": 31.95181697951266,
+              "min": 19.983818143226166,
+              "max": 31.95181697951266
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 44.48273995580779,
+              "p95": 45.374847593430694,
+              "p99": 45.374847593430694,
+              "min": 41.67889047066195,
+              "max": 45.374847593430694
+            },
+            "peakTreeRSSBytes": 1358061568,
+            "peakIntelResidentBytes": 90206208
+          },
+          "wholeRunPeakTreeRSSBytes": 1531224064,
+          "completionSpeedup": 18.248650922099102,
+          "speedupVsFastestNativeRepeat": 11.32031666164534,
+          "gpuSpeedup": 5.056174402532675
+        },
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 2.4024999998509884,
+            "p95": 4.426874999888241,
+            "p99": 4.426874999888241,
+            "min": 1.1400000001303852,
+            "max": 4.426874999888241
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 1.237333,
+            "p95": 4.408833,
+            "p99": 7.557666,
+            "min": 0.562083,
+            "max": 7.742166
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.015000000596046448,
+            "p95": 0.08499999716877937,
+            "p99": 0.26500000059604645,
+            "min": 0,
+            "max": 0.35500000044703484
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972402914,
+            "endUnixMs": 1793972405929,
+            "frames": 1232,
+            "elapsedMs": 3014.140000000596,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 6,
+            "treeCPUPercentOneCore": {
+              "n": 6,
+              "median": 31.97190992754467,
+              "p95": 36.005518853918815,
+              "p99": 36.005518853918815,
+              "min": 11.991264004434758,
+              "max": 36.005518853918815
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 6,
+              "median": 41.92805394045541,
+              "p95": 44.47399213582023,
+              "p99": 44.47399213582023,
+              "min": 40.625641302894955,
+              "max": 44.47399213582023
+            },
+            "peakTreeRSSBytes": 1355210752,
+            "peakIntelResidentBytes": 94392320
+          },
+          "wholeRunPeakTreeRSSBytes": 1531224064,
+          "completionSpeedup": 15.699346671089646,
+          "speedupVsFastestNativeRepeat": 9.738888450239449,
+          "gpuSpeedup": 4.292027149308514
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-40-17-857Z-466065-parity-firefox",
+      "engine": "firefox",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-39-11-269Z-466065-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "direct",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.008068938078703704,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008597129463720113,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "direct",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.0072001591435185185,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00008129567236037468,
+          "motionFromPreviousMeanError": 9.643115234375
+        },
+        {
+          "mode": "direct",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.006185619212962963,
+          "maxChannelError": 222,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.000049561381771323785,
+          "motionFromPreviousMeanError": 13.666877531828703
+        },
+        {
+          "mode": "direct",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007512659143518519,
+          "maxChannelError": 218,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007209220593138624,
+          "motionFromPreviousMeanError": 13.619010416666667
+        },
+        {
+          "mode": "direct",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.007615740740740741,
+          "maxChannelError": 221,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0.00007678028643563328,
+          "motionFromPreviousMeanError": 16.165377604166668
+        }
+      ],
+      "measurementValidity": null,
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "direct",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.6224999999994907,
+            "p95": 3.4075000000002547,
+            "p99": 3.4075000000002547,
+            "min": 0.8075000000008004,
+            "max": 3.4075000000002547
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.01999999999679858,
+            "p95": 0.23999999999068677,
+            "p99": 0.37999999999919964,
+            "min": 0,
+            "max": 0.9400000000023283
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972447138,
+            "endUnixMs": 1793972450159,
+            "frames": 1184,
+            "elapsedMs": 3024.7199999999993,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 55.88679213709157,
+              "p95": 105.84421277205736,
+              "p99": 105.84421277205736,
+              "min": 35.85223994069335,
+              "max": 105.84421277205736
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 35.76655404512775,
+              "p95": 38.15146811154715,
+              "p99": 38.15146811154715,
+              "min": 32.728696073601704,
+              "max": 38.15146811154715
+            },
+            "peakTreeRSSBytes": 1741733888,
+            "peakIntelResidentBytes": 145911808
+          },
+          "wholeRunPeakTreeRSSBytes": 1905872896,
+          "completionSpeedup": 23.246644298900048,
+          "speedupVsFastestNativeRepeat": 14.420757781359885,
+          "gpuSpeedup": null
+        },
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.4774999999990541,
+            "p95": 3.6024999999999636,
+            "p99": 3.6024999999999636,
+            "min": 0.8024999999997817,
+            "max": 3.6024999999999636
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0,
+            "p95": 0.16000000000349246,
+            "p99": 0.23999999999796273,
+            "min": 0,
+            "max": 0.23999999999796273
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972468464,
+            "endUnixMs": 1793972471479,
+            "frames": 1312,
+            "elapsedMs": 3014.659999999996,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 15.988416040833197,
+              "p95": 43.916733434241486,
+              "p99": 43.916733434241486,
+              "min": 12.00826716357841,
+              "max": 43.916733434241486
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 46.35462265506826,
+              "p95": 47.82593548093391,
+              "p99": 47.82593548093391,
+              "min": 46.002809387237505,
+              "max": 47.82593548093391
+            },
+            "peakTreeRSSBytes": 1581469696,
+            "peakIntelResidentBytes": 165220352
+          },
+          "wholeRunPeakTreeRSSBytes": 1905872896,
+          "completionSpeedup": 25.528040862929025,
+          "speedupVsFastestNativeRepeat": 15.835992893579729,
+          "gpuSpeedup": null
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-43-34-404Z-474649-parity-manimgl",
+      "engine": "manimgl",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": {
+        "vendor": "Intel open-source Mesa driver",
+        "architecture": "",
+        "device": "Intel(R) UHD Graphics (CML GT2)",
+        "description": "Mesa 26.2.5-arch1.1",
+        "stackgroup_min_size": 4,
+        "stackgroup_max_size": 128,
+        "vendor_id": 32902,
+        "device_id": 39745,
+        "adapter_type": "IntegratedGPU",
+        "backend_type": "Vulkan"
+      },
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": null,
+      "upstreamRevision": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+      "timestampPeriodNs": 83.33333587646484,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 18,
+            "median": 47.33220075013378,
+            "p95": 69.39789825037224,
+            "p99": 69.39789825037224,
+            "min": 34.639954375052184,
+            "max": 69.39789825037224
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 6.497166864944458,
+            "p95": 10.149333643066406,
+            "p99": 11.742500358352661,
+            "min": 2.548666744445801,
+            "max": 12.669583719978332
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 10.413667998363962,
+            "p95": 28.86557799865841,
+            "p99": 44.63614800260984,
+            "min": 7.427854001434753,
+            "max": 48.091085998748895
+          },
+          "updateMs": {
+            "n": 144,
+            "median": 28.40624999953434,
+            "p95": 61.68956799956504,
+            "p99": 94.67941900220467,
+            "min": 18.213698000181466,
+            "max": 123.63393499981612
+          },
+          "processCPUMs": {
+            "n": 18,
+            "median": 32.66473249999979,
+            "p95": 35.80210249999993,
+            "p99": 35.80210249999993,
+            "min": 28.938167124999747,
+            "max": 35.80210249999993
+          },
+          "gpuBufferBytes": 14708848,
+          "gpuTextureBytes": 7372800,
+          "sustained": {
+            "startUnixMs": 1793972650301.2153,
+            "endUnixMs": 1793972653460.6052,
+            "frames": 72,
+            "elapsedMs": 3159.4180350002716,
+            "processCPUMs": 2543.0566409999997
+          },
+          "activeResources": {
+            "samples": 6,
+            "treeCPUPercentOneCore": {
+              "n": 6,
+              "median": 91.5853466105381,
+              "p95": 103.9319540867492,
+              "p99": 103.9319540867492,
+              "min": 67.80982936783262,
+              "max": 103.9319540867492
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 6,
+              "median": 15.231914322947821,
+              "p95": 17.886702885371346,
+              "p99": 17.886702885371346,
+              "min": 10.629004560981834,
+              "max": 17.886702885371346
+            },
+            "peakTreeRSSBytes": 444649472,
+            "peakIntelResidentBytes": 281694208
+          },
+          "wholeRunPeakTreeRSSBytes": 444829696
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-44-15-965Z-474649-parity-chromium",
+      "engine": "chromium",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-43-34-404Z-474649-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "tiled",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "tiled",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "tiled",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "tiled",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "tiled",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        }
+      ],
+      "measurementValidity": null,
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 2.0625,
+            "p95": 3.194374999962747,
+            "p99": 3.194374999962747,
+            "min": 1.4499999997206032,
+            "max": 3.194374999962747
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 1.132583,
+            "p95": 4.889583,
+            "p99": 6.60575,
+            "min": 0.525166,
+            "max": 7.440333
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.010000001639127731,
+            "p95": 0.08500000089406967,
+            "p99": 0.3449999988079071,
+            "min": 0,
+            "max": 0.380000002682209
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972671555,
+            "endUnixMs": 1793972674566,
+            "frames": 1296,
+            "elapsedMs": 3010.655000001192,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 21.99021888258244,
+              "p95": 29.960198954256267,
+              "p99": 29.960198954256267,
+              "min": 13.987288156701227,
+              "max": 29.960198954256267
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 46.134299882172215,
+              "p95": 47.023387162807246,
+              "p99": 47.023387162807246,
+              "min": 43.544499664168185,
+              "max": 47.023387162807246
+            },
+            "peakTreeRSSBytes": 1347702784,
+            "peakIntelResidentBytes": 94347264
+          },
+          "wholeRunPeakTreeRSSBytes": 1497845760,
+          "completionSpeedup": 22.94894581824668,
+          "speedupVsFastestNativeRepeat": 11.344329454666216,
+          "gpuSpeedup": 5.73659225411688
+        },
+        {
+          "mode": "tiled",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.789375000167638,
+            "p95": 2.922499999869615,
+            "p99": 2.922499999869615,
+            "min": 0.8687499999068677,
+            "max": 2.922499999869615
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 0.802833,
+            "p95": 4.160833,
+            "p99": 7.168833,
+            "min": 0.54375,
+            "max": 7.471416
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.015000000596046448,
+            "p95": 0.2200000025331974,
+            "p99": 1.074999999254942,
+            "min": 0,
+            "max": 1.5150000005960464
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972682172,
+            "endUnixMs": 1793972685182,
+            "frames": 1448,
+            "elapsedMs": 3009.394999999553,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 17.994968966576288,
+              "p95": 28.027252859863438,
+              "p99": 28.027252859863438,
+              "min": 13.97404301945472,
+              "max": 28.027252859863438
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 47.01500984092753,
+              "p95": 48.11478222314399,
+              "p99": 48.11478222314399,
+              "min": 45.71651687038462,
+              "max": 48.11478222314399
+            },
+            "peakTreeRSSBytes": 1322627072,
+            "peakIntelResidentBytes": 90259456
+          },
+          "wholeRunPeakTreeRSSBytes": 1497845760,
+          "completionSpeedup": 26.451806214851246,
+          "speedupVsFastestNativeRepeat": 13.07589493429664,
+          "gpuSpeedup": 8.092799953345788
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-44-56-726Z-474649-parity-firefox",
+      "engine": "firefox",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": null,
+      "referenceDirectory": "results/runs/2026-11-06T13-43-34-404Z-474649-parity-manimgl",
+      "parityPassed": true,
+      "parityFrames": [
+        {
+          "mode": "basis",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "basis",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "basis",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "basis",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "basis",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        },
+        {
+          "mode": "tiled",
+          "phase": 0,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016276041666666666,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": null
+        },
+        {
+          "mode": "tiled",
+          "phase": 0.7,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000015552662037037038,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 9.644114221643518
+        },
+        {
+          "mode": "tiled",
+          "phase": 1.9,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000016999421296296295,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.664990596064815
+        },
+        {
+          "mode": "tiled",
+          "phase": 3.4,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.00001808449074074074,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 13.616962528935185
+        },
+        {
+          "mode": "tiled",
+          "phase": 5.6,
+          "passed": true,
+          "nonempty": true,
+          "meanAbsoluteChannelError": 0.000017722800925925927,
+          "maxChannelError": 1,
+          "interiorP99ChannelError": 0,
+          "coverageMismatchFraction": 0,
+          "motionFromPreviousMeanError": 16.163371672453703
+        }
+      ],
+      "measurementValidity": null,
+      "upstreamRevision": null,
+      "timestampPeriodNs": null,
+      "cases": [
+        {
+          "mode": "basis",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.6549999999999727,
+            "p95": 4.959999999999127,
+            "p99": 4.959999999999127,
+            "min": 0.9474999999993088,
+            "max": 4.959999999999127
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0.01999999998952262,
+            "p95": 0.19999999999708962,
+            "p99": 0.31999999999970896,
+            "min": 0,
+            "max": 0.6000000000003638
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972723551,
+            "endUnixMs": 1793972726564,
+            "frames": 1200,
+            "elapsedMs": 3013.2199999999993,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 143.94575778377214,
+              "p95": 179.82089479236524,
+              "p99": 179.82089479236524,
+              "min": 142.01207755914706,
+              "max": 179.82089479236524
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 41.71861735281128,
+              "p95": 43.94354929273815,
+              "p99": 43.94354929273815,
+              "min": 37.97964727074976,
+              "max": 43.94354929273815
+            },
+            "peakTreeRSSBytes": 1693507584,
+            "peakIntelResidentBytes": 145960960
+          },
+          "wholeRunPeakTreeRSSBytes": 1818259456,
+          "completionSpeedup": 28.59951706956771,
+          "speedupVsFastestNativeRepeat": 14.137570695014777,
+          "gpuSpeedup": null
+        },
+        {
+          "mode": "tiled",
+          "drainedMs": {
+            "n": 18,
+            "median": 1.5,
+            "p95": 2.167500000000473,
+            "p99": 2.167500000000473,
+            "min": 0.8299999999999272,
+            "max": 2.167500000000473
+          },
+          "gpuMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 0,
+            "p95": 0.15999999999985448,
+            "p99": 0.23999999999796273,
+            "min": 0,
+            "max": 0.2800000000061118
+          },
+          "updateMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "processCPUMs": {
+            "n": 0,
+            "median": null,
+            "p95": null,
+            "p99": null,
+            "min": null,
+            "max": null
+          },
+          "gpuBufferBytes": 3145728,
+          "gpuTextureBytes": 7385120,
+          "sustained": {
+            "startUnixMs": 1793972741646,
+            "endUnixMs": 1793972744655,
+            "frames": 1384,
+            "elapsedMs": 3008.840000000004,
+            "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+          },
+          "activeResources": {
+            "samples": 5,
+            "treeCPUPercentOneCore": {
+              "n": 5,
+              "median": 30.016222327388874,
+              "p95": 99.64789376877728,
+              "p99": 99.64789376877728,
+              "min": 18.00219086662879,
+              "max": 99.64789376877728
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 5,
+              "median": 45.39915039088412,
+              "p95": 47.118472196738956,
+              "p99": 47.118472196738956,
+              "min": 33.78883367284964,
+              "max": 47.118472196738956
+            },
+            "peakTreeRSSBytes": 1562808320,
+            "peakIntelResidentBytes": 176320512
+          },
+          "wholeRunPeakTreeRSSBytes": 1818259456,
+          "completionSpeedup": 31.554800500089186,
+          "speedupVsFastestNativeRepeat": 15.598453000166046,
+          "gpuSpeedup": null
+        }
+      ]
+    },
+    {
+      "directory": "results/runs/2026-11-06T13-47-56-568Z-482068-parity-manimgl",
+      "engine": "manimgl",
+      "status": "complete",
+      "config": {
+        "name": "travelling-wave-torus",
+        "width": 1280,
+        "height": 720,
+        "uSegments": 512,
+        "vSegments": 256,
+        "frames": 48,
+        "rounds": 3,
+        "batchSize": 8,
+        "validationPhases": [
+          0,
+          0.7,
+          1.9,
+          3.4,
+          5.6
+        ],
+        "background": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "shading": [
+          0.3,
+          0.2,
+          0.4
+        ],
+        "imageLimits": {
+          "meanAbsoluteChannelError": 0.5,
+          "interiorP99ChannelError": 2,
+          "coverageMismatchFraction": 0.002,
+          "edgeRadiusPixels": 1
+        }
+      },
+      "adapter": {
+        "vendor": "Intel open-source Mesa driver",
+        "architecture": "",
+        "device": "Intel(R) UHD Graphics (CML GT2)",
+        "description": "Mesa 26.2.5-arch1.1",
+        "stackgroup_min_size": 4,
+        "stackgroup_max_size": 128,
+        "vendor_id": 32902,
+        "device_id": 39745,
+        "adapter_type": "IntegratedGPU",
+        "backend_type": "Vulkan"
+      },
+      "referenceDirectory": null,
+      "parityPassed": null,
+      "parityFrames": null,
+      "measurementValidity": null,
+      "upstreamRevision": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+      "timestampPeriodNs": 83.33333587646484,
+      "cases": [
+        {
+          "mode": "manimgl",
+          "drainedMs": {
+            "n": 18,
+            "median": 44.06518462474196,
+            "p95": 52.41786212491206,
+            "p99": 52.41786212491206,
+            "min": 26.356577999649744,
+            "max": 52.41786212491206
+          },
+          "gpuMs": {
+            "n": 144,
+            "median": 5.569750169975281,
+            "p95": 10.241250312538147,
+            "p99": 11.786667026367187,
+            "min": 2.5902500790481566,
+            "max": 12.342667043334961
+          },
+          "submissionMs": {
+            "n": 144,
+            "median": 10.39585099715623,
+            "p95": 15.977466002368601,
+            "p99": 21.264650000375696,
+            "min": 4.929878003167687,
+            "max": 23.241253999003675
+          },
+          "updateMs": {
+            "n": 144,
+            "median": 29.97014199718251,
+            "p95": 44.84894699999131,
+            "p99": 62.49110700082383,
+            "min": 12.017701999866404,
+            "max": 74.64502999937395
+          },
+          "processCPUMs": {
+            "n": 18,
+            "median": 38.05230862499975,
+            "p95": 45.71261412500016,
+            "p99": 45.71261412500016,
+            "min": 24.88528562499992,
+            "max": 45.71261412500016
+          },
+          "gpuBufferBytes": 14708848,
+          "gpuTextureBytes": 7372800,
+          "sustained": {
+            "startUnixMs": 1793972904066.1726,
+            "endUnixMs": 1793972907245.3826,
+            "frames": 72,
+            "elapsedMs": 3179.2431409994606,
+            "processCPUMs": 2739.575298000002
+          },
+          "activeResources": {
+            "samples": 6,
+            "treeCPUPercentOneCore": {
+              "n": 6,
+              "median": 97.80894431177441,
+              "p95": 99.92785508646335,
+              "p99": 99.92785508646335,
+              "min": 86.09606857619958,
+              "max": 99.92785508646335
+            },
+            "intelRenderEngineBusyPercent": {
+              "n": 6,
+              "median": 15.872399092154712,
+              "p95": 18.689136280337426,
+              "p99": 18.689136280337426,
+              "min": 13.485480284238104,
+              "max": 18.689136280337426
+            },
+            "peakTreeRSSBytes": 450744320,
+            "peakIntelResidentBytes": 281694208
+          },
+          "wholeRunPeakTreeRSSBytes": 450928640
+        }
+      ]
+    }
+  ]
+}

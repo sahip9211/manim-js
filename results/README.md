@@ -15,6 +15,10 @@ Each instrumented directory in `runs/` contains `result.json` and `telemetry.jso
 
 Regenerate aggregate tables with `npm run report:runs`, `npm run report:optimization`, and `npm run report:rebased`. Run these from the repository root. Archived sources use the layout and working names that existed at measurement time; they are evidence, not the current package API.
 
+## ManimGL animation comparison
+
+[Experiment 009](experiment-009.md) compares a dense animated torus with the pinned ManimGL renderer, including pixel parity, CPU/RAM/GPU telemetry, and retained instrumentation failures. [Reproduction instructions](../docs/manimgl-parity.md).
+
 ## Interpreting the data
 
 GPU pass times, CPU submission time, queue completion, and displayed-frame latency are different measurements. Whole-run memory/CPU values include setup, validation, and sampling. Process-tree RSS may count shared pages more than once. GPU buffer accounting excludes driver allocations. Unavailable counters are null, not zero. Experimental WebGPU settings and background-workspace measurements are labeled in each run.
