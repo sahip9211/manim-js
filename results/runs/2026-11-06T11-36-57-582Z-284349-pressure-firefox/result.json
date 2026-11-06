@@ -1,0 +1,893 @@
+{
+  "status": "complete",
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:158.0) Gecko/20100101 Firefox/158.0",
+  "adapter": {
+    "vendor": "",
+    "architecture": "",
+    "description": "",
+    "isFallbackAdapter": false
+  },
+  "errors": [],
+  "results": [
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "vectorWidth": 1,
+      "pressureWorkgroup": [
+        16,
+        16
+      ],
+      "profileStages": false,
+      "fusePressureInit": false,
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 176128,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 180304,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled kernels additionally compute overlapping halo cells.",
+      "setupMs": 14.319999999999709,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 50.02000000000044,
+        "p95": 50.02000000000044,
+        "p99": 50.02000000000044,
+        "min": 49.539999999999964,
+        "max": 50.02000000000044
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 0.32999999999992724,
+        "p95": 0.32999999999992724,
+        "p99": 0.32999999999992724,
+        "min": 0.15999999999985448,
+        "max": 0.32999999999992724
+      },
+      "samples": {
+        "drained": [
+          49.539999999999964,
+          50.02000000000044
+        ],
+        "submission": [
+          0.32999999999992724,
+          0.15999999999985448
+        ],
+        "gpu": [
+          {
+            "computeMs": 0.601167,
+            "renderMs": 0.030584,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 0.716334,
+            "renderMs": 0.034417,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1793598390135227e-16,
+          "dyeMax": 0.9914228916168213,
+          "dyeMass": 214.45410466741131,
+          "divergenceRms": 0.04715363467601575,
+          "meanKineticEnergy": 45.29636236039848
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "vectorWidth": 1,
+      "pressureWorkgroup": [
+        16,
+        16
+      ],
+      "profileStages": false,
+      "fusePressureInit": false,
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 176128,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 180304,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled kernels additionally compute overlapping halo cells.",
+      "setupMs": 10.040000000000873,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 51.970000000000255,
+        "p95": 51.970000000000255,
+        "p99": 51.970000000000255,
+        "min": 50.02000000000044,
+        "max": 51.970000000000255
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 0.17000000000007276,
+        "p95": 0.17000000000007276,
+        "p99": 0.17000000000007276,
+        "min": 0.14000000000032742,
+        "max": 0.17000000000007276
+      },
+      "samples": {
+        "drained": [
+          51.970000000000255,
+          50.02000000000044
+        ],
+        "submission": [
+          0.14000000000032742,
+          0.17000000000007276
+        ],
+        "gpu": [
+          {
+            "computeMs": 1.188334,
+            "renderMs": 0.029834,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 1.143583,
+            "renderMs": 0.030917,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1793598390135227e-16,
+          "dyeMax": 0.9914228916168213,
+          "dyeMass": 214.45410466741131,
+          "divergenceRms": 0.04715363467601575,
+          "meanKineticEnergy": 45.29636236039848
+        },
+        "maxAbsoluteDifference": 0
+      }
+    }
+  ],
+  "synchronizationProbe": {
+    "emptySubmissionCompletionMs": [
+      48.87999999999988,
+      92.96000000000004,
+      100.09999999999991,
+      101.34000000000015,
+      98.80000000000018,
+      102.27999999999975
+    ],
+    "note": "Empty command buffer submission plus completion callback. Includes browser scheduling; not pure GPU execution or display latency."
+  },
+  "validation": [
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "packed4-readonly",
+      "maxAbsoluteError": 0,
+      "passed": true
+    }
+  ],
+  "protocol": {
+    "sizes": [
+      64
+    ],
+    "workgroups": [
+      16
+    ],
+    "rounds": 1,
+    "batches": 2,
+    "frames": 2,
+    "iterations": 40,
+    "warmupSteps": 3,
+    "seed": 991,
+    "includeTiled": false,
+    "candidates": false,
+    "packed": false,
+    "layouts": false,
+    "readonly": false,
+    "note": "Equal Jacobi iteration count and matching evolved fields. Specialized constants, vectorization and temporal blocking preserve the stencil; tiled kernels compute redundant halos. CPU, GPU and drained timings are distinct."
+  },
+  "browserVersion": "158.0.1",
+  "launchArgs": [
+    "--class=lean-js-benchmark",
+    "--name=lean-js-benchmark",
+    "--no-remote",
+    "--profile",
+    "/tmp/lean-js-firefox-DYDjx5",
+    "--remote-debugging-port",
+    "0",
+    "about:blank"
+  ],
+  "pageErrors": [],
+  "preferences": {
+    "dom.webgpu.enabled": true
+  },
+  "automation": "system Firefox / WebDriver BiDi",
+  "windowPlacement": {
+    "workspace": 5,
+    "silent": true,
+    "windowClass": "lean-js-benchmark",
+    "rule": "hl.window_rule({ name = \"lean-js-benchmark\", match = { class = \"^lean-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+    "observedWorkspaces": [
+      5
+    ],
+    "activeWorkspace": 2
+  },
+  "pageVisibility": "hidden",
+  "engine": "firefox",
+  "createdAt": "2026-11-06T11:37:26.167Z",
+  "experiment": "004-pressure-browser",
+  "softwareRequested": false,
+  "experimentalWebGPU": true,
+  "sourceHashes": {
+    "experiments/fluid/model.js": "d11adc6d4b9df4b2ba7a8bfef747b8ddfdfe6ed13bbe5ec38471cd85d431ca4e",
+    "experiments/fluid/webgpu.js": "6dfba85984650b03c2a764e32bcd6b60695e4feb88989114d27cdb10b55f7cbe",
+    "experiments/fluid/pressure-shaders.js": "a106922a1073c7d02f51392f128fd5748c9cc0eb5375635bdc6626669ee30ab5",
+    "experiments/fluid/suite.js": "f891057003a4dd1a65536ca2772b78dd170eb4fe8f7e1b5c3502b7d5263021aa",
+    "experiments/fluid/pressure-suite.js": "5b2b14e39220f3d3d88d5f883b79eac5e49dd32b2aac4724933d27383858b3c5",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/bench-fluid-browser.mjs": "c6109dfdff1123302d306af13b53cea4074cf9df6f48e1f95dacac7cc14bc2fd",
+    "scripts/browser.mjs": "dc826b7e154ec2718490ce1ef1d15c4fb2b115b591dc9cf8da0b8f9a10b4e9af",
+    "scripts/firefox-bidi.mjs": "4982e6a49d55b05e5ec2604e2740061c46b62fb4db1a51ee0033da3739801a9f",
+    "scripts/test-workspace.mjs": "633a596fcc160949c2f8850dae2712c3ea7ab524c9349ea407bf9cf5a36be1d0",
+    "scripts/telemetry.mjs": "00655752f9cee7fa938c2ee5039dc0114789834ddde9d0b871917b841b5f2b3f",
+    "scripts/drm-stats.mjs": "8f50beaa06888026b8de0dc01ec61135cc00055e388849d68c68ad2f9529c9dc",
+    "scripts/source-snapshot.mjs": "955e4ae835184e718a35afa8ff460ceb5c3cbb9fea63c2697c5bbfc83b5d398b",
+    "package-lock.json": "af0c4f23cff060a20590f1364d27ceeb46f3cf2348c9fef598c49270c8fbdd91"
+  },
+  "telemetryDirectory": "results/runs/2026-11-06T11-36-57-582Z-284349-pressure-firefox"
+}

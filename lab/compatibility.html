@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManimJS browser compatibility checks</title>
+  <style>
+    body { max-width: 900px; margin: 3rem auto; padding: 1rem; font: 16px/1.5 system-ui; } pre { white-space: pre-wrap; overflow-wrap: anywhere; } button { padding: .5rem 1rem; }
+  </style>
+  <h1>Browser compatibility checks</h1>
+  <p>
+    Tests WebGL2 and WebGPU using this browser's current settings. Missing capabilities are reported
+    separately from failures. These image checks do not measure performance.
+  </p>
+  <button id="run">Run checks</button>
+  <button id="save" disabled>Download results</button>
+  <pre id="output">Ready</pre>
+  <script type="module">
+    import { checkBrowser } from '../experiments/representation/browser-suite.js';
+    const run = document.querySelector('#run'), save = document.querySelector('#save'), output = document.querySelector('#output');
+    let result;
+    run.onclick = async () => {
+      run.disabled = true; save.disabled = true; output.textContent = 'Running…';
+      try { result = await checkBrowser(entry => { output.textContent += `\n${entry.backend}: ${entry.status}`; }); output.textContent = JSON.stringify(result, null, 2); save.disabled = false; }
+      catch (error) { output.textContent = String(error); }
+      finally { run.disabled = false; }
+    };
+    save.onclick = () => {
+      const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }));
+      const link = document.createElement('a'); link.href = url; link.download = 'manim-js-browser-compatibility.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    };
+  </script>
+</html>

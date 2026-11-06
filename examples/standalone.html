@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManimJS standalone example</title>
+  <style>
+    body { margin: 2rem; background: #10151d; color: #eef; font: 16px system-ui; } canvas { width: min(100%, 640px); display: block; } button { margin: 1rem .5rem 1rem 0; padding: .5rem 1rem; }
+  </style>
+  <h1>ManimJS</h1>
+  <p>One script, one canvas. Drag the slider to deform the grid.</p>
+  <canvas id="view" width="640" height="480"></canvas>
+  <button id="play" disabled>Play</button
+  ><button id="pause" disabled>Pause</button>
+  <label
+    >Phase <input id="phase" type="range" min="0" max="6.283185" step="0.001" value="0.8" disabled
+  /></label>
+  <p id="status">Loading…</p>
+  <script src="../dist/manim.js"></script>
+  <script>
+    (async () => {
+      try {
+        const grid = await ManimJS.experimental.createGrid(document.querySelector('#view'));
+        document.querySelector('#play').onclick = () => grid.play();
+        document.querySelector('#pause').onclick = () => grid.pause();
+        document.querySelector('#phase').oninput = event => { grid.pause(); grid.set({ phase: Number(event.target.value) }); };
+        for (const control of document.querySelectorAll('button,input')) control.disabled = false;
+        document.querySelector('#status').textContent = 'Experimental renderer · WebGL2';
+        window.addEventListener('pagehide', () => grid.dispose(), { once: true });
+      } catch (error) { document.querySelector('#status').textContent = String(error.message); }
+    })();
+  </script>
+</html>

@@ -1,0 +1,417 @@
+{
+  "experiment": "006-spectral-jacobi",
+  "createdAt": "2026-11-06T12:03:54.245Z",
+  "status": "complete",
+  "validation": [
+    {
+      "size": 8,
+      "iterations": 1,
+      "maxAbsoluteDifference": 1.1920928955078125e-7,
+      "relativeL2": 4.509338276110093e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 2,
+      "maxAbsoluteDifference": 1.1920928955078125e-7,
+      "relativeL2": 4.523157130494345e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "maxAbsoluteDifference": 1.1920928955078125e-7,
+      "relativeL2": 5.53814246371341e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "maxAbsoluteDifference": 2.980232238769531e-7,
+      "relativeL2": 1.123986490888186e-7,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 80,
+      "maxAbsoluteDifference": 2.980232238769531e-7,
+      "relativeL2": 1.345571548012487e-7,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 1,
+      "maxAbsoluteDifference": 2.384185791015625e-7,
+      "relativeL2": 2.890110815576879e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 2,
+      "maxAbsoluteDifference": 2.384185791015625e-7,
+      "relativeL2": 3.2190526911414044e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 3,
+      "maxAbsoluteDifference": 2.384185791015625e-7,
+      "relativeL2": 4.041016190257054e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 40,
+      "maxAbsoluteDifference": 7.152557373046875e-7,
+      "relativeL2": 1.2138381201142222e-7,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 80,
+      "maxAbsoluteDifference": 7.152557373046875e-7,
+      "relativeL2": 1.3234856445656248e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "maxAbsoluteDifference": 4.76837158203125e-7,
+      "relativeL2": 2.9633975017504744e-8,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 2,
+      "maxAbsoluteDifference": 4.76837158203125e-7,
+      "relativeL2": 2.7111955743319484e-8,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "maxAbsoluteDifference": 4.76837158203125e-7,
+      "relativeL2": 3.059141673384828e-8,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 5.197710381011434e-8,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 80,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 7.434808800078766e-8,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "iterations": 1,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 3.001488355605756e-8,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "iterations": 2,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 2.3911425418835923e-8,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "iterations": 3,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 2.5770472945194103e-8,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "iterations": 40,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 3.196070820318024e-8,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "iterations": 80,
+      "maxAbsoluteDifference": 9.5367431640625e-7,
+      "relativeL2": 4.0977151928417887e-8,
+      "passed": true
+    }
+  ],
+  "results": [
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "vectorWidth": 1,
+      "pressureWorkgroup": [
+        8,
+        8
+      ],
+      "fft": {
+        "dimensions": 2,
+        "dispatches": 6,
+        "bufferBytes": 82176,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "profileStages": false,
+      "fusePressureInit": false,
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 9,
+      "gridCellUpdatesPerStep": 339968,
+      "workgroupStorageBytes": 8448,
+      "gpuBufferBytes": 262480,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled kernels additionally compute overlapping halo cells.",
+      "setupMs": 871.8398539999998,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 2.8608860000003915,
+        "p95": 2.8608860000003915,
+        "p99": 2.8608860000003915,
+        "min": 2.7865419999998267,
+        "max": 2.8608860000003915
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 2.557389999999941,
+        "p95": 2.557389999999941,
+        "p99": 2.557389999999941,
+        "min": 2.5408449999995355,
+        "max": 2.557389999999941
+      },
+      "samples": {
+        "drained": [
+          2.8608860000003915,
+          2.7865419999998267
+        ],
+        "submission": [
+          2.557389999999941,
+          2.5408449999995355
+        ],
+        "gpu": [
+          {
+            "computeMs": 0.393216,
+            "renderMs": 0,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 0.32768,
+            "renderMs": 0.065536,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1494987512492564e-16,
+          "dyeMax": 0.9913734793663025,
+          "dyeMass": 214.49320152403632,
+          "divergenceRms": 0.015535125406927325,
+          "meanKineticEnergy": 45.334454957087345
+        },
+        "advected": {
+          "nonFinite": 0,
+          "dyeMin": 1.1494987512492564e-16,
+          "dyeMax": 0.9913734793663025,
+          "dyeMass": 214.49320152403632,
+          "divergenceRms": 0.07348407113502238,
+          "meanKineticEnergy": 45.36793002346276
+        },
+        "initial": {
+          "nonFinite": 0,
+          "dyeMin": 8.73495199512423e-18,
+          "dyeMax": 0.9961986541748047,
+          "dyeMass": 214.45278824186036,
+          "divergenceRms": 0,
+          "meanKineticEnergy": 46.079999267033564
+        },
+        "litPixels": 1376,
+        "dyeMassRelativeDrift": 0.0001884483876720854,
+        "maxAbsoluteDifference": 0.0000019073486328125,
+        "relativeL2": 5.4968307395297864e-8
+      }
+    },
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 80,
+      "pressureKernel": "packed4-readonly",
+      "vectorWidth": 4,
+      "pressureWorkgroup": [
+        64,
+        1
+      ],
+      "fft": null,
+      "profileStages": false,
+      "fusePressureInit": true,
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 82,
+      "gridCellUpdatesPerStep": 339968,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 180304,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled kernels additionally compute overlapping halo cells.",
+      "setupMs": 172.54848199999833,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 7.1699939999998605,
+        "p95": 7.1699939999998605,
+        "p99": 7.1699939999998605,
+        "min": 6.459498500000336,
+        "max": 7.1699939999998605
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 6.278623500000322,
+        "p95": 6.278623500000322,
+        "p99": 6.278623500000322,
+        "min": 5.069515999999567,
+        "max": 6.278623500000322
+      },
+      "samples": {
+        "drained": [
+          6.459498500000336,
+          7.1699939999998605
+        ],
+        "submission": [
+          5.069515999999567,
+          6.278623500000322
+        ],
+        "gpu": [
+          {
+            "computeMs": 1.507328,
+            "renderMs": 0.065536,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 1.507328,
+            "renderMs": 0,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1494987512492564e-16,
+          "dyeMax": 0.9913734793663025,
+          "dyeMass": 214.49320149267655,
+          "divergenceRms": 0.01553511636414361,
+          "meanKineticEnergy": 45.3344552519349
+        },
+        "advected": {
+          "nonFinite": 0,
+          "dyeMin": 1.1494987512492564e-16,
+          "dyeMax": 0.9913734793663025,
+          "dyeMass": 214.49320149267655,
+          "divergenceRms": 0.07348405064653124,
+          "meanKineticEnergy": 45.36793030081576
+        },
+        "initial": {
+          "nonFinite": 0,
+          "dyeMin": 8.73495199512423e-18,
+          "dyeMax": 0.9961986541748047,
+          "dyeMass": 214.45278824186036,
+          "divergenceRms": 0,
+          "meanKineticEnergy": 46.079999267033564
+        },
+        "litPixels": 1376,
+        "dyeMassRelativeDrift": 0.00018844824144048135,
+        "maxAbsoluteDifference": 0,
+        "relativeL2": 0
+      }
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "experiments/fluid/fft-pressure.js": "ea75ac0d93d3e176fa838b178edf75828c28a14e29a2f878e1d76f020378daaf",
+    "experiments/fluid/spectral-suite.js": "341709997cd3cb1d1349b7ad7ece7627b1e0fce371ba2d00796c29dd4dd2120b",
+    "experiments/fluid/webgpu.js": "c23cfab617a855d5ea7a70bdaae19141f214d7aca7812f5cac9c08bc30d79a02",
+    "experiments/fluid/pressure-shaders.js": "a106922a1073c7d02f51392f128fd5748c9cc0eb5375635bdc6626669ee30ab5",
+    "experiments/fluid/model.js": "d11adc6d4b9df4b2ba7a8bfef747b8ddfdfe6ed13bbe5ec38471cd85d431ca4e",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/bench-spectral.mjs": "8488619b1eabce4938c751255d43c1571b4cff944208293fead023b68c3d6c57",
+    "scripts/native-device.mjs": "91acbc1e205b332659cde058648a338fddb5421927af8778fea507e0f94ae2b4",
+    "scripts/telemetry.mjs": "00655752f9cee7fa938c2ee5039dc0114789834ddde9d0b871917b841b5f2b3f",
+    "scripts/drm-stats.mjs": "8f50beaa06888026b8de0dc01ec61135cc00055e388849d68c68ad2f9529c9dc",
+    "package-lock.json": "af0c4f23cff060a20590f1364d27ceeb46f3cf2348c9fef598c49270c8fbdd91"
+  },
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": false,
+  "requestedAdapter": null,
+  "adapter": {
+    "vendor": "intel",
+    "architecture": "gen-9",
+    "device": "intel-r-uhd-graphics-cml-gt2-",
+    "description": "Intel open-source Mesa driver: Mesa 26.2.5-arch1.1",
+    "isFallbackAdapter": false
+  },
+  "features": [
+    "atomic-vec2u-min-max",
+    "texture-compression-unaligned",
+    "texture-component-swizzle",
+    "primitive-index",
+    "texture-formats-tier2",
+    "texture-formats-tier1",
+    "dual-source-blending",
+    "clip-distances",
+    "float32-blendable",
+    "float32-filterable",
+    "core-features-and-limits",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "shader-f16",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true,
+  "protocol": {
+    "sizes": [
+      64
+    ],
+    "rounds": 1,
+    "batches": 2,
+    "frames": 2,
+    "iterations": 80,
+    "workgroup": 8,
+    "warmupSteps": 3,
+    "seed": 501,
+    "maxAbsoluteDifference": 0.00002,
+    "note": "Compare current packed4-readonly baseline to spectral evaluation of the same 80 Jacobi iterations. Same f32 field, dt, rendering and steps. Algorithmic rounding can differ; no lower iteration count or converged-solver substitution."
+  }
+}

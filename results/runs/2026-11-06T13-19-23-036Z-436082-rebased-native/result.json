@@ -1,0 +1,699 @@
+{
+  "experiment": "008-rebased",
+  "createdAt": "2026-11-06T13:19:23.162Z",
+  "engine": "native",
+  "screen": true,
+  "baseline": {
+    "createdAt": "2026-11-06T12:51:26.396Z",
+    "sourceRun": "results/runs/2026-11-06T12-36-23-010Z-369797-vortex-chromium",
+    "file": "experiments/baselines/vortex-008.js",
+    "sha256": "a8857b8b6af0bdecdf86b8326358248b31321b58fa93441ca6fbec69007f2ccb",
+    "bytes": 40496,
+    "options": {
+      "iterations": 80,
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "pressureKernel": "fft-real8-inline",
+      "resolution": 256,
+      "raySteps": 128,
+      "workgroup": [
+        4,
+        4,
+        4
+      ]
+    },
+    "metric": "Within-run median simulation-plus-render GPU execution time at identical settings. CPU completion and setup reported separately.",
+    "targets": [
+      {
+        "engine": "chromium",
+        "adapter": {
+          "vendor": "intel",
+          "architecture": "gen-9",
+          "description": "",
+          "isFallbackAdapter": false
+        },
+        "size": 64,
+        "sourceRun": "results/runs/2026-11-06T12-36-23-010Z-369797-vortex-chromium",
+        "previousTotalGpuMedianMs": 5.390499,
+        "illustrativeTenfoldTargetMs": 0.5390499
+      },
+      {
+        "engine": "chromium",
+        "adapter": {
+          "vendor": "intel",
+          "architecture": "gen-9",
+          "description": "",
+          "isFallbackAdapter": false
+        },
+        "size": 128,
+        "sourceRun": "results/runs/2026-11-06T12-36-23-010Z-369797-vortex-chromium",
+        "previousTotalGpuMedianMs": 39.209387,
+        "illustrativeTenfoldTargetMs": 3.9209386999999998
+      },
+      {
+        "engine": "firefox",
+        "adapter": {
+          "vendor": "",
+          "architecture": "",
+          "description": "",
+          "isFallbackAdapter": false
+        },
+        "size": 64,
+        "sourceRun": "results/runs/2026-11-06T12-37-54-531Z-369797-vortex-firefox",
+        "previousTotalGpuMedianMs": 5.046834,
+        "illustrativeTenfoldTargetMs": 0.5046834
+      },
+      {
+        "engine": "firefox",
+        "adapter": {
+          "vendor": "",
+          "architecture": "",
+          "description": "",
+          "isFallbackAdapter": false
+        },
+        "size": 128,
+        "sourceRun": "results/runs/2026-11-06T12-37-54-531Z-369797-vortex-firefox",
+        "previousTotalGpuMedianMs": 32.081168,
+        "illustrativeTenfoldTargetMs": 3.2081168
+      },
+      {
+        "engine": "native",
+        "adapter": {
+          "vendor": "nvidia",
+          "architecture": "pascal",
+          "device": "nvidia-geforce-mx250",
+          "description": "NVIDIA: 580.178.04 580.178.4.0",
+          "isFallbackAdapter": false
+        },
+        "size": 64,
+        "sourceRun": "results/runs/2026-11-06T12-41-46-152Z-376860-vortex-native",
+        "previousTotalGpuMedianMs": 1.9660799999999998,
+        "illustrativeTenfoldTargetMs": 0.19660799999999998
+      },
+      {
+        "engine": "native",
+        "adapter": {
+          "vendor": "nvidia",
+          "architecture": "pascal",
+          "device": "nvidia-geforce-mx250",
+          "description": "NVIDIA: 580.178.04 580.178.4.0",
+          "isFallbackAdapter": false
+        },
+        "size": 128,
+        "sourceRun": "results/runs/2026-11-06T12-41-46-152Z-376860-vortex-native",
+        "previousTotalGpuMedianMs": 11.599872000000001,
+        "illustrativeTenfoldTargetMs": 1.1599872000000002
+      }
+    ],
+    "note": "Historical target values are illustrative only. New speedups require rerunning this frozen baseline alongside candidates."
+  },
+  "status": "complete",
+  "results": [
+    {
+      "round": 0,
+      "variant": "fft-real8-symmetry",
+      "representation": "translation-4",
+      "storedCells": 524288,
+      "logicalCells": 2097152,
+      "profileStages": false,
+      "workgroup": [
+        4,
+        4,
+        4
+      ],
+      "tiledAdvection": false,
+      "inlineDivergence": true,
+      "fuseProjection": false,
+      "advectionWorkgroup": [
+        4,
+        4,
+        4
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-real8-symmetry",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 8,
+      "gpuBufferBytes": 24773696,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "radix": 8,
+        "fuse": false,
+        "swizzle": false,
+        "unroll": false,
+        "quotient": true,
+        "storedShape": [
+          128,
+          64,
+          64
+        ],
+        "axisBatch": 8,
+        "xBatch": 4,
+        "inlineDivergence": true,
+        "fusedProjection": false,
+        "projectionTile": null,
+        "dispatches": 6,
+        "spectrumWidth": 72,
+        "realFrequencyCount": 65,
+        "bufferBytes": 5899264,
+        "workgroupStorageBytes": 16384,
+        "method": "real-input radix-4/2 FFT, half spectrum, finite Jacobi operator"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "setupMs": 438.5794420000002,
+      "steps": 8,
+      "drainedMs": {
+        "n": 4,
+        "median": 14.084475999999995,
+        "p95": 15.32109550000041,
+        "p99": 15.32109550000041,
+        "min": 12.246009500000582,
+        "max": 15.32109550000041
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.122204999999667,
+        "p95": 1.8657430000002933,
+        "p99": 1.8657430000002933,
+        "min": 0.8214820000002874,
+        "max": 1.8657430000002933
+      },
+      "samples": {
+        "drained": [
+          12.246009500000582,
+          12.722537999999986,
+          14.084475999999995,
+          15.32109550000041
+        ],
+        "submission": [
+          1.8657430000002933,
+          1.122204999999667,
+          0.9332414999998946,
+          0.8214820000002874
+        ],
+        "gpu": [
+          {
+            "computeMs": 6.094848,
+            "renderMs": 2.818048,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 7.929856,
+            "renderMs": 2.94912,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 9.568256,
+            "renderMs": 2.883584,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 12.12416,
+            "renderMs": 2.94912,
+            "scope": "last step of batch; readback excluded"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "energy": 0.1239472040041654,
+          "enstrophy": 0.37162351763090284,
+          "divergenceRms": 0.051198583765112146,
+          "nonFinite": 0,
+          "dyeMin": 0.00045393346226774156,
+          "dyeMax": 0.9995459914207458,
+          "dyeMass": 0.5000000000985569,
+          "speedMax": 0.9957029175918937
+        },
+        "advected": {
+          "energy": 0.12404567301466285,
+          "enstrophy": 0.3716305961378664,
+          "divergenceRms": 0.059628098720679486,
+          "nonFinite": 0,
+          "dyeMin": 0.00045393346226774156,
+          "dyeMax": 0.9995459914207458,
+          "dyeMass": 0.5000000000985569,
+          "speedMax": 0.9960814906624817
+        },
+        "initial": {
+          "energy": 0.12499999986425327,
+          "enstrophy": 0.3746988999204244,
+          "divergenceRms": 0.01226938234154517,
+          "nonFinite": 0,
+          "dyeMin": 0.00045163591857999563,
+          "dyeMax": 0.9995483756065369,
+          "dyeMass": 0.5000000000136176,
+          "speedMax": 0.9990969326334092
+        },
+        "litPixels": 45089,
+        "equivalence": {
+          "maxAbsolute": 7.82310962677002e-7,
+          "relativeL2": 1.892842824519683e-7
+        },
+        "pixelMaxAbsolute": 1
+      }
+    },
+    {
+      "round": 0,
+      "variant": "frozen-008",
+      "profileStages": false,
+      "workgroup": [
+        4,
+        4,
+        4
+      ],
+      "tiledAdvection": false,
+      "inlineDivergence": true,
+      "advectionWorkgroup": [
+        4,
+        4,
+        4
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-real8-inline",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 8,
+      "gpuBufferBytes": 99091520,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "radix": 8,
+        "fuse": false,
+        "swizzle": false,
+        "inlineDivergence": true,
+        "dispatches": 6,
+        "spectrumWidth": 72,
+        "realFrequencyCount": 65,
+        "bufferBytes": 23593984,
+        "workgroupStorageBytes": 16384,
+        "method": "real-input radix-4/2 FFT, half spectrum, finite Jacobi operator"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "setupMs": 401.7307239999991,
+      "steps": 8,
+      "drainedMs": {
+        "n": 4,
+        "median": 47.87601100000029,
+        "p95": 49.41872599999988,
+        "p99": 49.41872599999988,
+        "min": 42.559995999999956,
+        "max": 49.41872599999988
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.1826464999994641,
+        "p95": 1.7132965000000695,
+        "p99": 1.7132965000000695,
+        "min": 0.8524520000000848,
+        "max": 1.7132965000000695
+      },
+      "samples": {
+        "drained": [
+          42.559995999999956,
+          49.41872599999988,
+          44.579977500000496,
+          47.87601100000029
+        ],
+        "submission": [
+          1.1570844999996552,
+          1.1826464999994641,
+          0.8524520000000848,
+          1.7132965000000695
+        ],
+        "gpu": [
+          {
+            "computeMs": 34.471936,
+            "renderMs": 3.93216,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 43.384832,
+            "renderMs": 3.801088,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 37.879808,
+            "renderMs": 3.801088,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 42.5984,
+            "renderMs": 3.670016,
+            "scope": "last step of batch; readback excluded"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "energy": 0.12394720410871525,
+          "enstrophy": 0.3716235179499051,
+          "divergenceRms": 0.051198583596817705,
+          "nonFinite": 0,
+          "dyeMin": 0.00045393346226774156,
+          "dyeMax": 0.9995459914207458,
+          "dyeMass": 0.500000000083346,
+          "speedMax": 0.9957029175900803
+        },
+        "advected": {
+          "energy": 0.12404567312140241,
+          "enstrophy": 0.3716305964561283,
+          "divergenceRms": 0.05962809874614823,
+          "nonFinite": 0,
+          "dyeMin": 0.00045393346226774156,
+          "dyeMax": 0.9995459914207458,
+          "dyeMass": 0.500000000083346,
+          "speedMax": 0.9960814906669241
+        },
+        "initial": {
+          "energy": 0.12499999986425327,
+          "enstrophy": 0.3746988999204244,
+          "divergenceRms": 0.01226938234154517,
+          "nonFinite": 0,
+          "dyeMin": 0.00045163591857999563,
+          "dyeMax": 0.9995483756065369,
+          "dyeMass": 0.5000000000136176,
+          "speedMax": 0.9990969326334092
+        },
+        "litPixels": 45089,
+        "equivalence": {
+          "maxAbsolute": 0,
+          "relativeL2": 0
+        },
+        "pixelMaxAbsolute": 0
+      }
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "experiments/baselines/vortex-008.js": "a8857b8b6af0bdecdf86b8326358248b31321b58fa93441ca6fbec69007f2ccb",
+    "experiments/baselines/vortex-008.json": "65ee8bc9b519e77d8461b19c234bcddf31fef206a94c296868f10b58d4e5d92f",
+    "experiments/vortex/rebased-suite.js": "2d29692961291d94018af01ab2d6207eba0a4f9cecfbc1628a744207e521f617",
+    "experiments/vortex/suite.js": "752373f2fb4a22919739354218831bad012b4ae31c88b25705abe93378a0ca1f",
+    "experiments/vortex/model.js": "06d284f99dda3fa660bb7985f5a378c5a2cc2f550ec35648f757a5a4137f22b1",
+    "experiments/vortex/shaders.js": "4ce13b9a23d4e42191e8fa83ce3ac7f78018faf1fa9bc74bf88109655372deee",
+    "experiments/vortex/webgpu.js": "66b1bafb55dd08408c915fdaba8593ddc2c448c2268f63c930d5227a599fca75",
+    "experiments/vortex/symmetry.js": "3aae8a4a5c4c6ba4f73f372caacab9e32d36729ee97d089120dc65649623e247",
+    "experiments/vortex/symmetry-suite.js": "ce473d589705c2f85c411d0ba038d7ec140163cbde4f03cb1ee3730841305373",
+    "experiments/fluid/fft-pressure.js": "3a79f8b8726cf57ce48f50d47e4c8187fb4c1c9f4316331eafbbee4f6dafc23c",
+    "experiments/fluid/fft-stockham.js": "852b690e724a7454dccbb5f17fc02eeabd300b47218cd95d4093f2558fe199f3",
+    "experiments/fluid/fft-real.js": "94830d4ada081b56ced8778535942dee2354a5cc4220f8e0026eabb2e98452c0",
+    "experiments/grid/model.js": "0f4a7e87fe59468f7a4ff09dbea7c8b4011760c45bc520f82087bc17dd343339",
+    "scripts/benchmarks/rebased.mjs": "fa41fb6ff9b8015f2e2fcfd172322acafb1295dc932e7d358e68610f70e2765d",
+    "scripts/lib/native-device.mjs": "c8dd5a3111f9da52bbe57186df656d5cd412b946fc3c4176a9d1cbc2e88adb9b",
+    "scripts/lib/browser.mjs": "1e5b17c7095a2391d46211d1848054a3c04706a7e27934550934c8a0dff2cdf6",
+    "scripts/lib/firefox-bidi.mjs": "eaecd6bb8b6931f96d15ff9aa9f46fdef53f1521cd2b920e22792140f410d8c4",
+    "scripts/lib/test-workspace.mjs": "08663799596bc1ea61cbd8bf5ab9be6993a9f5951d58cfafd8c169f55e0a6c49",
+    "scripts/lib/telemetry.mjs": "b2c57e0d17e7f39de88a0efc85c5daadcb2adb7fd86071c579610efb8396c9b9",
+    "scripts/lib/drm-stats.mjs": "c2c581f03f1b278a0c237768c377d3cfa0b05c420540c52110bcec8f1f3fef59",
+    "scripts/lib/source-snapshot.mjs": "c74486548d8b5c71a61dc0b86b1e0039de915ee5d8d115db91292019760a12b0",
+    "package-lock.json": "001580644dadf1366fbff59822a3a9cfdf37fced3c7eb3d802a69c81754ecbfc"
+  },
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": false,
+  "requestedAdapter": null,
+  "adapter": {
+    "vendor": "intel",
+    "architecture": "gen-9",
+    "device": "intel-r-uhd-graphics-cml-gt2-",
+    "description": "Intel open-source Mesa driver: Mesa 26.2.5-arch1.1",
+    "isFallbackAdapter": false
+  },
+  "features": [
+    "atomic-vec2u-min-max",
+    "texture-compression-unaligned",
+    "texture-component-swizzle",
+    "primitive-index",
+    "texture-formats-tier2",
+    "texture-formats-tier1",
+    "dual-source-blending",
+    "clip-distances",
+    "float32-blendable",
+    "float32-filterable",
+    "core-features-and-limits",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "shader-f16",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true,
+  "validation": [
+    {
+      "name": "analytic initial mean kinetic energy",
+      "actual": 0.12500000063661207,
+      "expected": 0.125,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 8,
+      "iterations": 1,
+      "dt": 0,
+      "maxAbsolute": 5.991508567060322e-8,
+      "relativeL2": 2.8583993079938484e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 8,
+      "iterations": 1,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 8,
+      "iterations": 3,
+      "dt": 0,
+      "maxAbsolute": 4.525430052915169e-8,
+      "relativeL2": 3.140099316130745e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 8,
+      "iterations": 3,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 8,
+      "iterations": 80,
+      "dt": 0.02,
+      "maxAbsolute": 1.4387901492440847e-7,
+      "relativeL2": 8.229755507122918e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 8,
+      "iterations": 80,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 16,
+      "iterations": 1,
+      "dt": 0,
+      "maxAbsolute": 6.48821393278709e-8,
+      "relativeL2": 2.932782288218873e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 16,
+      "iterations": 1,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 16,
+      "iterations": 3,
+      "dt": 0,
+      "maxAbsolute": 6.85298194857964e-8,
+      "relativeL2": 3.102143605955834e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 16,
+      "iterations": 3,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 16,
+      "iterations": 80,
+      "dt": 0.02,
+      "maxAbsolute": 1.89963781815905e-7,
+      "relativeL2": 9.453302413800063e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 16,
+      "iterations": 80,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 32,
+      "iterations": 1,
+      "dt": 0,
+      "maxAbsolute": 1.0461856914112388e-7,
+      "relativeL2": 3.0484163535070566e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 32,
+      "iterations": 1,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 32,
+      "iterations": 3,
+      "dt": 0,
+      "maxAbsolute": 1.2573366769963457e-7,
+      "relativeL2": 3.140873479721793e-8,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 32,
+      "iterations": 3,
+      "passed": true
+    },
+    {
+      "name": "full-domain CPU reference for random symmetric field",
+      "size": 32,
+      "iterations": 80,
+      "dt": 0.02,
+      "maxAbsolute": 3.049022297973991e-7,
+      "relativeL2": 1.242767623999795e-7,
+      "passed": true
+    },
+    {
+      "name": "asymmetric reset is rejected",
+      "size": 32,
+      "iterations": 80,
+      "passed": true
+    }
+  ],
+  "protocol": {
+    "series": 8,
+    "baseline": "frozen-008",
+    "metric": "median GPU simulation + volume rendering",
+    "sizes": [
+      128
+    ],
+    "rounds": 1,
+    "batches": 4,
+    "frames": 2,
+    "warmupSteps": 2,
+    "tolerance": {
+      "maxAbsolute": 0.00002,
+      "relativeL2": 0.00002,
+      "pixelMaxAbsolute": 1
+    },
+    "seed": 1927,
+    "settings": {
+      "iterations": 80,
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "pressureKernel": "fft-real8-inline",
+      "resolution": 256,
+      "raySteps": 128,
+      "workgroup": [
+        4,
+        4,
+        4
+      ]
+    },
+    "targetSpeedup": 10,
+    "note": "Baseline is the frozen browser-validated optimized real FFT, not Jacobi. Same cells, timestep, finite-iteration operator and rays. Background completion and JavaScript startup are separate metrics."
+  },
+  "stability": [
+    {
+      "variant": "frozen-008",
+      "size": 64,
+      "steps": 20,
+      "physicalTime": 0.4,
+      "history": [
+        {
+          "step": 20,
+          "maxAbsolute": 0,
+          "relativeL2": 0,
+          "actual": {
+            "energy": 0.1205407934978714,
+            "enstrophy": 0.365946201369885,
+            "divergenceRms": 0.014544073915467427,
+            "nonFinite": 0,
+            "dyeMin": 0.0018727821297943592,
+            "dyeMax": 0.9981274008750916,
+            "dyeMass": 0.4999999998794986,
+            "speedMax": 0.973126607567634
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "variant": "fft-real8-symmetry",
+      "size": 64,
+      "steps": 20,
+      "physicalTime": 0.4,
+      "history": [
+        {
+          "step": 20,
+          "maxAbsolute": 0.0000010542571544647217,
+          "relativeL2": 2.7357242806364023e-7,
+          "actual": {
+            "energy": 0.12054079386063056,
+            "enstrophy": 0.3659462026227562,
+            "divergenceRms": 0.014544074160725881,
+            "nonFinite": 0,
+            "dyeMin": 0.001872811233624816,
+            "dyeMax": 0.9981274008750916,
+            "dyeMass": 0.5000000001676135,
+            "speedMax": 0.9731265479615966
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

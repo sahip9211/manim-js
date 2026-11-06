@@ -1,0 +1,536 @@
+{
+  "experiment": "004-tiled-pressure",
+  "createdAt": "2026-11-06T10:29:36.270Z",
+  "status": "complete",
+  "results": [
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 40,
+      "pressureKernel": "tiled-pair",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 23,
+      "gridCellUpdatesPerStep": 176128,
+      "workgroupStorageBytes": 1728,
+      "gpuBufferBytes": 180304,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 22.473598999997193,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 252.6355755000004,
+        "p95": 252.6355755000004,
+        "p99": 252.6355755000004,
+        "min": 228.4401015000003,
+        "max": 252.6355755000004
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 2.7908654999991995,
+        "p95": 2.7908654999991995,
+        "p99": 2.7908654999991995,
+        "min": 1.3841060000013385,
+        "max": 2.7908654999991995
+      },
+      "samples": {
+        "drained": [
+          228.4401015000003,
+          252.6355755000004
+        ],
+        "submission": [
+          2.7908654999991995,
+          1.3841060000013385
+        ],
+        "gpu": [
+          {
+            "computeMs": 239.009792,
+            "renderMs": 0.720896,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 283.836416,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1793536186153163e-16,
+          "dyeMax": 0.9914228916168213,
+          "dyeMass": 214.4540969010421,
+          "divergenceRms": 0.04715361829559168,
+          "meanKineticEnergy": 45.29636294968126
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 64,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 176128,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 180304,
+      "gpuTextureBytes": 16384,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 28.175885999997263,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 44.999260000000504,
+        "p95": 44.999260000000504,
+        "p99": 44.999260000000504,
+        "min": 35.80606149999949,
+        "max": 44.999260000000504
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 2.150616999999329,
+        "p95": 2.150616999999329,
+        "p99": 2.150616999999329,
+        "min": 1.2817785000006552,
+        "max": 2.150616999999329
+      },
+      "samples": {
+        "drained": [
+          35.80606149999949,
+          44.999260000000504
+        ],
+        "submission": [
+          2.150616999999329,
+          1.2817785000006552
+        ],
+        "gpu": [
+          {
+            "computeMs": 33.685504,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 45.023232,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 1.1793536186153163e-16,
+          "dyeMax": 0.9914228916168213,
+          "dyeMass": 214.4540969010421,
+          "divergenceRms": 0.04715361829559168,
+          "meanKineticEnergy": 45.29636294968126
+        },
+        "maxAbsoluteDifference": 0
+      }
+    }
+  ],
+  "validation": [
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "experiments/fluid/model.js": "d11adc6d4b9df4b2ba7a8bfef747b8ddfdfe6ed13bbe5ec38471cd85d431ca4e",
+    "experiments/fluid/webgpu.js": "dbce00d521766d03b1128e13a0cd27c84356c04f58dd72a2cd987578e5f14a2e",
+    "experiments/fluid/pressure-suite.js": "61b9921925a0fe07c59021884311e2738baf25807f62685fe39a613900e4002b",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/bench-pressure.mjs": "a9c242adc3b3055b5021d9ec46f68b6017fdd3c38a3dab80199ee95f38af108d",
+    "scripts/native-device.mjs": "9375f1ad92ffe70a860cd242b8d8adcef97b92796ec68fb2e62e6c8e473c075b",
+    "scripts/telemetry.mjs": "ab0b6337dcc645e0af4bbf8d8c322fd0a9be9bad8d301c6884be8676a31c6df4",
+    "package-lock.json": "af0c4f23cff060a20590f1364d27ceeb46f3cf2348c9fef598c49270c8fbdd91"
+  },
+  "telemetryDirectory": "results/runs/2026-11-06T10-29-36-242Z-13-pressure-software",
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": true,
+  "adapter": {
+    "vendor": "google",
+    "architecture": "swiftshader",
+    "device": "swiftshader-device-subzero-",
+    "description": "SwiftShader driver 5.0.0",
+    "isFallbackAdapter": true
+  },
+  "features": [
+    "texture-compression-unaligned",
+    "subgroup-size-control",
+    "texture-component-swizzle",
+    "subgroups",
+    "clip-distances",
+    "float32-blendable",
+    "core-features-and-limits",
+    "float32-filterable",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true,
+  "protocol": {
+    "sizes": [
+      64
+    ],
+    "workgroups": [
+      8
+    ],
+    "rounds": 1,
+    "batches": 2,
+    "frames": 2,
+    "iterations": 40,
+    "warmupSteps": 3,
+    "seed": 991,
+    "note": "Equal Jacobi iteration count and matching evolved fields. Tiled kernel halves pressure dispatches, computes redundant halos, and uses workgroup memory. CPU, GPU and drained timings are distinct."
+  },
+  "errorCounts": {
+    "gpu": 0,
+    "completedChecks": 42,
+    "failedCompletedChecks": 0
+  }
+}

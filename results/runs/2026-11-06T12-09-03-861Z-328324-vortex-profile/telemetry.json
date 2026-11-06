@@ -1,0 +1,1655 @@
+{
+  "label": "vortex-profile",
+  "startedAt": "2026-11-06T12:09:03.861Z",
+  "elapsedMs": 7995.631129,
+  "intervalMs": 500,
+  "status": "complete",
+  "platform": "linux",
+  "release": "7.2.8-9-omarchy",
+  "arch": "x64",
+  "node": "v26.1.0",
+  "cpuModel": "Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz",
+  "logicalCPUs": 8,
+  "totalSystemMemoryBytes": 16543481856,
+  "ticksPerSecond": 100,
+  "cpuTimeUs": {
+    "user": 7692006,
+    "system": 1584690
+  },
+  "resourceUsage": {
+    "userCPUTime": 7842503,
+    "systemCPUTime": 1638323,
+    "maxRSS": 695568,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 58126,
+    "majorPageFault": 0,
+    "swappedOut": 0,
+    "fsRead": 0,
+    "fsWrite": 2432,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 1546,
+    "involuntaryContextSwitches": 1082
+  },
+  "eventLoopDelayMs": {
+    "median": 20.021247,
+    "p95": 138.412031,
+    "p99": 467.927039
+  },
+  "peakSampledRSSBytes": 391528448,
+  "peakSampledHeapUsedBytes": 21650544,
+  "peakSampledTreeRSSBytes": 390086656,
+  "gpuCounters": "sysfs and/or nvidia-smi; whole-device scope",
+  "warnings": [],
+  "details": {
+    "status": "complete"
+  },
+  "notes": [
+    "CPU 100% means one logical core. Node memory counters describe this runner, not browser JS heaps.",
+    "Summed process-tree RSS can double count shared pages. Processes that exit between samples can be missed.",
+    "GPU buffer bytes must come from the workload; they exclude driver allocations.",
+    "Sampling runs concurrently and introduces overhead. Compare equally instrumented runs.",
+    "Event-loop delay is scheduling delay, not input-to-photon latency.",
+    "Device-wide NVIDIA counters do not measure Intel activity. DRM clients cover only this process tree, deduplicated by device/client ID. Engine 100% means one engine, not whole-GPU utilization. Missing counters remain null.",
+    "DRM memory categories overlap; shared allocations may appear in several clients. Do not add categories or equate system memory with dedicated VRAM."
+  ],
+  "samples": [
+    {
+      "elapsedMs": 56.59673199999999,
+      "process": {
+        "rss": 64393216,
+        "heapTotal": 9048064,
+        "heapUsed": 6569496,
+        "external": 2393073,
+        "arrayBuffers": 30043,
+        "cpuPercentOneCore": 1.4912521804262484
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 65286144,
+        "cpuPercentOneCore": null
+      },
+      "system": {
+        "freeMemoryBytes": 10828660736,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": null,
+      "samplerWorkMs": 49.73015800000002
+    },
+    {
+      "elapsedMs": 625.3156610000001,
+      "process": {
+        "rss": 161521664,
+        "heapTotal": 14290944,
+        "heapUsed": 9734760,
+        "external": 16023945,
+        "arrayBuffers": 13660875,
+        "cpuPercentOneCore": 118.60727076309428
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 166752256,
+        "cpuPercentOneCore": 119.56697154351265
+      },
+      "system": {
+        "freeMemoryBytes": 10738040832,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 568.7189290000001
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 45479435,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": null
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 76206080,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 67817472,
+            "purgeable-system0": 212992,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 14.141257999999993
+    },
+    {
+      "elapsedMs": 1124.524039,
+      "process": {
+        "rss": 188059648,
+        "heapTotal": 23203840,
+        "heapUsed": 11558824,
+        "external": 20218601,
+        "arrayBuffers": 17855019,
+        "cpuPercentOneCore": 160.49129688284202
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 188657664,
+        "cpuPercentOneCore": 160.25372074184224
+      },
+      "system": {
+        "freeMemoryBytes": 10699427840,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 93724015,
+              "capacity": 1,
+              "busyPercentOneEngine": 9.666449411934241
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 84623360,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 76234752,
+            "purgeable-system0": 241664,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 69.52132000000006
+    },
+    {
+      "elapsedMs": 1624.5259509999998,
+      "process": {
+        "rss": 205344768,
+        "heapTotal": 27660288,
+        "heapUsed": 15947688,
+        "external": 28606878,
+        "arrayBuffers": 26243808,
+        "cpuPercentOneCore": 150.45782464927856
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 206168064,
+        "cpuPercentOneCore": 149.99942640219345
+      },
+      "system": {
+        "freeMemoryBytes": 10692063232,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 500.00191199999995
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 175418923,
+              "capacity": 1,
+              "busyPercentOneEngine": 16.30512693883436
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 67833856,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 67833856,
+            "purgeable-system0": 229376,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 14.125114000000167
+    },
+    {
+      "elapsedMs": 2139.8185009999997,
+      "process": {
+        "rss": 236511232,
+        "heapTotal": 27922432,
+        "heapUsed": 6208624,
+        "external": 66355982,
+        "arrayBuffers": 41972011,
+        "cpuPercentOneCore": 106.98505150132678
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 237187072,
+        "cpuPercentOneCore": 106.73548453203917
+      },
+      "system": {
+        "freeMemoryBytes": 10589495296,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 188052934,
+              "capacity": 1,
+              "busyPercentOneEngine": 2.4706185455464476
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 151764992,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 93044736,
+            "purgeable-system0": 278528,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 198.10790399999996
+    },
+    {
+      "elapsedMs": 2639.5882659999997,
+      "process": {
+        "rss": 236773376,
+        "heapTotal": 27922432,
+        "heapUsed": 17203456,
+        "external": 52725454,
+        "arrayBuffers": 41972018,
+        "cpuPercentOneCore": 116.28754692673336
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 237584384,
+        "cpuPercentOneCore": 116.05343912711486
+      },
+      "system": {
+        "freeMemoryBytes": 10489626624,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 499.769765
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 313678663,
+              "capacity": 1,
+              "busyPercentOneEngine": 25.066796064125814
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 196018176,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 196018176,
+            "purgeable-system0": 487424,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 11.424066000000039
+    },
+    {
+      "elapsedMs": 3652.611705,
+      "process": {
+        "rss": 311074816,
+        "heapTotal": 22155264,
+        "heapUsed": 5381528,
+        "external": 107249641,
+        "arrayBuffers": 104886571,
+        "cpuPercentOneCore": 107.53403702833769
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 311980032,
+        "cpuPercentOneCore": 109.57298294062471
+      },
+      "system": {
+        "freeMemoryBytes": 10506674176,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 613059165,
+              "capacity": 1,
+              "busyPercentOneEngine": 29.259474303144835
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 153960448,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 95240192,
+            "purgeable-system0": 376832,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 330.86835699999983
+    },
+    {
+      "elapsedMs": 4159.63979,
+      "process": {
+        "rss": 311992320,
+        "heapTotal": 22679552,
+        "heapUsed": 5353544,
+        "external": 115635348,
+        "arrayBuffers": 109081387,
+        "cpuPercentOneCore": 132.9928301703444
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 312709120,
+        "cpuPercentOneCore": 128.19802674244357
+      },
+      "system": {
+        "freeMemoryBytes": 10417041408,
+        "loadAverage": [
+          7.02,
+          13.16,
+          12.04
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 507.0280850000004
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 626377317,
+              "capacity": 1,
+              "busyPercentOneEngine": 2.6750238132750694
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 204427264,
+            "shared-system0": 0,
+            "active-system0": 191246336,
+            "resident-system0": 204427264,
+            "purgeable-system0": 507904,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 13.280291000000034
+    },
+    {
+      "elapsedMs": 4659.588034,
+      "process": {
+        "rss": 312123392,
+        "heapTotal": 26611712,
+        "heapUsed": 17878888,
+        "external": 111440239,
+        "arrayBuffers": 109081835,
+        "cpuPercentOneCore": 97.44508673581817
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 312823808,
+        "cpuPercentOneCore": 100.0103522715843
+      },
+      "system": {
+        "freeMemoryBytes": 10367455232,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 973266051,
+              "capacity": 1,
+              "busyPercentOneEngine": 68.61442979443301
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 196022272,
+            "shared-system0": 0,
+            "active-system0": 180760576,
+            "resident-system0": 196022272,
+            "purgeable-system0": 491520,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 80.24024999999983
+    },
+    {
+      "elapsedMs": 5355.88259,
+      "process": {
+        "rss": 347246592,
+        "heapTotal": 26611712,
+        "heapUsed": 5341616,
+        "external": 136605103,
+        "arrayBuffers": 134246699,
+        "cpuPercentOneCore": 102.84943258984782
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 347742208,
+        "cpuPercentOneCore": 109.14920897356552
+      },
+      "system": {
+        "freeMemoryBytes": 10278764544,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 696.2945559999998
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 1038141756,
+              "capacity": 1,
+              "busyPercentOneEngine": 9.072807978871374
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 153993216,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 95272960,
+            "purgeable-system0": 409600,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 37.07899300000008
+    },
+    {
+      "elapsedMs": 5855.549798,
+      "process": {
+        "rss": 349081600,
+        "heapTotal": 33427456,
+        "heapUsed": 21650544,
+        "external": 144995455,
+        "arrayBuffers": 142637051,
+        "cpuPercentOneCore": 121.32134954911834
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 350343168,
+        "cpuPercentOneCore": 110.07326300268241
+      },
+      "system": {
+        "freeMemoryBytes": 10301935616,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 1164734767,
+              "capacity": 1,
+              "busyPercentOneEngine": 26.720207871560696
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 204431360,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 204431360,
+            "purgeable-system0": 512000,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 55.4160439999996
+    },
+    {
+      "elapsedMs": 6758.295918,
+      "process": {
+        "rss": 389591040,
+        "heapTotal": 32903168,
+        "heapUsed": 5356144,
+        "external": 170159535,
+        "arrayBuffers": 167801131,
+        "cpuPercentOneCore": 105.74800365799415
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 390086656,
+        "cpuPercentOneCore": 108.55765295341288
+      },
+      "system": {
+        "freeMemoryBytes": 10215182336,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 902.7461199999998
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 1499415252,
+              "capacity": 1,
+              "busyPercentOneEngine": 36.89263432336754
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 355594240,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 296873984,
+            "purgeable-system0": 679936,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 15.681964999999764
+    },
+    {
+      "elapsedMs": 7257.7122,
+      "process": {
+        "rss": 356171776,
+        "heapTotal": 33689600,
+        "heapUsed": 12272160,
+        "external": 178549887,
+        "arrayBuffers": 142635819,
+        "cpuPercentOneCore": 126.19112005643417
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 356593664,
+        "cpuPercentOneCore": 122.14259366097315
+      },
+      "system": {
+        "freeMemoryBytes": 10306707456,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 0
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        },
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "986",
+          "engines": {
+            "render": {
+              "busyNs": 1611493729,
+              "capacity": 1,
+              "busyPercentOneEngine": 22.62933254710544
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 196038656,
+            "shared-system0": 0,
+            "active-system0": 182857728,
+            "resident-system0": 196038656,
+            "purgeable-system0": 507904,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 69.88554300000033
+    },
+    {
+      "elapsedMs": 7926.110347,
+      "process": {
+        "rss": 391528448,
+        "heapTotal": 39718912,
+        "heapUsed": 21512928,
+        "external": 178572908,
+        "arrayBuffers": 176214504,
+        "cpuPercentOneCore": 101.69133517959919
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 358727680,
+        "cpuPercentOneCore": 109.21634108001201
+      },
+      "system": {
+        "freeMemoryBytes": 10401873920,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 668.3981469999999
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 54.514226999999664
+    },
+    {
+      "elapsedMs": 7981.520769,
+      "process": {
+        "rss": 358207488,
+        "heapTotal": 34476032,
+        "heapUsed": 6112976,
+        "external": 178573324,
+        "arrayBuffers": 134271281,
+        "cpuPercentOneCore": 114.96393223643034
+      },
+      "tree": {
+        "processes": 1,
+        "summedRssBytes": 358793216,
+        "cpuPercentOneCore": 18.047146437542043
+      },
+      "system": {
+        "freeMemoryBytes": 10401873920,
+        "loadAverage": [
+          6.86,
+          13.02,
+          12
+        ]
+      },
+      "gpu": [
+        {
+          "card": "nvidia-0",
+          "busyPercent": 0,
+          "vramUsedBytes": 1048576,
+          "vramTotalBytes": 2147483648,
+          "scope": "whole device, includes unrelated applications",
+          "sampleAgeMs": 723.8085689999998
+        }
+      ],
+      "drmClients": [
+        {
+          "pid": 328324,
+          "driver": "i915",
+          "device": "0000:00:02.0",
+          "clientID": "983",
+          "engines": {
+            "render": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "copy": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            },
+            "video-enhance": {
+              "busyNs": 0,
+              "capacity": 1,
+              "busyPercentOneEngine": 0
+            }
+          },
+          "memoryBytes": {
+            "total-system0": 0,
+            "shared-system0": 0,
+            "active-system0": 0,
+            "resident-system0": 0,
+            "purgeable-system0": 0,
+            "total-stolen-system0": 0,
+            "shared-stolen-system0": 0,
+            "active-stolen-system0": 0,
+            "resident-stolen-system0": 0,
+            "purgeable-stolen-system0": 0
+          }
+        }
+      ],
+      "samplerWorkMs": 13.923023000000285
+    }
+  ]
+}

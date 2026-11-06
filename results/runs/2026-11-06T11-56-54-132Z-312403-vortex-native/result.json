@@ -1,0 +1,427 @@
+{
+  "experiment": "006-vortex3d",
+  "createdAt": "2026-11-06T11:56:54.331Z",
+  "engine": "native",
+  "status": "failed",
+  "validation": [
+    {
+      "size": 8,
+      "iterations": 1,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 7.419536518504799e-8,
+      "relativeL2": 3.603424295256286e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.0229026270458519e-7,
+      "relativeL2": 5.625141175729665e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 2,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 7.123162504285574e-8,
+      "relativeL2": 3.5127049975353826e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 2,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 9.09591714171043e-8,
+      "relativeL2": 4.072389165792601e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 7.930039258585708e-8,
+      "relativeL2": 4.534437419404799e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 9.772419518050413e-8,
+      "relativeL2": 5.49300291981783e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 80,
+      "dt": 0.02,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 3.760042913691919e-7,
+      "relativeL2": 5.672780033394342e-7,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 80,
+      "dt": 0.02,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.1991714610193327e-7,
+      "relativeL2": 6.863729443837918e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 1,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 9.235615527902752e-8,
+      "relativeL2": 3.377323397755371e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 1,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.3131648302078247e-7,
+      "relativeL2": 8.133124448567505e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 2,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 1.3411691823783656e-7,
+      "relativeL2": 3.577502662359242e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 2,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.3411691823783656e-7,
+      "relativeL2": 4.159450744921505e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 3,
+      "dt": 0,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 9.295871228331976e-8,
+      "relativeL2": 4.3791869873590514e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 3,
+      "dt": 0,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.4186177088593155e-7,
+      "relativeL2": 8.401064448426044e-8,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 80,
+      "dt": 0.02,
+      "pressureKernel": "packed4",
+      "maxAbsolute": 3.801444666828857e-7,
+      "relativeL2": 5.28878387166116e-7,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "iterations": 80,
+      "dt": 0.02,
+      "pressureKernel": "fft-jacobi",
+      "maxAbsolute": 1.8658860856390902e-7,
+      "relativeL2": 7.647920098745297e-8,
+      "passed": true
+    },
+    {
+      "name": "analytic initial mean kinetic energy",
+      "actual": 0.12500000063661207,
+      "expected": 0.125,
+      "passed": true
+    }
+  ],
+  "results": [
+    {
+      "round": 0,
+      "size": 32,
+      "cells": 32768,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 2097344,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 655488,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "setupMs": 905.9898299999995,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 4.450801500000125,
+        "p95": 4.450801500000125,
+        "p99": 4.450801500000125,
+        "min": 4.228612999999768,
+        "max": 4.450801500000125
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 2.368285499999729,
+        "p95": 2.368285499999729,
+        "p99": 2.368285499999729,
+        "min": 1.8998445000001993,
+        "max": 2.368285499999729
+      },
+      "samples": {
+        "drained": [
+          4.228612999999768,
+          4.450801500000125
+        ],
+        "submission": [
+          2.368285499999729,
+          1.8998445000001993
+        ],
+        "gpu": [
+          {
+            "computeMs": 0.589824,
+            "renderMs": 1.245184,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 0.65536,
+            "renderMs": 1.245184,
+            "scope": "last step of batch; readback excluded"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": false,
+        "initial": {
+          "energy": 0.12499999851782594,
+          "enstrophy": 0.3702055571478498,
+          "divergenceRms": 0.04892988137317349,
+          "nonFinite": 0,
+          "dyeMin": 0.0071881855838000774,
+          "dyeMax": 0.9928117990493774,
+          "dyeMass": 0.5000000008326424,
+          "speedMax": 0.9856700306000227
+        },
+        "actual": {
+          "energy": 0.12310431821570987,
+          "enstrophy": 0.36403533459872356,
+          "divergenceRms": 0.0014326306110795696,
+          "nonFinite": 0,
+          "dyeMin": 0.007248403038829565,
+          "dyeMax": 0.9927540421485901,
+          "dyeMass": 0.4999903357528126,
+          "speedMax": 0.9827369225651486
+        },
+        "advected": {
+          "energy": 0.12312300377871019,
+          "enstrophy": 0.36404976315581317,
+          "divergenceRms": 0.014706557345674633,
+          "nonFinite": 0,
+          "dyeMin": 0.007248403038829565,
+          "dyeMax": 0.9927540421485901,
+          "dyeMass": 0.4999903357528126,
+          "speedMax": 0.9835943599262348
+        },
+        "litPixels": 45099,
+        "energyRelativeDrift": -0.015165442596751125,
+        "dyeMassRelativeDrift": -0.00001933015962741272,
+        "equivalence": {
+          "maxAbsolute": 0.09696599841117859,
+          "relativeL2": 0.011632206758235562
+        },
+        "pixelMaxAbsolute": 1
+      }
+    },
+    {
+      "round": 0,
+      "size": 32,
+      "cells": 32768,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "packed4",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 82,
+      "gpuBufferBytes": 1441856,
+      "gpuTextureBytes": 262144,
+      "fft": null,
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "setupMs": 181.13896899999963,
+      "steps": 4,
+      "drainedMs": {
+        "n": 2,
+        "median": 7.067262999999912,
+        "p95": 7.067262999999912,
+        "p99": 7.067262999999912,
+        "min": 6.1265199999998,
+        "max": 7.067262999999912
+      },
+      "submissionMs": {
+        "n": 2,
+        "median": 3.8791065000000344,
+        "p95": 3.8791065000000344,
+        "p99": 3.8791065000000344,
+        "min": 3.817962499999794,
+        "max": 3.8791065000000344
+      },
+      "samples": {
+        "drained": [
+          6.1265199999998,
+          7.067262999999912
+        ],
+        "submission": [
+          3.817962499999794,
+          3.8791065000000344
+        ],
+        "gpu": [
+          {
+            "computeMs": 1.900544,
+            "renderMs": 1.245184,
+            "scope": "last step of batch; readback excluded"
+          },
+          {
+            "computeMs": 3.211264,
+            "renderMs": 1.245184,
+            "scope": "last step of batch; readback excluded"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "initial": {
+          "energy": 0.12499999851782594,
+          "enstrophy": 0.3702055571478498,
+          "divergenceRms": 0.04892988137317349,
+          "nonFinite": 0,
+          "dyeMin": 0.0071881855838000774,
+          "dyeMax": 0.9928117990493774,
+          "dyeMass": 0.5000000008326424,
+          "speedMax": 0.9856700306000227
+        },
+        "actual": {
+          "energy": 0.12308527610871235,
+          "enstrophy": 0.36394036954120185,
+          "divergenceRms": 0.0014314179303388718,
+          "nonFinite": 0,
+          "dyeMin": 0.00724915973842144,
+          "dyeMax": 0.9927542805671692,
+          "dyeMass": 0.5000547378999727,
+          "speedMax": 0.982794283077454
+        },
+        "advected": {
+          "energy": 0.12310379768181653,
+          "enstrophy": 0.3639574276725841,
+          "divergenceRms": 0.013348972078165723,
+          "nonFinite": 0,
+          "dyeMin": 0.00724915973842144,
+          "dyeMax": 0.9927542805671692,
+          "dyeMass": 0.5000547378999727,
+          "speedMax": 0.9836644593082288
+        },
+        "litPixels": 45105,
+        "energyRelativeDrift": -0.015317779454537595,
+        "dyeMassRelativeDrift": 0.00010947413447825316,
+        "equivalence": {
+          "maxAbsolute": 0,
+          "relativeL2": 0
+        },
+        "pixelMaxAbsolute": 0
+      }
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "experiments/vortex/model.js": "c06d8e107c132004e2d2f1bd2650f4bb34951e42bd488f9e563a9332d46d6d62",
+    "experiments/vortex/shaders.js": "fbeca1aab1b8e7a2a288846e1b5a464169c8a0fca5215aede9dc446fa1f8b2cf",
+    "experiments/vortex/webgpu.js": "5ad7006e3abf24b3b79a48f84f99edb7af801378221fb5707d37437af6c542ae",
+    "experiments/vortex/suite.js": "efd705b1ae68c40cd57c9e1db24613661748a6832f1e8c635431d25e6876afa0",
+    "experiments/fluid/fft-pressure.js": "ea75ac0d93d3e176fa838b178edf75828c28a14e29a2f878e1d76f020378daaf",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/bench-vortex.mjs": "d7b2fdfa64d80fee04764d32a1738039eb269a0bd5186fde9aabb54513e3c798",
+    "scripts/native-device.mjs": "91acbc1e205b332659cde058648a338fddb5421927af8778fea507e0f94ae2b4",
+    "scripts/browser.mjs": "dc826b7e154ec2718490ce1ef1d15c4fb2b115b591dc9cf8da0b8f9a10b4e9af",
+    "scripts/firefox-bidi.mjs": "4982e6a49d55b05e5ec2604e2740061c46b62fb4db1a51ee0033da3739801a9f",
+    "scripts/test-workspace.mjs": "633a596fcc160949c2f8850dae2712c3ea7ab524c9349ea407bf9cf5a36be1d0",
+    "scripts/telemetry.mjs": "00655752f9cee7fa938c2ee5039dc0114789834ddde9d0b871917b841b5f2b3f",
+    "scripts/drm-stats.mjs": "8f50beaa06888026b8de0dc01ec61135cc00055e388849d68c68ad2f9529c9dc",
+    "scripts/source-snapshot.mjs": "955e4ae835184e718a35afa8ff460ceb5c3cbb9fea63c2697c5bbfc83b5d398b",
+    "package-lock.json": "af0c4f23cff060a20590f1364d27ceeb46f3cf2348c9fef598c49270c8fbdd91"
+  },
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": false,
+  "requestedAdapter": null,
+  "adapter": {
+    "vendor": "intel",
+    "architecture": "gen-9",
+    "device": "intel-r-uhd-graphics-cml-gt2-",
+    "description": "Intel open-source Mesa driver: Mesa 26.2.5-arch1.1",
+    "isFallbackAdapter": false
+  },
+  "features": [
+    "atomic-vec2u-min-max",
+    "texture-compression-unaligned",
+    "texture-component-swizzle",
+    "primitive-index",
+    "texture-formats-tier2",
+    "texture-formats-tier1",
+    "dual-source-blending",
+    "clip-distances",
+    "float32-blendable",
+    "float32-filterable",
+    "core-features-and-limits",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "shader-f16",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true,
+  "error": "Error: 3D evolved-field, rendering or physical sanity gate failed\n    at runVortexSuite (file:///workspace/manim-js/experiments/vortex/suite.js:57:50)\n    at async file:///workspace/manim-js/scripts/bench-vortex.mjs:19:19"
+}

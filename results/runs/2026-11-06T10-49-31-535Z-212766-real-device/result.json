@@ -1,0 +1,99 @@
+{
+  "createdAt": "2026-11-06T10:49:31.535Z",
+  "status": "passed",
+  "platform": "linux",
+  "release": "7.2.8-9-omarchy",
+  "cpu": "Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz",
+  "headed": true,
+  "quick": true,
+  "browserFlags": [
+    "--headed",
+    "--system-firefox",
+    "--experimental-webgpu"
+  ],
+  "steps": [
+    {
+      "name": "unit-tests",
+      "args": [
+        "--test",
+        "--test-isolation=none",
+        "tests/drm-stats.test.mjs",
+        "tests/fluid.test.mjs",
+        "tests/frame-loop.test.mjs",
+        "tests/grid.test.mjs",
+        "tests/representation.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 1374.653141
+    },
+    {
+      "name": "build",
+      "args": [
+        "scripts/build.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 263.2239900000002
+    },
+    {
+      "name": "browser-compatibility",
+      "args": [
+        "scripts/check-browsers.mjs",
+        "--headed",
+        "--system-firefox",
+        "--experimental-webgpu"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 14590.346903
+    },
+    {
+      "name": "browser-fluid",
+      "args": [
+        "scripts/bench-fluid-browser.mjs",
+        "--headed",
+        "--system-firefox",
+        "--experimental-webgpu",
+        "--quick"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 14063.836606
+    },
+    {
+      "name": "browser-pressure",
+      "args": [
+        "scripts/bench-fluid-browser.mjs",
+        "--pressure",
+        "--headed",
+        "--system-firefox",
+        "--experimental-webgpu",
+        "--quick"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 35256.32183
+    },
+    {
+      "name": "native-pressure",
+      "args": [
+        "scripts/bench-pressure.mjs",
+        "--quick"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 4360.913465999998
+    },
+    {
+      "name": "summary",
+      "args": [
+        "scripts/report-runs.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 229.4364590000041
+    }
+  ],
+  "note": "Runs on the machine that invokes this command. Hardware status comes from adapter/browser results; this launcher does not assume a real GPU is present."
+}

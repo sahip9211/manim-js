@@ -1,0 +1,701 @@
+{
+  "engine": "firefox",
+  "experiment": "007-js-initialization",
+  "status": "complete",
+  "errors": [],
+  "sourceHashes": {
+    "scripts/bench-js.mjs": "9171f3622c3ccd98151e016618e57fe114e35a9fb109ebcff91e24e2f87b0bd1",
+    "experiments/vortex/js-suite.js": "85725bcf2a8126ef5fb70816aa63c27809738f8812540dfc4fbc3e3d18ae2119",
+    "experiments/vortex/js-baseline.js": "184dd336d173c16835a0e53c13d70eaafed0492976da5dd37615350a1b2d9475",
+    "experiments/vortex/js-plane.js": "56d19d4a2465ab2b244b84e83cf7ea732a898b2aee968d5e0ac0a08a80ad8d19",
+    "experiments/vortex/model.js": "5cad8f98d7d2154d1278c6ee51207a520dee00d1b1c13c40cf32474497dc7b30",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/telemetry.mjs": "00655752f9cee7fa938c2ee5039dc0114789834ddde9d0b871917b841b5f2b3f",
+    "scripts/drm-stats.mjs": "8f50beaa06888026b8de0dc01ec61135cc00055e388849d68c68ad2f9529c9dc",
+    "scripts/browser.mjs": "dc826b7e154ec2718490ce1ef1d15c4fb2b115b591dc9cf8da0b8f9a10b4e9af",
+    "scripts/firefox-bidi.mjs": "4982e6a49d55b05e5ec2604e2740061c46b62fb4db1a51ee0033da3739801a9f",
+    "scripts/test-workspace.mjs": "633a596fcc160949c2f8850dae2712c3ea7ab524c9349ea407bf9cf5a36be1d0"
+  },
+  "checks": [
+    {
+      "size": 8,
+      "method": "table",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "method": "plane",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "method": "table",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 16,
+      "method": "plane",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "method": "table",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "method": "plane",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "method": "table",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 64,
+      "method": "plane",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 128,
+      "method": "table",
+      "unequal": 0,
+      "passed": true
+    },
+    {
+      "size": 128,
+      "method": "plane",
+      "unequal": 0,
+      "passed": true
+    }
+  ],
+  "results": [
+    {
+      "round": 0,
+      "size": 64,
+      "method": "table",
+      "allocationBytes": 4195328,
+      "timing": {
+        "n": 3,
+        "median": 10.460000000000036,
+        "p95": 10.5,
+        "p99": 10.5,
+        "min": 8.16000000000031,
+        "max": 10.5
+      },
+      "samples": [
+        8.16000000000031,
+        10.460000000000036,
+        10.5
+      ]
+    },
+    {
+      "round": 0,
+      "size": 64,
+      "method": "plane",
+      "allocationBytes": 4293632,
+      "timing": {
+        "n": 3,
+        "median": 6.820000000000164,
+        "p95": 8.61999999999989,
+        "p99": 8.61999999999989,
+        "min": 6.199999999999818,
+        "max": 8.61999999999989
+      },
+      "samples": [
+        6.820000000000164,
+        8.61999999999989,
+        6.199999999999818
+      ]
+    },
+    {
+      "round": 0,
+      "size": 64,
+      "method": "scalar",
+      "allocationBytes": 4194304,
+      "timing": {
+        "n": 3,
+        "median": 46.86000000000013,
+        "p95": 52.07999999999993,
+        "p99": 52.07999999999993,
+        "min": 41.88000000000011,
+        "max": 52.07999999999993
+      },
+      "samples": [
+        52.07999999999993,
+        46.86000000000013,
+        41.88000000000011
+      ]
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "method": "table",
+      "allocationBytes": 33556480,
+      "timing": {
+        "n": 3,
+        "median": 75.53999999999996,
+        "p95": 86.83999999999969,
+        "p99": 86.83999999999969,
+        "min": 51.379999999999654,
+        "max": 86.83999999999969
+      },
+      "samples": [
+        51.379999999999654,
+        86.83999999999969,
+        75.53999999999996
+      ]
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "method": "scalar",
+      "allocationBytes": 33554432,
+      "timing": {
+        "n": 3,
+        "median": 312.1600000000003,
+        "p95": 319.52,
+        "p99": 319.52,
+        "min": 310.98,
+        "max": 319.52
+      },
+      "samples": [
+        312.1600000000003,
+        319.52,
+        310.98
+      ]
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "method": "plane",
+      "allocationBytes": 33949696,
+      "timing": {
+        "n": 3,
+        "median": 59.279999999999745,
+        "p95": 65.68000000000029,
+        "p99": 65.68000000000029,
+        "min": 50.25999999999976,
+        "max": 65.68000000000029
+      },
+      "samples": [
+        50.25999999999976,
+        65.68000000000029,
+        59.279999999999745
+      ]
+    },
+    {
+      "round": 1,
+      "size": 64,
+      "method": "scalar",
+      "allocationBytes": 4194304,
+      "timing": {
+        "n": 3,
+        "median": 41.960000000000036,
+        "p95": 43.24000000000024,
+        "p99": 43.24000000000024,
+        "min": 37.52000000000044,
+        "max": 43.24000000000024
+      },
+      "samples": [
+        41.960000000000036,
+        43.24000000000024,
+        37.52000000000044
+      ]
+    },
+    {
+      "round": 1,
+      "size": 64,
+      "method": "table",
+      "allocationBytes": 4195328,
+      "timing": {
+        "n": 3,
+        "median": 9.859999999999673,
+        "p95": 10.039999999999964,
+        "p99": 10.039999999999964,
+        "min": 7.359999999999673,
+        "max": 10.039999999999964
+      },
+      "samples": [
+        9.859999999999673,
+        7.359999999999673,
+        10.039999999999964
+      ]
+    },
+    {
+      "round": 1,
+      "size": 64,
+      "method": "plane",
+      "allocationBytes": 4293632,
+      "timing": {
+        "n": 3,
+        "median": 5.8400000000001455,
+        "p95": 8.020000000000437,
+        "p99": 8.020000000000437,
+        "min": 5.800000000000182,
+        "max": 8.020000000000437
+      },
+      "samples": [
+        5.8400000000001455,
+        8.020000000000437,
+        5.800000000000182
+      ]
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "method": "scalar",
+      "allocationBytes": 33554432,
+      "timing": {
+        "n": 3,
+        "median": 295.39999999999964,
+        "p95": 389.96000000000004,
+        "p99": 389.96000000000004,
+        "min": 277.53999999999996,
+        "max": 389.96000000000004
+      },
+      "samples": [
+        389.96000000000004,
+        277.53999999999996,
+        295.39999999999964
+      ]
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "method": "plane",
+      "allocationBytes": 33949696,
+      "timing": {
+        "n": 3,
+        "median": 52.86000000000058,
+        "p95": 54.539999999999964,
+        "p99": 54.539999999999964,
+        "min": 51.92000000000007,
+        "max": 54.539999999999964
+      },
+      "samples": [
+        54.539999999999964,
+        51.92000000000007,
+        52.86000000000058
+      ]
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "method": "table",
+      "allocationBytes": 33556480,
+      "timing": {
+        "n": 3,
+        "median": 59.44000000000051,
+        "p95": 66.53999999999996,
+        "p99": 66.53999999999996,
+        "min": 59.039999999999964,
+        "max": 66.53999999999996
+      },
+      "samples": [
+        59.44000000000051,
+        59.039999999999964,
+        66.53999999999996
+      ]
+    },
+    {
+      "round": 2,
+      "size": 64,
+      "method": "plane",
+      "allocationBytes": 4293632,
+      "timing": {
+        "n": 3,
+        "median": 9.0600000000004,
+        "p95": 11.0600000000004,
+        "p99": 11.0600000000004,
+        "min": 6.960000000000036,
+        "max": 11.0600000000004
+      },
+      "samples": [
+        6.960000000000036,
+        11.0600000000004,
+        9.0600000000004
+      ]
+    },
+    {
+      "round": 2,
+      "size": 64,
+      "method": "scalar",
+      "allocationBytes": 4194304,
+      "timing": {
+        "n": 3,
+        "median": 42.600000000000364,
+        "p95": 43.01999999999953,
+        "p99": 43.01999999999953,
+        "min": 27.299999999999272,
+        "max": 43.01999999999953
+      },
+      "samples": [
+        43.01999999999953,
+        27.299999999999272,
+        42.600000000000364
+      ]
+    },
+    {
+      "round": 2,
+      "size": 64,
+      "method": "table",
+      "allocationBytes": 4195328,
+      "timing": {
+        "n": 3,
+        "median": 9.399999999999636,
+        "p95": 10.519999999999527,
+        "p99": 10.519999999999527,
+        "min": 9.019999999999527,
+        "max": 10.519999999999527
+      },
+      "samples": [
+        9.019999999999527,
+        9.399999999999636,
+        10.519999999999527
+      ]
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "method": "table",
+      "allocationBytes": 33556480,
+      "timing": {
+        "n": 3,
+        "median": 48.24000000000069,
+        "p95": 64.81999999999971,
+        "p99": 64.81999999999971,
+        "min": 38.900000000000546,
+        "max": 64.81999999999971
+      },
+      "samples": [
+        64.81999999999971,
+        48.24000000000069,
+        38.900000000000546
+      ]
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "method": "plane",
+      "allocationBytes": 33949696,
+      "timing": {
+        "n": 3,
+        "median": 48.68000000000029,
+        "p95": 59.69999999999982,
+        "p99": 59.69999999999982,
+        "min": 43.68000000000029,
+        "max": 59.69999999999982
+      },
+      "samples": [
+        43.68000000000029,
+        59.69999999999982,
+        48.68000000000029
+      ]
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "method": "scalar",
+      "allocationBytes": 33554432,
+      "timing": {
+        "n": 3,
+        "median": 291.3599999999997,
+        "p95": 390.5,
+        "p99": 390.5,
+        "min": 252.5600000000004,
+        "max": 390.5
+      },
+      "samples": [
+        252.5600000000004,
+        291.3599999999997,
+        390.5
+      ]
+    },
+    {
+      "round": 3,
+      "size": 64,
+      "method": "plane",
+      "allocationBytes": 4293632,
+      "timing": {
+        "n": 3,
+        "median": 8.899999999999636,
+        "p95": 17.76000000000022,
+        "p99": 17.76000000000022,
+        "min": 5.900000000000546,
+        "max": 17.76000000000022
+      },
+      "samples": [
+        5.900000000000546,
+        17.76000000000022,
+        8.899999999999636
+      ]
+    },
+    {
+      "round": 3,
+      "size": 64,
+      "method": "table",
+      "allocationBytes": 4195328,
+      "timing": {
+        "n": 3,
+        "median": 10.11999999999989,
+        "p95": 21.81999999999971,
+        "p99": 21.81999999999971,
+        "min": 7.140000000000327,
+        "max": 21.81999999999971
+      },
+      "samples": [
+        10.11999999999989,
+        7.140000000000327,
+        21.81999999999971
+      ]
+    },
+    {
+      "round": 3,
+      "size": 64,
+      "method": "scalar",
+      "allocationBytes": 4194304,
+      "timing": {
+        "n": 3,
+        "median": 48.039999999999964,
+        "p95": 59.57999999999993,
+        "p99": 59.57999999999993,
+        "min": 38.11999999999989,
+        "max": 59.57999999999993
+      },
+      "samples": [
+        59.57999999999993,
+        48.039999999999964,
+        38.11999999999989
+      ]
+    },
+    {
+      "round": 3,
+      "size": 128,
+      "method": "scalar",
+      "allocationBytes": 33554432,
+      "timing": {
+        "n": 3,
+        "median": 295.7600000000002,
+        "p95": 305.6999999999998,
+        "p99": 305.6999999999998,
+        "min": 232.52000000000044,
+        "max": 305.6999999999998
+      },
+      "samples": [
+        232.52000000000044,
+        305.6999999999998,
+        295.7600000000002
+      ]
+    },
+    {
+      "round": 3,
+      "size": 128,
+      "method": "table",
+      "allocationBytes": 33556480,
+      "timing": {
+        "n": 3,
+        "median": 67.0600000000004,
+        "p95": 75.70000000000073,
+        "p99": 75.70000000000073,
+        "min": 63.69999999999982,
+        "max": 75.70000000000073
+      },
+      "samples": [
+        63.69999999999982,
+        67.0600000000004,
+        75.70000000000073
+      ]
+    },
+    {
+      "round": 3,
+      "size": 128,
+      "method": "plane",
+      "allocationBytes": 33949696,
+      "timing": {
+        "n": 3,
+        "median": 51.81999999999971,
+        "p95": 51.840000000000146,
+        "p99": 51.840000000000146,
+        "min": 49.97999999999956,
+        "max": 51.840000000000146
+      },
+      "samples": [
+        49.97999999999956,
+        51.840000000000146,
+        51.81999999999971
+      ]
+    },
+    {
+      "round": 4,
+      "size": 64,
+      "method": "table",
+      "allocationBytes": 4195328,
+      "timing": {
+        "n": 3,
+        "median": 10.340000000000146,
+        "p95": 16.55999999999949,
+        "p99": 16.55999999999949,
+        "min": 6.940000000000509,
+        "max": 16.55999999999949
+      },
+      "samples": [
+        16.55999999999949,
+        10.340000000000146,
+        6.940000000000509
+      ]
+    },
+    {
+      "round": 4,
+      "size": 64,
+      "method": "scalar",
+      "allocationBytes": 4194304,
+      "timing": {
+        "n": 3,
+        "median": 51.159999999999854,
+        "p95": 51.600000000000364,
+        "p99": 51.600000000000364,
+        "min": 46.79999999999927,
+        "max": 51.600000000000364
+      },
+      "samples": [
+        46.79999999999927,
+        51.600000000000364,
+        51.159999999999854
+      ]
+    },
+    {
+      "round": 4,
+      "size": 64,
+      "method": "plane",
+      "allocationBytes": 4293632,
+      "timing": {
+        "n": 3,
+        "median": 6.959999999999127,
+        "p95": 13.200000000000728,
+        "p99": 13.200000000000728,
+        "min": 6.760000000000218,
+        "max": 13.200000000000728
+      },
+      "samples": [
+        6.760000000000218,
+        13.200000000000728,
+        6.959999999999127
+      ]
+    },
+    {
+      "round": 4,
+      "size": 128,
+      "method": "plane",
+      "allocationBytes": 33949696,
+      "timing": {
+        "n": 3,
+        "median": 60.06000000000131,
+        "p95": 62.23999999999978,
+        "p99": 62.23999999999978,
+        "min": 55.779999999998836,
+        "max": 62.23999999999978
+      },
+      "samples": [
+        62.23999999999978,
+        60.06000000000131,
+        55.779999999998836
+      ]
+    },
+    {
+      "round": 4,
+      "size": 128,
+      "method": "scalar",
+      "allocationBytes": 33554432,
+      "timing": {
+        "n": 3,
+        "median": 335.7600000000002,
+        "p95": 348.5599999999995,
+        "p99": 348.5599999999995,
+        "min": 318.7600000000002,
+        "max": 348.5599999999995
+      },
+      "samples": [
+        348.5599999999995,
+        335.7600000000002,
+        318.7600000000002
+      ]
+    },
+    {
+      "round": 4,
+      "size": 128,
+      "method": "table",
+      "allocationBytes": 33556480,
+      "timing": {
+        "n": 3,
+        "median": 51.19999999999891,
+        "p95": 54.100000000000364,
+        "p99": 54.100000000000364,
+        "min": 39.94000000000051,
+        "max": 54.100000000000364
+      },
+      "samples": [
+        54.100000000000364,
+        39.94000000000051,
+        51.19999999999891
+      ]
+    }
+  ],
+  "checksum": 66.27768320403993,
+  "protocol": {
+    "rounds": 5,
+    "trials": 3,
+    "sizes": [
+      64,
+      128
+    ],
+    "warmupCallsPerMethod": 12,
+    "note": "Initialization only, including output allocation and GC pauses. No forced GC or discarded slow samples. Each output is bitwise checked against the frozen scalar version. Not animation throughput."
+  },
+  "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:158.0) Gecko/20100101 Firefox/158.0",
+  "pageVisibility": "hidden",
+  "browserHeap": null,
+  "browserVersion": "158.0.1",
+  "windowPlacement": {
+    "workspace": 5,
+    "silent": true,
+    "windowClass": "lean-js-benchmark",
+    "rule": "hl.window_rule({ name = \"lean-js-benchmark\", match = { class = \"^lean-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+    "observedWorkspaces": [
+      5
+    ],
+    "activeWorkspace": 2
+  },
+  "runnerGC": [
+    {
+      "startTime": 34520.162777,
+      "duration": 8.51316799968481,
+      "kind": 1
+    },
+    {
+      "startTime": 41585.978482,
+      "duration": 4.747827000916004,
+      "kind": 1
+    },
+    {
+      "startTime": 47674.619643,
+      "duration": 8.059382999315858,
+      "kind": 1
+    },
+    {
+      "startTime": 54114.459337,
+      "duration": 3.7298529986292124,
+      "kind": 1
+    }
+  ],
+  "gcScope": "Node runner only; browser GC not exposed by a portable page API"
+}

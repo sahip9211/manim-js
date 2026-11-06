@@ -1,0 +1,2619 @@
+{
+  "experiment": "004-tiled-pressure",
+  "createdAt": "2026-11-06T10:31:25.691Z",
+  "status": "complete",
+  "results": [
+    {
+      "round": 0,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 85.79214899999715,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 34.24950499999977,
+        "p95": 39.837839666666696,
+        "p99": 39.837839666666696,
+        "min": 29.38790599999993,
+        "max": 39.837839666666696
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.655606666667154,
+        "p95": 1.811567333332884,
+        "p99": 1.811567333332884,
+        "min": 1.1125543333340222,
+        "max": 1.811567333332884
+      },
+      "samples": {
+        "drained": [
+          29.38790599999993,
+          34.24950499999977,
+          30.089369999999082,
+          39.837839666666696
+        ],
+        "submission": [
+          1.1125543333340222,
+          1.4598186666662514,
+          1.811567333332884,
+          1.655606666667154
+        ],
+        "gpu": [
+          {
+            "computeMs": 27.52512,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 33.947648,
+            "renderMs": 0.720896,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 30.14656,
+            "renderMs": 0.458752,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 39.780352,
+            "renderMs": 0.589824,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 13.340402000001632,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 66.04177066666671,
+        "p95": 77.0824596666668,
+        "p99": 77.0824596666668,
+        "min": 58.739199666666536,
+        "max": 77.0824596666668
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.2232766666663035,
+        "p95": 1.2582266666662083,
+        "p99": 1.2582266666662083,
+        "min": 0.966381333333023,
+        "max": 1.2582266666662083
+      },
+      "samples": {
+        "drained": [
+          66.04177066666671,
+          60.61351966666674,
+          58.739199666666536,
+          77.0824596666668
+        ],
+        "submission": [
+          1.2232766666663035,
+          1.0058546666671948,
+          0.966381333333023,
+          1.2582266666662083
+        ],
+        "gpu": [
+          {
+            "computeMs": 56.229888,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 59.441152,
+            "renderMs": 0.524288,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 61.93152,
+            "renderMs": 0.458752,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 79.429632,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 333.81150100000013,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 50.07445500000055,
+        "p95": 65.3773399999991,
+        "p99": 65.3773399999991,
+        "min": 39.91548366666757,
+        "max": 65.3773399999991
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.858894333333107,
+        "p95": 1.8707526666670067,
+        "p99": 1.8707526666670067,
+        "min": 1.4557256666666945,
+        "max": 1.8707526666670067
+      },
+      "samples": {
+        "drained": [
+          40.842653000000915,
+          65.3773399999991,
+          50.07445500000055,
+          39.91548366666757
+        ],
+        "submission": [
+          1.8707526666670067,
+          1.7991899999991194,
+          1.858894333333107,
+          1.4557256666666945
+        ],
+        "gpu": [
+          {
+            "computeMs": 42.5984,
+            "renderMs": 1.179648,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 78.577664,
+            "renderMs": 0.589824,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 38.600704,
+            "renderMs": 0.65536,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 41.025536,
+            "renderMs": 0.65536,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 36.28281799999968,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 64.4842113333325,
+        "p95": 88.68294433333237,
+        "p99": 88.68294433333237,
+        "min": 53.10299366666732,
+        "max": 88.68294433333237
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.6231056666656514,
+        "p95": 1.66877933333429,
+        "p99": 1.66877933333429,
+        "min": 0.9982476666664297,
+        "max": 1.66877933333429
+      },
+      "samples": {
+        "drained": [
+          88.68294433333237,
+          64.4842113333325,
+          54.406058000000485,
+          53.10299366666732
+        ],
+        "submission": [
+          1.6231056666656514,
+          0.9982476666664297,
+          1.0356813333334383,
+          1.66877933333429
+        ],
+        "gpu": [
+          {
+            "computeMs": 71.172096,
+            "renderMs": 0.786432,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 50.987008,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 48.49664,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 47.448064,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 183.3430640000006,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 154.97758266666642,
+        "p95": 188.14517566666595,
+        "p99": 188.14517566666595,
+        "min": 106.44531766666721,
+        "max": 188.14517566666595
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.9946216666661106,
+        "p95": 1.588037999999263,
+        "p99": 1.588037999999263,
+        "min": 0.8665650000002643,
+        "max": 1.588037999999263
+      },
+      "samples": {
+        "drained": [
+          106.44531766666721,
+          133.26812300000043,
+          154.97758266666642,
+          188.14517566666595
+        ],
+        "submission": [
+          0.9657549999998688,
+          0.8665650000002643,
+          0.9946216666661106,
+          1.588037999999263
+        ],
+        "gpu": [
+          {
+            "computeMs": 110.166016,
+            "renderMs": 2.031616,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 138.412032,
+            "renderMs": 1.507328,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 150.929408,
+            "renderMs": 3.735552,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 178.388992,
+            "renderMs": 1.507328,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 18.5043250000017,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 190.0824710000003,
+        "p95": 251.3506640000002,
+        "p99": 251.3506640000002,
+        "min": 175.99083166666728,
+        "max": 251.3506640000002
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.8766576666675974,
+        "p95": 1.0851980000006733,
+        "p99": 1.0851980000006733,
+        "min": 0.628007666667448,
+        "max": 1.0851980000006733
+      },
+      "samples": {
+        "drained": [
+          251.3506640000002,
+          190.0824710000003,
+          175.99083166666728,
+          179.32003233333307
+        ],
+        "submission": [
+          0.628007666667448,
+          1.0851980000006733,
+          0.8766576666675974,
+          0.8408056666667107
+        ],
+        "gpu": [
+          {
+            "computeMs": 303.824896,
+            "renderMs": 1.31072,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 182.255616,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 174.587904,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 181.338112,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 219.0184270000027,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 102.5731620000006,
+        "p95": 102.6594966666659,
+        "p99": 102.6594966666659,
+        "min": 93.21900233333265,
+        "max": 102.6594966666659
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.8517666666666628,
+        "p95": 0.857154999999087,
+        "p99": 0.857154999999087,
+        "min": 0.7865469999997003,
+        "max": 0.857154999999087
+      },
+      "samples": {
+        "drained": [
+          93.21900233333265,
+          93.77564666666633,
+          102.6594966666659,
+          102.5731620000006
+        ],
+        "submission": [
+          0.8517666666666628,
+          0.7865469999997003,
+          0.857154999999087,
+          0.8326603333334788
+        ],
+        "gpu": [
+          {
+            "computeMs": 91.029504,
+            "renderMs": 1.507328,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 95.35488,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 103.481344,
+            "renderMs": 1.507328,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 98.566144,
+            "renderMs": 1.507328,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 0,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 18.022621999996773,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 183.96969399999944,
+        "p95": 186.09945099999945,
+        "p99": 186.09945099999945,
+        "min": 173.41327533333242,
+        "max": 186.09945099999945
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.8942219999977775,
+        "p95": 0.9424539999987852,
+        "p99": 0.9424539999987852,
+        "min": 0.8122113333326221,
+        "max": 0.9424539999987852
+      },
+      "samples": {
+        "drained": [
+          183.96969399999944,
+          173.41327533333242,
+          186.09945099999945,
+          175.80507099999764
+        ],
+        "submission": [
+          0.8728196666658429,
+          0.8122113333326221,
+          0.9424539999987852,
+          0.8942219999977775
+        ],
+        "gpu": [
+          {
+            "computeMs": 174.65344,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 168.42752,
+            "renderMs": 1.769472,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 181.075968,
+            "renderMs": 1.048576,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 169.476096,
+            "renderMs": 0.98304,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 222.26559599999746,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 49.028046333332895,
+        "p95": 69.6789646666657,
+        "p99": 69.6789646666657,
+        "min": 48.38401333333362,
+        "max": 69.6789646666657
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.2681406666670227,
+        "p95": 1.2901760000022477,
+        "p99": 1.2901760000022477,
+        "min": 0.9361326666670114,
+        "max": 1.2901760000022477
+      },
+      "samples": {
+        "drained": [
+          49.028046333332895,
+          69.6789646666657,
+          48.90880600000188,
+          48.38401333333362
+        ],
+        "submission": [
+          0.9647909999985131,
+          0.9361326666670114,
+          1.2681406666670227,
+          1.2901760000022477
+        ],
+        "gpu": [
+          {
+            "computeMs": 48.16896,
+            "renderMs": 0.851968,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 50.724864,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 44.498944,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 45.54752,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 33.20542199999909,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 30.815596333333815,
+        "p95": 36.90262966666827,
+        "p99": 36.90262966666827,
+        "min": 30.568303666666907,
+        "max": 36.90262966666827
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0631240000002435,
+        "p95": 1.0806160000017069,
+        "p99": 1.0806160000017069,
+        "min": 0.9180766666662142,
+        "max": 1.0806160000017069
+      },
+      "samples": {
+        "drained": [
+          30.815596333333815,
+          36.90262966666827,
+          30.704271666666802,
+          30.568303666666907
+        ],
+        "submission": [
+          1.0806160000017069,
+          0.9180766666662142,
+          1.0631240000002435,
+          0.9216656666685594
+        ],
+        "gpu": [
+          {
+            "computeMs": 30.670848,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 29.884416,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 27.656192,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 30.081024,
+            "renderMs": 0.524288,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 149.66133799999807,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 50.68421066666633,
+        "p95": 72.08293933333334,
+        "p99": 72.08293933333334,
+        "min": 46.49631833333357,
+        "max": 72.08293933333334
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0534766666654225,
+        "p95": 1.1688069999994088,
+        "p99": 1.1688069999994088,
+        "min": 0.8548116666667435,
+        "max": 1.1688069999994088
+      },
+      "samples": {
+        "drained": [
+          50.68421066666633,
+          46.49631833333357,
+          48.640313666665556,
+          72.08293933333334
+        ],
+        "submission": [
+          1.1688069999994088,
+          0.8919053333326398,
+          1.0534766666654225,
+          0.8548116666667435
+        ],
+        "gpu": [
+          {
+            "computeMs": 47.5136,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 42.139648,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 47.251456,
+            "renderMs": 0.917504,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 66.387968,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 35.774037999995926,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 26.907294999999674,
+        "p95": 27.267258333333302,
+        "p99": 27.267258333333302,
+        "min": 26.237159999999374,
+        "max": 27.267258333333302
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.2980146666644334,
+        "p95": 1.3678750000011253,
+        "p99": 1.3678750000011253,
+        "min": 0.8952076666658589,
+        "max": 1.3678750000011253
+      },
+      "samples": {
+        "drained": [
+          27.267258333333302,
+          26.907294999999674,
+          26.542108000001463,
+          26.237159999999374
+        ],
+        "submission": [
+          0.9958360000018729,
+          1.2980146666644334,
+          1.3678750000011253,
+          0.8952076666658589
+        ],
+        "gpu": [
+          {
+            "computeMs": 26.2144,
+            "renderMs": 0.458752,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 26.607616,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 25.100288,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 24.379392,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 217.26010400000087,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 191.77389333333363,
+        "p95": 195.1984879999994,
+        "p99": 195.1984879999994,
+        "min": 182.4388060000007,
+        "max": 195.1984879999994
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0043939999983802,
+        "p95": 1.1544286666661112,
+        "p99": 1.1544286666661112,
+        "min": 0.8506586666674897,
+        "max": 1.1544286666661112
+      },
+      "samples": {
+        "drained": [
+          187.59675400000074,
+          191.77389333333363,
+          182.4388060000007,
+          195.1984879999994
+        ],
+        "submission": [
+          0.8506586666674897,
+          1.1544286666661112,
+          0.987395666668211,
+          1.0043939999983802
+        ],
+        "gpu": [
+          {
+            "computeMs": 179.830784,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 181.403648,
+            "renderMs": 1.048576,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 181.993472,
+            "renderMs": 1.441792,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 183.631872,
+            "renderMs": 1.31072,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 35.27742200000648,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 133.45146700000137,
+        "p95": 137.87532899999982,
+        "p99": 137.87532899999982,
+        "min": 108.98405033333256,
+        "max": 137.87532899999982
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0167056666662877,
+        "p95": 3.1604313333324776,
+        "p99": 3.1604313333324776,
+        "min": 0.9012073333336351,
+        "max": 3.1604313333324776
+      },
+      "samples": {
+        "drained": [
+          133.45146700000137,
+          132.97349166666632,
+          108.98405033333256,
+          137.87532899999982
+        ],
+        "submission": [
+          0.9012073333336351,
+          3.1604313333324776,
+          1.0167056666662877,
+          0.9093079999996311
+        ],
+        "gpu": [
+          {
+            "computeMs": 144.572416,
+            "renderMs": 1.900544,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 113.508352,
+            "renderMs": 2.031616,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 101.5808,
+            "renderMs": 1.376256,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 139.526144,
+            "renderMs": 1.376256,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 276.99138700000185,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 235.77520800000153,
+        "p95": 238.02629866666635,
+        "p99": 238.02629866666635,
+        "min": 191.79532966666739,
+        "max": 238.02629866666635
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0927239999994829,
+        "p95": 1.1510686666685312,
+        "p99": 1.1510686666685312,
+        "min": 0.9219099999997221,
+        "max": 1.1510686666685312
+      },
+      "samples": {
+        "drained": [
+          238.02629866666635,
+          191.79532966666739,
+          235.77520800000153,
+          234.9716943333333
+        ],
+        "submission": [
+          0.9219099999997221,
+          1.1510686666685312,
+          0.9386026666688849,
+          1.0927239999994829
+        ],
+        "gpu": [
+          {
+            "computeMs": 230.096896,
+            "renderMs": 1.31072,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 169.934848,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 213.909504,
+            "renderMs": 2.555904,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 238.354432,
+            "renderMs": 2.359296,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 1,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 103.01609299999836,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 113.41675099999945,
+        "p95": 134.23039400000076,
+        "p99": 134.23039400000076,
+        "min": 103.51252666666551,
+        "max": 134.23039400000076
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.4776166666658053,
+        "p95": 1.5899893333335058,
+        "p99": 1.5899893333335058,
+        "min": 0.8440403333346088,
+        "max": 1.5899893333335058
+      },
+      "samples": {
+        "drained": [
+          134.23039400000076,
+          113.41675099999945,
+          103.51252666666551,
+          108.5317486666657
+        ],
+        "submission": [
+          0.8440403333346088,
+          1.4776166666658053,
+          0.9252463333323249,
+          1.5899893333335058
+        ],
+        "gpu": [
+          {
+            "computeMs": 127.860736,
+            "renderMs": 1.31072,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 116.785152,
+            "renderMs": 2.62144,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 98.172928,
+            "renderMs": 1.179648,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 106.233856,
+            "renderMs": 1.769472,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 196.53725699999632,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 28.10227299999921,
+        "p95": 32.33121333333353,
+        "p99": 32.33121333333353,
+        "min": 26.60910866666624,
+        "max": 32.33121333333353
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.9659350000001723,
+        "p95": 1.114822666667654,
+        "p99": 1.114822666667654,
+        "min": 0.8880420000011023,
+        "max": 1.114822666667654
+      },
+      "samples": {
+        "drained": [
+          32.33121333333353,
+          28.00947566666582,
+          26.60910866666624,
+          28.10227299999921
+        ],
+        "submission": [
+          1.114822666667654,
+          0.9659350000001723,
+          0.9385903333338016,
+          0.8880420000011023
+        ],
+        "gpu": [
+          {
+            "computeMs": 29.884416,
+            "renderMs": 0.458752,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 24.182784,
+            "renderMs": 1.900544,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 24.313856,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 28.049408,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 10.867914000002202,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 52.41852199999994,
+        "p95": 61.83276399999886,
+        "p99": 61.83276399999886,
+        "min": 49.25143233333316,
+        "max": 61.83276399999886
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.8675516666674715,
+        "p95": 0.9609783333338177,
+        "p99": 0.9609783333338177,
+        "min": 0.6556316666659162,
+        "max": 0.9609783333338177
+      },
+      "samples": {
+        "drained": [
+          61.83276399999886,
+          49.25143233333316,
+          49.76624066666651,
+          52.41852199999994
+        ],
+        "submission": [
+          0.8675516666674715,
+          0.9609783333338177,
+          0.6556316666659162,
+          0.7451956666676173
+        ],
+        "gpu": [
+          {
+            "computeMs": 58.130432,
+            "renderMs": 0.589824,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 46.989312,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 47.054848,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 52.625408,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 230.57381899999746,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 27.489908666667663,
+        "p95": 28.646756000001915,
+        "p99": 28.646756000001915,
+        "min": 26.363373333333584,
+        "max": 28.646756000001915
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.1104406666684856,
+        "p95": 1.334490666667989,
+        "p99": 1.334490666667989,
+        "min": 0.9120163333354867,
+        "max": 1.334490666667989
+      },
+      "samples": {
+        "drained": [
+          27.25871666666838,
+          28.646756000001915,
+          26.363373333333584,
+          27.489908666667663
+        ],
+        "submission": [
+          0.9419146666671926,
+          1.1104406666684856,
+          0.9120163333354867,
+          1.334490666667989
+        ],
+        "gpu": [
+          {
+            "computeMs": 27.066368,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 25.296896,
+            "renderMs": 0.720896,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 25.88672,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 26.607616,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 128,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 704512,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 720976,
+      "gpuTextureBytes": 65536,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 92.967227000001,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 72.25659599999926,
+        "p95": 74.53541499999847,
+        "p99": 74.53541499999847,
+        "min": 53.54483033333236,
+        "max": 74.53541499999847
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.131998999999875,
+        "p95": 1.2570816666654234,
+        "p99": 1.2570816666654234,
+        "min": 0.8786420000008851,
+        "max": 1.2570816666654234
+      },
+      "samples": {
+        "drained": [
+          53.947059000000685,
+          72.25659599999926,
+          74.53541499999847,
+          53.54483033333236
+        ],
+        "submission": [
+          0.8786420000008851,
+          1.131998999999875,
+          1.2570816666654234,
+          1.1024359999986093
+        ],
+        "gpu": [
+          {
+            "computeMs": 51.380224,
+            "renderMs": 0.32768,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 70.254592,
+            "renderMs": 0.786432,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 60.162048,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 54.657024,
+            "renderMs": 0.393216,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 9.401337795583687e-17,
+          "dyeMax": 0.9879905581474304,
+          "dyeMass": 854.2760419736467,
+          "divergenceRms": 0.2403110758788733,
+          "meanKineticEnergy": 176.01315802271412
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 213.05227800000284,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 165.79400833333543,
+        "p95": 168.35523733333198,
+        "p99": 168.35523733333198,
+        "min": 137.20203666666688,
+        "max": 168.35523733333198
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.886689333334895,
+        "p95": 1.066011666667085,
+        "p99": 1.066011666667085,
+        "min": 0.6813033333334412,
+        "max": 1.066011666667085
+      },
+      "samples": {
+        "drained": [
+          137.20203666666688,
+          165.79400833333543,
+          168.35523733333198,
+          146.37366466666572
+        ],
+        "submission": [
+          0.8485926666665667,
+          0.886689333334895,
+          0.6813033333334412,
+          1.066011666667085
+        ],
+        "gpu": [
+          {
+            "computeMs": 128.843776,
+            "renderMs": 1.245184,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 151.650304,
+            "renderMs": 1.6384,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 177.60256,
+            "renderMs": 1.96608,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 127.270912,
+            "renderMs": 1.376256,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        8,
+        8
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 16.03603600000497,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 266.29255399999965,
+        "p95": 313.3846450000007,
+        "p99": 313.3846450000007,
+        "min": 200.72413166666715,
+        "max": 313.3846450000007
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.0813203333333756,
+        "p95": 1.5109966666665666,
+        "p99": 1.5109966666665666,
+        "min": 1.0531886666673624,
+        "max": 1.5109966666665666
+      },
+      "samples": {
+        "drained": [
+          313.3846450000007,
+          266.29255399999965,
+          200.72413166666715,
+          215.21501900000052
+        ],
+        "submission": [
+          1.0611360000014731,
+          1.5109966666665666,
+          1.0531886666673624,
+          1.0813203333333756
+        ],
+        "gpu": [
+          {
+            "computeMs": 336.134144,
+            "renderMs": 1.769472,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 241.17248,
+            "renderMs": 1.245184,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 187.367424,
+            "renderMs": 1.179648,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 207.290368,
+            "renderMs": 1.245184,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "direct",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 158.29550700000254,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 101.94182,
+        "p95": 103.61776466666682,
+        "p99": 103.61776466666682,
+        "min": 99.87528400000156,
+        "max": 103.61776466666682
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 1.4430209999991348,
+        "p95": 2.1946443333339025,
+        "p99": 2.1946443333339025,
+        "min": 0.901714333333075,
+        "max": 2.1946443333339025
+      },
+      "samples": {
+        "drained": [
+          99.87528400000156,
+          100.77559233333159,
+          101.94182,
+          103.61776466666682
+        ],
+        "submission": [
+          1.1383223333347512,
+          1.4430209999991348,
+          0.901714333333075,
+          2.1946443333339025
+        ],
+        "gpu": [
+          {
+            "computeMs": 108.003328,
+            "renderMs": 1.769472,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 99.155968,
+            "renderMs": 1.179648,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 98.172928,
+            "renderMs": 1.114112,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 117.63712,
+            "renderMs": 2.031616,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    },
+    {
+      "round": 2,
+      "size": 256,
+      "iterations": 40,
+      "pressureKernel": "jacobi",
+      "workgroup": [
+        16,
+        16
+      ],
+      "dt": 0.016666666666666666,
+      "dispatchesPerStep": 43,
+      "gridCellUpdatesPerStep": 2818048,
+      "workgroupStorageBytes": 0,
+      "gpuBufferBytes": 2883664,
+      "gpuTextureBytes": 262144,
+      "timestamps": true,
+      "boundary": "periodic",
+      "solver": "semi-Lagrangian advection, Jacobi pressure, backward divergence/forward gradient",
+      "updateCountNote": "Logical grid updates; tiled-pair additionally computes overlapping halo cells.",
+      "setupMs": 17.92822100000194,
+      "steps": 12,
+      "drainedMs": {
+        "n": 4,
+        "median": 184.1824769999997,
+        "p95": 187.28950266666652,
+        "p99": 187.28950266666652,
+        "min": 175.30518300000162,
+        "max": 187.28950266666652
+      },
+      "submissionMs": {
+        "n": 4,
+        "median": 0.8566903333339724,
+        "p95": 0.9477583333330889,
+        "p99": 0.9477583333330889,
+        "min": 0.6204689999988963,
+        "max": 0.9477583333330889
+      },
+      "samples": {
+        "drained": [
+          176.95894833333296,
+          175.30518300000162,
+          187.28950266666652,
+          184.1824769999997
+        ],
+        "submission": [
+          0.8566903333339724,
+          0.7402656666672556,
+          0.9477583333330889,
+          0.6204689999988963
+        ],
+        "gpu": [
+          {
+            "computeMs": 180.420608,
+            "renderMs": 1.572864,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 176.685056,
+            "renderMs": 1.31072,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 182.910976,
+            "renderMs": 1.6384,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          },
+          {
+            "computeMs": 179.961856,
+            "renderMs": 1.376256,
+            "scope": "last submitted simulation step; readback excluded from batch timing"
+          }
+        ]
+      },
+      "correctness": {
+        "passed": true,
+        "actual": {
+          "nonFinite": 0,
+          "dyeMin": 2.067325190222744e-17,
+          "dyeMax": 0.9965317845344543,
+          "dyeMass": 3404.763174892858,
+          "divergenceRms": 0.5155573278166447,
+          "meanKineticEnergy": 718.134830742839
+        },
+        "maxAbsoluteDifference": 0
+      }
+    }
+  ],
+  "validation": [
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 8,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 5.960464477539063e-8,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 17,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 1,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 3,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 2.384185791015625e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 8,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "size": 32,
+      "iterations": 40,
+      "workgroup": 16,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 7.152557373046875e-7,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 17,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "jacobi",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "direct",
+      "maxAbsoluteError": 0,
+      "passed": true
+    },
+    {
+      "name": "eight evolving fluid steps",
+      "size": 64,
+      "iterations": 41,
+      "pressureKernel": "tiled-pair",
+      "maxAbsoluteError": 0,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "experiments/fluid/model.js": "d11adc6d4b9df4b2ba7a8bfef747b8ddfdfe6ed13bbe5ec38471cd85d431ca4e",
+    "experiments/fluid/webgpu.js": "18f6ffc81d543f1f0a5723832b7cc6a68834faeae961fcf38d69c0d2a5da723c",
+    "experiments/fluid/pressure-suite.js": "6cd72178b44023497bb6df55247b7a96ad11dbc4f5a1db76e2ded85cbb110dec",
+    "experiments/grid/model.js": "811514c22c395892146ff3f3035243beb00e1c9144428b8317c3438135d018d7",
+    "scripts/bench-pressure.mjs": "b830f219b0b4eb7be6715a1b01c7489aa8e412aa022c98af73d85636eaac8620",
+    "scripts/native-device.mjs": "9375f1ad92ffe70a860cd242b8d8adcef97b92796ec68fb2e62e6c8e473c075b",
+    "scripts/telemetry.mjs": "ab0b6337dcc645e0af4bbf8d8c322fd0a9be9bad8d301c6884be8676a31c6df4",
+    "package-lock.json": "af0c4f23cff060a20590f1364d27ceeb46f3cf2348c9fef598c49270c8fbdd91"
+  },
+  "telemetryDirectory": "results/runs/2026-11-06T10-31-25-656Z-13-pressure-software",
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": true,
+  "adapter": {
+    "vendor": "google",
+    "architecture": "swiftshader",
+    "device": "swiftshader-device-subzero-",
+    "description": "SwiftShader driver 5.0.0",
+    "isFallbackAdapter": true
+  },
+  "features": [
+    "texture-compression-unaligned",
+    "subgroup-size-control",
+    "texture-component-swizzle",
+    "subgroups",
+    "clip-distances",
+    "float32-blendable",
+    "core-features-and-limits",
+    "float32-filterable",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true,
+  "protocol": {
+    "sizes": [
+      128,
+      256
+    ],
+    "workgroups": [
+      8,
+      16
+    ],
+    "rounds": 3,
+    "batches": 4,
+    "frames": 3,
+    "iterations": 40,
+    "warmupSteps": 3,
+    "seed": 991,
+    "includeTiled": false,
+    "note": "Equal Jacobi iteration count and matching evolved fields. Direct kernel removes modulo; tiled kernel halves pressure dispatches but computes redundant halos and uses workgroup memory. CPU, GPU and drained timings are distinct."
+  },
+  "errorCounts": {
+    "gpu": 0,
+    "completedChecks": 84,
+    "failedCompletedChecks": 0
+  }
+}

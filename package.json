@@ -1,0 +1,53 @@
+{
+  "name": "@ephizen/manim-js",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.js",
+  "sideEffects": false,
+  "description": "ManimJS: ManimGL-style mathematical graphics and animation in JavaScript, built through measured experiments",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "test:real": "node scripts/checks/real-device.mjs",
+    "bench:cpu": "node scripts/benchmarks/cpu.mjs",
+    "bench:browser": "node scripts/benchmarks/browser.mjs",
+    "bench:native": "node scripts/benchmarks/native.mjs",
+    "bench:representation": "node scripts/benchmarks/representation.mjs",
+    "bench:fluid": "node scripts/benchmarks/fluid.mjs",
+    "bench:pressure": "node scripts/benchmarks/pressure.mjs",
+    "bench:vortex": "node scripts/benchmarks/vortex.mjs",
+    "bench:vortex:browser": "node scripts/benchmarks/vortex.mjs --browser=both",
+    "bench:spectral": "node scripts/benchmarks/spectral.mjs",
+    "profile:fluid": "node scripts/benchmarks/profile-fluid.mjs",
+    "bench:pressure:browser": "node scripts/benchmarks/fluid-browser.mjs --pressure",
+    "bench:fluid:browser": "node scripts/benchmarks/fluid-browser.mjs",
+    "check:build": "node scripts/checks/build.mjs",
+    "check:browsers": "node scripts/checks/browsers.mjs",
+    "report": "node scripts/reports/grid.mjs",
+    "report:runs": "node scripts/reports/runs.mjs",
+    "report:vortex": "node scripts/reports/vortex.mjs",
+    "bench:rebased": "node scripts/benchmarks/rebased.mjs",
+    "bench:rebased:browser": "node scripts/benchmarks/rebased.mjs --browser=both",
+    "bench:js": "node scripts/benchmarks/js.mjs",
+    "report:optimization": "node scripts/reports/optimization.mjs",
+    "report:rebased": "node scripts/reports/optimization.mjs --rebased",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright": "1.58.2",
+    "prettier": "3.6.2",
+    "webgpu": "0.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahip9211/manim-js.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  }
+}

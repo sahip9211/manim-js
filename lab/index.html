@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ManimJS · Rendering lab</title>
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #10151d; color: #e1e9f2; }
+    body { max-width: 1080px; margin: 3rem auto; padding: 0 1.5rem; }
+    h1 { font-weight: 600; } p { max-width: 76ch; color: #acbbc9; }
+    canvas { width: 100%; max-width: 800px; aspect-ratio: 4/3; display: block; background: #080d14; border: 1px solid #304050; }
+    button, select { font: inherit; padding: .4rem .8rem; margin: .3rem; }
+    input { vertical-align: middle; } pre { white-space: pre-wrap; font-size: 13px; }
+  </style>
+  <h1>ManimJS / Rendering lab</h1>
+  <p>
+    A general-purpose mathematical graphics library, built from measurements. Experiment 001
+    compares ways to update and draw the same deforming indexed grid. The topology articles will be
+    one consumer of the library.
+  </p>
+  <canvas id="view" width="800" height="600"></canvas>
+  <div>
+    <span>Native WebGPU</span>
+    <label
+      >Strategy
+      <select id="strategy">
+        <option>vertex</option>
+        <option>basis</option>
+        <option>procedural</option>
+        <option>cpu-naive</option>
+        <option>cpu-rows</option>
+        <option>cpu-basis</option>
+        <option>compute</option>
+        <option>vertex-bundle</option>
+      </select></label
+    >
+    <button id="load">Load</button><button id="play">Play</button>
+    <label
+      >Phase <input id="phase" type="range" min="0" max="6.283185" step="0.001" value="0.8"
+    /></label>
+  </div>
+  <p>
+    Paused scenes render only when a control changes. Hidden or offscreen scenes stop requesting
+    frames. These one-pixel lines are a controlled benchmark primitive; production stroke quality is
+    a separate experiment.
+  </p>
+  <pre id="status">Loading capabilities…</pre>
+  <script type="module" src="./app.js"></script>
+</html>

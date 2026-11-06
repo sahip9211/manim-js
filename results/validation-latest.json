@@ -1,0 +1,64 @@
+{
+  "status": "passed-after-compatibility-rerun",
+  "originalLauncherResult": "results/runs/2026-11-06T11-32-46-123Z-277714-real-device/result.json",
+  "originalLauncherStatus": "incomplete",
+  "successfulStages": [
+    "unit-tests",
+    "build",
+    "browser-fluid",
+    "browser-pressure",
+    "native-pressure",
+    "summary"
+  ],
+  "compatibilityRerun": [
+    {
+      "path": "results/runs/2026-11-06T11-37-38-979Z-286100-compatibility-chromium/result.json",
+      "status": "passed",
+      "standalone": {
+        "status": "passed",
+        "checks": [
+          "classic-script load",
+          "grid initialization",
+          "play/pause controls"
+        ],
+        "visibility": "visible",
+        "animationFrames": "skipped: background workspace; do not change user focus"
+      },
+      "placement": {
+        "workspace": 5,
+        "silent": true,
+        "windowClass": "lean-js-benchmark",
+        "rule": "hl.window_rule({ name = \"lean-js-benchmark\", match = { class = \"^lean-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+        "observedWorkspaces": [
+          5
+        ],
+        "activeWorkspace": 2
+      }
+    },
+    {
+      "path": "results/runs/2026-11-06T11-37-59-363Z-286100-compatibility-firefox/result.json",
+      "status": "passed",
+      "standalone": {
+        "status": "passed",
+        "checks": [
+          "classic-script load",
+          "grid initialization",
+          "play/pause controls"
+        ],
+        "visibility": "hidden",
+        "animationFrames": "skipped: background workspace; do not change user focus"
+      },
+      "placement": {
+        "workspace": 5,
+        "silent": true,
+        "windowClass": "lean-js-benchmark",
+        "rule": "hl.window_rule({ name = \"lean-js-benchmark\", match = { class = \"^lean-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+        "observedWorkspaces": [
+          5
+        ],
+        "activeWorkspace": 1
+      }
+    }
+  ],
+  "note": "Earlier launcher retains incomplete status for interrupted background rAF check. Fixed harness rerun passed. Background animation frames are explicitly skipped; GPU image and numerical checks ran."
+}

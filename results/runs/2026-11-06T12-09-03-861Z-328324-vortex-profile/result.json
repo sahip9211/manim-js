@@ -1,0 +1,781 @@
+{
+  "experiment": "007-vortex-profile",
+  "status": "complete",
+  "errors": [],
+  "results": [
+    {
+      "profileStages": true,
+      "workgroup": [
+        4,
+        4,
+        4
+      ],
+      "size": 64,
+      "cells": 262144,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 16777632,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 5243136,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 7.012352000000001,
+          "renderMs": 1.31072,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.32768,
+            "pressure": 5.57056,
+            "projection": 0.524288
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.203542000000084,
+          "drainedMs": 11.240649000000076
+        },
+        {
+          "computeMs": 9.17504,
+          "renderMs": 1.245184,
+          "stages": {
+            "advection": 0.720896,
+            "divergence": 0.458752,
+            "pressure": 7.340032,
+            "projection": 0.65536
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.586225000000013,
+          "drainedMs": 11.902001000000041
+        },
+        {
+          "computeMs": 5.111808,
+          "renderMs": 1.245184,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.32768,
+            "pressure": 3.670016,
+            "projection": 0.524288
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.0692870000000312,
+          "drainedMs": 9.886985000000095
+        },
+        {
+          "computeMs": 5.308416,
+          "renderMs": 1.376256,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.262144,
+            "pressure": 3.93216,
+            "projection": 0.524288
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.14473200000009,
+          "drainedMs": 8.116472000000044
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        32,
+        2,
+        1
+      ],
+      "size": 64,
+      "cells": 262144,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 16777632,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 5243136,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 4.9152,
+          "renderMs": 1.245184,
+          "stages": {
+            "advection": 0.458752,
+            "divergence": 0.262144,
+            "pressure": 3.735552,
+            "projection": 0.458752
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.4794520000000375,
+          "drainedMs": 28.405881000000022
+        },
+        {
+          "computeMs": 5.373952,
+          "renderMs": 1.376256,
+          "stages": {
+            "advection": 0.524288,
+            "divergence": 0.196608,
+            "pressure": 3.997696,
+            "projection": 0.65536
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.277627999999936,
+          "drainedMs": 8.122070000000008
+        },
+        {
+          "computeMs": 8.257536,
+          "renderMs": 1.31072,
+          "stages": {
+            "advection": 0.524288,
+            "divergence": 0.262144,
+            "pressure": 6.88128,
+            "projection": 0.589824
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.1209929999999986,
+          "drainedMs": 11.775148999999942
+        },
+        {
+          "computeMs": 10.15808,
+          "renderMs": 1.572864,
+          "stages": {
+            "advection": 0.524288,
+            "divergence": 0.262144,
+            "pressure": 8.84736,
+            "projection": 0.524288
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.9750669999999673,
+          "drainedMs": 13.043187999999986
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        8,
+        8,
+        1
+      ],
+      "size": 64,
+      "cells": 262144,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 16777632,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 5243136,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 5.373952,
+          "renderMs": 1.31072,
+          "stages": {
+            "advection": 0.524288,
+            "divergence": 0.32768,
+            "pressure": 4.063232,
+            "projection": 0.458752
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.1669329999999718,
+          "drainedMs": 9.555209000000104
+        },
+        {
+          "computeMs": 7.405568000000001,
+          "renderMs": 1.376256,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.262144,
+            "pressure": 5.963776,
+            "projection": 0.589824
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.9267970000000787,
+          "drainedMs": 9.967092000000093
+        },
+        {
+          "computeMs": 7.274496,
+          "renderMs": 1.507328,
+          "stages": {
+            "advection": 0.524288,
+            "divergence": 0.32768,
+            "pressure": 5.963776,
+            "projection": 0.458752
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.8247120000000905,
+          "drainedMs": 9.741785000000164
+        },
+        {
+          "computeMs": 5.636096,
+          "renderMs": 1.507328,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.262144,
+            "pressure": 4.194304,
+            "projection": 0.589824
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.8595900000000256,
+          "drainedMs": 8.281520999999884
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        64,
+        1,
+        1
+      ],
+      "size": 64,
+      "cells": 262144,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 16777632,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 5243136,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 5.177344,
+          "renderMs": 1.31072,
+          "stages": {
+            "advection": 0.458752,
+            "divergence": 0.32768,
+            "pressure": 3.801088,
+            "projection": 0.589824
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.5764389999999366,
+          "drainedMs": 8.913806999999906
+        },
+        {
+          "computeMs": 8.257536,
+          "renderMs": 1.376256,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.262144,
+            "pressure": 6.815744,
+            "projection": 0.589824
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.8304510000000391,
+          "drainedMs": 10.619955000000118
+        },
+        {
+          "computeMs": 6.619136,
+          "renderMs": 1.507328,
+          "stages": {
+            "advection": 0.589824,
+            "divergence": 0.262144,
+            "pressure": 4.194304,
+            "projection": 1.572864
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.9313000000001921,
+          "drainedMs": 16.626436000000012
+        },
+        {
+          "computeMs": 6.1603840000000005,
+          "renderMs": 1.6384,
+          "stages": {
+            "advection": 0.65536,
+            "divergence": 0.262144,
+            "pressure": 4.718592,
+            "projection": 0.524288
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.1581519999999728,
+          "drainedMs": 12.320330000000013
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        4,
+        4,
+        4
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 134218400,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 41943552,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 72.286208,
+          "renderMs": 4.128768,
+          "stages": {
+            "advection": 8.454144,
+            "divergence": 6.094848,
+            "pressure": 52.232192,
+            "projection": 5.505024
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.9580269999996744,
+          "drainedMs": 86.63118799999984
+        },
+        {
+          "computeMs": 85.45894399999999,
+          "renderMs": 4.25984,
+          "stages": {
+            "advection": 10.682368,
+            "divergence": 4.063232,
+            "pressure": 66.256896,
+            "projection": 4.456448
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 2.2950630000000274,
+          "drainedMs": 93.6892700000003
+        },
+        {
+          "computeMs": 85.458944,
+          "renderMs": 4.25984,
+          "stages": {
+            "advection": 11.403264,
+            "divergence": 3.801088,
+            "pressure": 65.929216,
+            "projection": 4.325376
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 2.3435559999998077,
+          "drainedMs": 92.10581400000001
+        },
+        {
+          "computeMs": 94.24076800000002,
+          "renderMs": 4.128768,
+          "stages": {
+            "advection": 9.043968,
+            "divergence": 7.077888,
+            "pressure": 71.565312,
+            "projection": 6.5536
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.9025000000001455,
+          "drainedMs": 106.46286700000019
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        32,
+        2,
+        1
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 134218400,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 41943552,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 72.155136,
+          "renderMs": 5.832704,
+          "stages": {
+            "advection": 7.929856,
+            "divergence": 3.080192,
+            "pressure": 57.212928,
+            "projection": 3.93216
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 4.180758999999853,
+          "drainedMs": 84.22555800000009
+        },
+        {
+          "computeMs": 88.276992,
+          "renderMs": 4.58752,
+          "stages": {
+            "advection": 9.8304,
+            "divergence": 3.60448,
+            "pressure": 69.664768,
+            "projection": 5.177344
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.8605020000004515,
+          "drainedMs": 97.28386200000023
+        },
+        {
+          "computeMs": 95.68256,
+          "renderMs": 4.128768,
+          "stages": {
+            "advection": 12.910592,
+            "divergence": 5.308416,
+            "pressure": 69.79584,
+            "projection": 7.667712
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.9818470000000161,
+          "drainedMs": 102.03528600000027
+        },
+        {
+          "computeMs": 81.92,
+          "renderMs": 4.063232,
+          "stages": {
+            "advection": 8.650752,
+            "divergence": 3.670016,
+            "pressure": 65.667072,
+            "projection": 3.93216
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.332973000000493,
+          "drainedMs": 87.86800700000003
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        8,
+        8,
+        1
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 134218400,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 41943552,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 70.71334399999999,
+          "renderMs": 3.866624,
+          "stages": {
+            "advection": 5.89824,
+            "divergence": 2.883584,
+            "pressure": 57.475072,
+            "projection": 4.456448
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.5204640000001746,
+          "drainedMs": 83.63608199999999
+        },
+        {
+          "computeMs": 97.71417600000001,
+          "renderMs": 4.718592,
+          "stages": {
+            "advection": 11.927552,
+            "divergence": 8.192,
+            "pressure": 71.76192,
+            "projection": 5.832704
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.1113160000004427,
+          "drainedMs": 104.43234500000017
+        },
+        {
+          "computeMs": 112.852992,
+          "renderMs": 4.980736,
+          "stages": {
+            "advection": 8.84736,
+            "divergence": 8.257536,
+            "pressure": 87.293952,
+            "projection": 8.454144
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 2.8308719999995446,
+          "drainedMs": 121.66051999999945
+        },
+        {
+          "computeMs": 81.068032,
+          "renderMs": 3.997696,
+          "stages": {
+            "advection": 11.14112,
+            "divergence": 4.063232,
+            "pressure": 61.734912,
+            "projection": 4.128768
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 2.5073920000004364,
+          "drainedMs": 89.17375700000048
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    },
+    {
+      "profileStages": true,
+      "workgroup": [
+        64,
+        1,
+        1
+      ],
+      "size": 128,
+      "cells": 2097152,
+      "dimensions": 3,
+      "iterations": 80,
+      "pressureKernel": "fft-jacobi",
+      "dt": 0.02,
+      "viscosity": 0.000625,
+      "reynolds": 1600,
+      "resolution": 256,
+      "raySteps": 128,
+      "maxRaySamplesPerFrame": 8388608,
+      "dispatchesPerStep": 13,
+      "gpuBufferBytes": 134218400,
+      "gpuTextureBytes": 262144,
+      "fft": {
+        "dimensions": 3,
+        "dispatches": 10,
+        "bufferBytes": 41943552,
+        "workgroupStorageBytes": 8448,
+        "method": "finite-iteration periodic Jacobi via FFT; f32 rounding differs"
+      },
+      "boundary": "triply periodic",
+      "solver": "trilinear semi-Lagrangian advection, explicit viscosity, backward divergence/forward pressure gradient",
+      "render": "oblique front-to-back volume raymarch, nearest-cell density, no early ray termination",
+      "timestamps": true,
+      "samples": [
+        {
+          "computeMs": 82.378752,
+          "renderMs": 3.538944,
+          "stages": {
+            "advection": 9.371648,
+            "divergence": 2.62144,
+            "pressure": 66.19136,
+            "projection": 4.194304
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 3.732583999999406,
+          "drainedMs": 91.33050800000001
+        },
+        {
+          "computeMs": 92.995584,
+          "renderMs": 3.866624,
+          "stages": {
+            "advection": 8.126464,
+            "divergence": 5.832704,
+            "pressure": 72.220672,
+            "projection": 6.815744
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.6678289999999834,
+          "drainedMs": 100.22532899999987
+        },
+        {
+          "computeMs": 84.67251200000001,
+          "renderMs": 3.801088,
+          "stages": {
+            "advection": 6.750208,
+            "divergence": 3.145728,
+            "pressure": 69.79584,
+            "projection": 4.980736
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 1.9407549999996263,
+          "drainedMs": 93.20916299999953
+        },
+        {
+          "computeMs": 91.68486399999999,
+          "renderMs": 3.93216,
+          "stages": {
+            "advection": 14.286848,
+            "divergence": 3.145728,
+            "pressure": 66.977792,
+            "projection": 7.274496
+          },
+          "scope": "diagnostic split passes add overhead",
+          "submissionMs": 0.9774610000004031,
+          "drainedMs": 96.79292500000065
+        }
+      ],
+      "error": {
+        "maxAbsolute": 0,
+        "relativeL2": 0
+      }
+    }
+  ],
+  "sourceHashes": {
+    "scripts/profile-vortex.mjs": "7654dfe660e10f68a34cf03d468219e09c67b9faae100c3b908f10d94f52c1bb",
+    "experiments/vortex/webgpu.js": "0771dfd651a6a54c08b47aac1ee1ca4d825ea3d67daf514be84512af4d9fd901",
+    "experiments/vortex/shaders.js": "05cf2d845845ac256ccc012bf03d3a804cbf38407192acf1f3e82bc6925b2843",
+    "experiments/vortex/model.js": "c06d8e107c132004e2d2f1bd2650f4bb34951e42bd488f9e563a9332d46d6d62",
+    "experiments/fluid/fft-pressure.js": "ea75ac0d93d3e176fa838b178edf75828c28a14e29a2f878e1d76f020378daaf",
+    "scripts/native-device.mjs": "91acbc1e205b332659cde058648a338fddb5421927af8778fea507e0f94ae2b4",
+    "scripts/telemetry.mjs": "00655752f9cee7fa938c2ee5039dc0114789834ddde9d0b871917b841b5f2b3f",
+    "scripts/drm-stats.mjs": "8f50beaa06888026b8de0dc01ec61135cc00055e388849d68c68ad2f9529c9dc"
+  },
+  "runtime": "Node + Dawn (not browser)",
+  "softwareRequested": false,
+  "requestedAdapter": null,
+  "adapter": {
+    "vendor": "intel",
+    "architecture": "gen-9",
+    "device": "intel-r-uhd-graphics-cml-gt2-",
+    "description": "Intel open-source Mesa driver: Mesa 26.2.5-arch1.1",
+    "isFallbackAdapter": false
+  },
+  "features": [
+    "atomic-vec2u-min-max",
+    "texture-compression-unaligned",
+    "texture-component-swizzle",
+    "primitive-index",
+    "texture-formats-tier2",
+    "texture-formats-tier1",
+    "dual-source-blending",
+    "clip-distances",
+    "float32-blendable",
+    "float32-filterable",
+    "core-features-and-limits",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-compression-etc2",
+    "texture-compression-astc",
+    "texture-compression-astc-sliced-3d",
+    "timestamp-query",
+    "indirect-first-instance",
+    "shader-f16",
+    "rg11b10ufloat-renderable",
+    "bgra8unorm-storage"
+  ],
+  "timestamps": true
+}
