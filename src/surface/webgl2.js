@@ -3,14 +3,23 @@ import { surfaceVertexShader, surfaceFragmentShader } from './shaders.js';
 
 export function createSurfaceRenderer(canvas, options = {}) {
   const { nu, nv } = validateSurfaceOptions(options),
-    mode = options.mode ?? 'tiled';
-  if (!['direct', 'basis', 'tiled'].includes(mode)) throw new RangeError('Unknown surface mode');
+    mode = options.mode ?? 'instanced';
+  if (!['direct', 'basis', 'tiled', 'instanced'].includes(mode))
+    throw new RangeError('Unknown surface mode');
+  const renderTarget = options.renderTarget ?? 'offscreen';
+  if (!['offscreen', 'canvas'].includes(renderTarget))
+    throw new RangeError('Unknown render target');
   const gl = canvas.getContext('webgl2', {
     antialias: false,
     alpha: false,
-    preserveDrawingBuffer: true,
+    depth: renderTarget === 'canvas',
+    stencil: false,
+    preserveDrawingBuffer: false,
   });
   if (!gl) throw new Error('WebGL2 unavailable');
+  if (renderTarget === 'canvas' && !gl.getContextAttributes().depth)
+    throw new Error('Direct canvas rendering requires a fresh canvas with a depth buffer');
+  const defaultFramebufferDepthBits = gl.getParameter(gl.DEPTH_BITS);
   const width = canvas.width,
     height = canvas.height;
   if (width <= 0 || height <= 0) throw new RangeError('Expected a nonempty canvas');
@@ -35,6 +44,7 @@ export function createSurfaceRenderer(canvas, options = {}) {
   const uniform = Object.fromEntries(
     [
       'nv',
+      'tilesV',
       'shape',
       'phase',
       'motion',
@@ -49,7 +59,12 @@ export function createSurfaceRenderer(canvas, options = {}) {
   );
   const vao = gl.createVertexArray();
   gl.bindVertexArray(vao);
-  const indices = surfaceIndices(nu, nv, mode === 'tiled' ? 8 : 0),
+  const instanced = mode === 'instanced';
+  const tilesV = Math.ceil((nv - 1) / 8);
+  const instanceCount = instanced ? Math.ceil((nu - 1) / 8) * tilesV : 1;
+  const indices = instanced
+      ? new Uint16Array(surfaceIndices(9, 9))
+      : surfaceIndices(nu, nv, mode === 'tiled' ? 8 : 0),
     index = gl.createBuffer();
   buffers.push(index);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index);
@@ -79,21 +94,26 @@ export function createSurfaceRenderer(canvas, options = {}) {
   gl.uniform1i(uniform.basisU, 0);
   gl.uniform1i(uniform.basisV, 1);
   gl.uniform1i(uniform.nv, nv);
+  gl.uniform1i(uniform.tilesV, tilesV);
   gl.uniform2i(uniform.shape, nu, nv);
-  const framebuffer = gl.createFramebuffer();
-  gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
-  const color = gl.createTexture();
-  textures.push(color);
-  gl.activeTexture(gl.TEXTURE2);
-  gl.bindTexture(gl.TEXTURE_2D, color);
-  gl.texStorage2D(gl.TEXTURE_2D, 1, gl.RGBA8, width, height);
-  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, color, 0);
-  const depth = gl.createRenderbuffer();
-  gl.bindRenderbuffer(gl.RENDERBUFFER, depth);
-  gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH24_STENCIL8, width, height);
-  gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, depth);
-  if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE)
-    throw new Error('Incomplete surface framebuffer');
+  let framebuffer = null,
+    depth = null;
+  if (renderTarget === 'offscreen') {
+    framebuffer = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+    const color = gl.createTexture();
+    textures.push(color);
+    gl.activeTexture(gl.TEXTURE2);
+    gl.bindTexture(gl.TEXTURE_2D, color);
+    gl.texStorage2D(gl.TEXTURE_2D, 1, gl.RGBA8, width, height);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, color, 0);
+    depth = gl.createRenderbuffer();
+    gl.bindRenderbuffer(gl.RENDERBUFFER, depth);
+    gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH24_STENCIL8, width, height);
+    gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, depth);
+    if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE)
+      throw new Error('Incomplete surface framebuffer');
+  }
   gl.enable(gl.DEPTH_TEST);
   gl.depthFunc(gl.LESS);
   gl.disable(gl.CULL_FACE);
@@ -126,11 +146,14 @@ export function createSurfaceRenderer(canvas, options = {}) {
     framebuffer,
     metadata: {
       mode,
+      renderTarget,
       vertices: nu * nv,
       triangles: (nu - 1) * (nv - 1) * 2,
+      instanceCount,
       indexBytes,
       gpuBufferBytes: indexBytes,
-      gpuTextureBytes: (nu + nv) * 16 + width * height * 8,
+      gpuTextureBytes: (nu + nv) * 16 + (renderTarget === 'offscreen' ? width * height * 8 : 0),
+      defaultFramebufferDepthBits,
       uploadBytesPerFrame: 32,
       backend: 'webgl2',
       gpuTimerAvailable: !!ext,
@@ -149,9 +172,11 @@ export function createSurfaceRenderer(canvas, options = {}) {
       if (query) gl.beginQuery(ext.TIME_ELAPSED_EXT, query);
       gl.clearColor(0, 0, 0, 1);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
-      gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_INT, 0);
+      if (instanced)
+        gl.drawElementsInstanced(gl.TRIANGLES, indexCount, gl.UNSIGNED_SHORT, 0, instanceCount);
+      else gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_INT, 0);
       if (query) gl.endQuery(ext.TIME_ELAPSED_EXT);
-      if (present) {
+      if (present && renderTarget === 'offscreen') {
         gl.bindFramebuffer(gl.DRAW_FRAMEBUFFER, null);
         gl.blitFramebuffer(
           0,
@@ -194,9 +219,18 @@ export function createSurfaceRenderer(canvas, options = {}) {
         top.set(bottom.subarray(y * width * 4, (y + 1) * width * 4), (height - 1 - y) * width * 4);
       return top;
     },
-    dispose() {
+    dispose({ releaseContext = false } = {}) {
       if (disposed) return;
       disposed = true;
+      gl.useProgram(null);
+      gl.bindVertexArray(null);
+      gl.bindBuffer(gl.ARRAY_BUFFER, null);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.bindRenderbuffer(gl.RENDERBUFFER, null);
+      for (let unit = 0; unit < 3; unit++) {
+        gl.activeTexture(gl.TEXTURE0 + unit);
+        gl.bindTexture(gl.TEXTURE_2D, null);
+      }
       for (const b of buffers) gl.deleteBuffer(b);
       for (const t of textures) gl.deleteTexture(t);
       for (const s of shaders) gl.deleteShader(s);
@@ -204,6 +238,7 @@ export function createSurfaceRenderer(canvas, options = {}) {
       gl.deleteVertexArray(vao);
       gl.deleteFramebuffer(framebuffer);
       gl.deleteRenderbuffer(depth);
+      if (releaseContext) gl.getExtension('WEBGL_lose_context')?.loseContext();
     },
   };
 }

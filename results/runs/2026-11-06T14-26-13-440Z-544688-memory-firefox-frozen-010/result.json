@@ -1,0 +1,4634 @@
+{
+  "experiment": "010-surface-memory",
+  "status": "complete",
+  "engine": "firefox",
+  "variant": "frozen-010",
+  "settleMs": 15000,
+  "round": 0,
+  "baseline": {
+    "file": "experiments/baselines/surface-010.js",
+    "sha256": "2735339776c8bb9be96bb684fe21f98ded09fa58eb90d1368864afa6f82fea4f",
+    "sourceCommit": "65582131d3f61b51ad8fbf466efb8ec9d055e55e",
+    "mode": "tiled",
+    "note": "Immutable renderer baseline for paired memory/performance experiments; same 512x256 mesh and 1280x720 target."
+  },
+  "referenceDirectory": "results/runs/2026-11-06T13-43-34-404Z-474649-parity-manimgl",
+  "config": {
+    "name": "travelling-wave-torus",
+    "width": 1280,
+    "height": 720,
+    "uSegments": 512,
+    "vSegments": 256,
+    "frames": 48,
+    "rounds": 3,
+    "batchSize": 8,
+    "validationPhases": [
+      0,
+      0.7,
+      1.9,
+      3.4,
+      5.6
+    ],
+    "background": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "shading": [
+      0.3,
+      0.2,
+      0.4
+    ],
+    "imageLimits": {
+      "meanAbsoluteChannelError": 0.5,
+      "interiorP99ChannelError": 2,
+      "coverageMismatchFraction": 0.002,
+      "edgeRadiusPixels": 1
+    }
+  },
+  "checkpoints": [
+    {
+      "name": "blank-browser",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:26:40.516Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 142061568,
+              "pssBytes": 137455616,
+              "privateBytes": 137314304,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 522268672,
+              "pssBytes": 340376576,
+              "privateBytes": 299515904,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3651584,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 134144,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39258112,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19325952,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 114114560,
+              "pssBytes": 23793664,
+              "privateBytes": 15081472,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1437298688,
+            "pssBytes": 634207232,
+            "privateBytes": 541446144,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1295237120,
+            "pssBytes": 496751616,
+            "privateBytes": 404131840,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 18,
+            "readableSmaps": 18
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:26:40.729Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 142061568,
+              "pssBytes": 137455616,
+              "privateBytes": 137314304,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 553213952,
+              "pssBytes": 371278848,
+              "privateBytes": 330395648,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3651584,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 134144,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39258112,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19325952,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 114114560,
+              "pssBytes": 23793664,
+              "privateBytes": 15081472,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545741,
+              "ppid": 544688,
+              "name": "nvidia-smi",
+              "runner": false,
+              "browserProcess": false,
+              "unavailable": true,
+              "rssBytes": null
+            }
+          ],
+          "tree": {
+            "rssBytes": null,
+            "pssBytes": null,
+            "privateBytes": null,
+            "swapPssBytes": null
+          },
+          "browser": {
+            "rssBytes": 1326182400,
+            "pssBytes": 527653888,
+            "privateBytes": 435011584,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 19,
+            "readableSmaps": 18
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:26:41.047Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 142061568,
+              "pssBytes": 137455616,
+              "privateBytes": 137314304,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 553353216,
+              "pssBytes": 371365888,
+              "privateBytes": 330469376,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3648512,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 133120,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39258112,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19325952,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 114114560,
+              "pssBytes": 23793664,
+              "privateBytes": 15081472,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1468383232,
+            "pssBytes": 665192448,
+            "privateBytes": 572399616,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1326321664,
+            "pssBytes": 527736832,
+            "privateBytes": 435085312,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 18,
+            "readableSmaps": 18
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "scene-before-capture",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:26:41.456Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 142061568,
+              "pssBytes": 137448448,
+              "privateBytes": 137314304,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 558575616,
+              "pssBytes": 375693312,
+              "privateBytes": 334381056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3641344,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 134144,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39231488,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19317760,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 122314752,
+              "pssBytes": 28444672,
+              "privateBytes": 18780160,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1481805824,
+            "pssBytes": 674122752,
+            "privateBytes": 580009984,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1339744256,
+            "pssBytes": 536674304,
+            "privateBytes": 442695680,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 18,
+            "readableSmaps": 18
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:26:41.672Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 143122432,
+              "pssBytes": 138509312,
+              "privateBytes": 138375168,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 558718976,
+              "pssBytes": 375740416,
+              "privateBytes": 334393344,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3641344,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 134144,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39231488,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19317760,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 122314752,
+              "pssBytes": 28444672,
+              "privateBytes": 18780160,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1483010048,
+            "pssBytes": 675230720,
+            "privateBytes": 581083136,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1339887616,
+            "pssBytes": 536721408,
+            "privateBytes": 442707968,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 18,
+            "readableSmaps": 18
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:26:41.889Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 143122432,
+              "pssBytes": 138509312,
+              "privateBytes": 138375168,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 565047296,
+              "pssBytes": 381063168,
+              "privateBytes": 338968576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3641344,
+              "privateBytes": 540672,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544909,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2236416,
+              "pssBytes": 134144,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544910,
+              "ppid": 544909,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1310720,
+              "pssBytes": 117760,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544911,
+              "ppid": 544910,
+              "name": "glycin-image-rs",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 8138752,
+              "pssBytes": 3597312,
+              "privateBytes": 1523712,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4214784,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123695104,
+              "pssBytes": 39231488,
+              "privateBytes": 31285248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47562752,
+              "pssBytes": 7927808,
+              "privateBytes": 4333568,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100712448,
+              "pssBytes": 19317760,
+              "privateBytes": 12034048,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545057,
+              "ppid": 544756,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 2252800,
+              "pssBytes": 136192,
+              "privateBytes": 45056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545058,
+              "ppid": 545057,
+              "name": "bwrap",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 1314816,
+              "pssBytes": 119808,
+              "privateBytes": 49152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545059,
+              "ppid": 545058,
+              "name": "glycin-svg",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 17424384,
+              "pssBytes": 6609920,
+              "privateBytes": 5947392,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 122314752,
+              "pssBytes": 28441600,
+              "privateBytes": 18780160,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33509376,
+              "pssBytes": 3566592,
+              "privateBytes": 1617920,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79892480,
+              "pssBytes": 13309952,
+              "privateBytes": 8749056,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81846272,
+              "pssBytes": 15328256,
+              "privateBytes": 10776576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81580032,
+              "pssBytes": 15283200,
+              "privateBytes": 10752000,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1489338368,
+            "pssBytes": 680550400,
+            "privateBytes": 585658368,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1346215936,
+            "pssBytes": 542041088,
+            "privateBytes": 447283200,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 18,
+            "readableSmaps": 18
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "scene-after-rendering",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:02.574Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 143380480,
+              "pssBytes": 138774528,
+              "privateBytes": 138641408,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704544768,
+              "pssBytes": 518612992,
+              "privateBytes": 476176384,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7906304,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19089408,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123858944,
+              "pssBytes": 28724224,
+              "privateBytes": 19210240,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1597661184,
+            "pssBytes": 806064128,
+            "privateBytes": 715292672,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1454280704,
+            "pssBytes": 667289600,
+            "privateBytes": 576651264,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:02.787Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 143380480,
+              "pssBytes": 138774528,
+              "privateBytes": 138641408,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704544768,
+              "pssBytes": 518612992,
+              "privateBytes": 476176384,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7906304,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19089408,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123858944,
+              "pssBytes": 28724224,
+              "privateBytes": 19210240,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1597661184,
+            "pssBytes": 806064128,
+            "privateBytes": 715292672,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1454280704,
+            "pssBytes": 667289600,
+            "privateBytes": 576651264,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:03.006Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 143380480,
+              "pssBytes": 138774528,
+              "privateBytes": 138641408,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704544768,
+              "pssBytes": 518612992,
+              "privateBytes": 476176384,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7906304,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19089408,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123858944,
+              "pssBytes": 28724224,
+              "privateBytes": 19210240,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1597661184,
+            "pssBytes": 806064128,
+            "privateBytes": 715292672,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1454280704,
+            "pssBytes": 667289600,
+            "privateBytes": 576651264,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "scene-after-png-capture",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:03.575Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148123648,
+              "pssBytes": 143517696,
+              "privateBytes": 143384576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704847872,
+              "pssBytes": 518903808,
+              "privateBytes": 476479488,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128462848,
+              "pssBytes": 33120256,
+              "privateBytes": 23556096,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1607311360,
+            "pssBytes": 815496192,
+            "privateBytes": 724684800,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1459187712,
+            "pssBytes": 671978496,
+            "privateBytes": 581300224,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:03.812Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148123648,
+              "pssBytes": 143517696,
+              "privateBytes": 143384576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704847872,
+              "pssBytes": 518903808,
+              "privateBytes": 476479488,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128462848,
+              "pssBytes": 33120256,
+              "privateBytes": 23556096,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1607311360,
+            "pssBytes": 815496192,
+            "privateBytes": 724684800,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1459187712,
+            "pssBytes": 671978496,
+            "privateBytes": 581300224,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:04.056Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148123648,
+              "pssBytes": 143516672,
+              "privateBytes": 143384576,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704847872,
+              "pssBytes": 518901760,
+              "privateBytes": 476479488,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3627008,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4149248,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38248448,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7906304,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19089408,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128462848,
+              "pssBytes": 33120256,
+              "privateBytes": 23556096,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3544064,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13129728,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15148032,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1607311360,
+            "pssBytes": 815485952,
+            "privateBytes": 724684800,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1459187712,
+            "pssBytes": 671969280,
+            "privateBytes": 581300224,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "disposed",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:05.805Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148148224,
+              "pssBytes": 143542272,
+              "privateBytes": 143409152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704851968,
+              "pssBytes": 518906880,
+              "privateBytes": 476483584,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128561152,
+              "pssBytes": 33162240,
+              "privateBytes": 23588864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 546365,
+              "ppid": 544688,
+              "name": "nvidia-smi",
+              "runner": false,
+              "browserProcess": false,
+              "unavailable": true,
+              "rssBytes": null
+            }
+          ],
+          "tree": {
+            "rssBytes": null,
+            "pssBytes": null,
+            "privateBytes": null,
+            "swapPssBytes": null
+          },
+          "browser": {
+            "rssBytes": 1459290112,
+            "pssBytes": 672022528,
+            "privateBytes": 581337088,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 13,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:06.022Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148148224,
+              "pssBytes": 143542272,
+              "privateBytes": 143409152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704851968,
+              "pssBytes": 518906880,
+              "privateBytes": 476483584,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128561152,
+              "pssBytes": 33162240,
+              "privateBytes": 23588864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1607438336,
+            "pssBytes": 815564800,
+            "privateBytes": 724746240,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1459290112,
+            "pssBytes": 672022528,
+            "privateBytes": 581337088,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:06.254Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148148224,
+              "pssBytes": 143541248,
+              "privateBytes": 143409152,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 704851968,
+              "pssBytes": 518903808,
+              "privateBytes": 476483584,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3624960,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7906304,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19089408,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 128561152,
+              "pssBytes": 33161216,
+              "privateBytes": 23588864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3544064,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13129728,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1607438336,
+            "pssBytes": 815552512,
+            "privateBytes": 724746240,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1459290112,
+            "pssBytes": 672011264,
+            "privateBytes": 581337088,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "disposed-after-4-cycles",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:07.423Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148152320,
+              "pssBytes": 143546368,
+              "privateBytes": 143413248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 706904064,
+              "pssBytes": 520947712,
+              "privateBytes": 478535680,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 141975552,
+              "pssBytes": 46150656,
+              "privateBytes": 36483072,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1622908928,
+            "pssBytes": 830598144,
+            "privateBytes": 739696640,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1474756608,
+            "pssBytes": 687051776,
+            "privateBytes": 596283392,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:07.667Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148152320,
+              "pssBytes": 143546368,
+              "privateBytes": 143413248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 706904064,
+              "pssBytes": 520947712,
+              "privateBytes": 478535680,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 141975552,
+              "pssBytes": 46150656,
+              "privateBytes": 36483072,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1622908928,
+            "pssBytes": 830598144,
+            "privateBytes": 739696640,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1474756608,
+            "pssBytes": 687051776,
+            "privateBytes": 596283392,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:07.899Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148152320,
+              "pssBytes": 143546368,
+              "privateBytes": 143413248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 706904064,
+              "pssBytes": 520947712,
+              "privateBytes": 478535680,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 141975552,
+              "pssBytes": 46150656,
+              "privateBytes": 36483072,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1622908928,
+            "pssBytes": 830598144,
+            "privateBytes": 739696640,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1474756608,
+            "pssBytes": 687051776,
+            "privateBytes": 596283392,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "disposed-after-8-cycles",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:09.034Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148156416,
+              "pssBytes": 143550464,
+              "privateBytes": 143417344,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 715128832,
+              "pssBytes": 529172480,
+              "privateBytes": 486760448,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 154681344,
+              "pssBytes": 58856448,
+              "privateBytes": 49188864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1643843584,
+            "pssBytes": 851532800,
+            "privateBytes": 760631296,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1495687168,
+            "pssBytes": 707982336,
+            "privateBytes": 617213952,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:09.256Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 148156416,
+              "pssBytes": 143550464,
+              "privateBytes": 143417344,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 715128832,
+              "pssBytes": 529172480,
+              "privateBytes": 486760448,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 154681344,
+              "pssBytes": 58856448,
+              "privateBytes": 49188864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1643843584,
+            "pssBytes": 851532800,
+            "privateBytes": 760631296,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1495687168,
+            "pssBytes": 707982336,
+            "privateBytes": 617213952,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:09.549Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 149553152,
+              "pssBytes": 144947200,
+              "privateBytes": 144814080,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 715128832,
+              "pssBytes": 529172480,
+              "privateBytes": 486760448,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 154681344,
+              "pssBytes": 58856448,
+              "privateBytes": 49188864,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1645240320,
+            "pssBytes": 852929536,
+            "privateBytes": 762028032,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1495687168,
+            "pssBytes": 707982336,
+            "privateBytes": 617213952,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    },
+    {
+      "name": "disposed-after-12-cycles",
+      "samples": [
+        {
+          "createdAt": "2026-11-06T14:27:10.657Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 146567168,
+              "pssBytes": 141961216,
+              "privateBytes": 141828096,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 724291584,
+              "pssBytes": 538332160,
+              "privateBytes": 495923200,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 167575552,
+              "pssBytes": 71644160,
+              "privateBytes": 61952000,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1664311296,
+            "pssBytes": 871890944,
+            "privateBytes": 780967936,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1517744128,
+            "pssBytes": 729929728,
+            "privateBytes": 639139840,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:10.882Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 146567168,
+              "pssBytes": 141956096,
+              "privateBytes": 141819904,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 724291584,
+              "pssBytes": 538332160,
+              "privateBytes": 495923200,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 167575552,
+              "pssBytes": 71644160,
+              "privateBytes": 61952000,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 546516,
+              "ppid": 544688,
+              "name": "nvidia-smi",
+              "runner": false,
+              "browserProcess": false,
+              "unavailable": true,
+              "rssBytes": null
+            }
+          ],
+          "tree": {
+            "rssBytes": null,
+            "pssBytes": null,
+            "privateBytes": null,
+            "swapPssBytes": null
+          },
+          "browser": {
+            "rssBytes": 1517744128,
+            "pssBytes": 729929728,
+            "privateBytes": 639139840,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 13,
+            "readableSmaps": 12
+          }
+        },
+        {
+          "createdAt": "2026-11-06T14:27:11.098Z",
+          "processes": [
+            {
+              "pid": 544688,
+              "ppid": 21862,
+              "name": "node-MainThread",
+              "runner": true,
+              "browserProcess": false,
+              "rssBytes": 146567168,
+              "pssBytes": 141961216,
+              "privateBytes": 141828096,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544756,
+              "ppid": 544688,
+              "name": "firefox",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 724291584,
+              "pssBytes": 538332160,
+              "privateBytes": 495923200,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544899,
+              "ppid": 544756,
+              "name": "forkserver",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 36569088,
+              "pssBytes": 3628032,
+              "privateBytes": 544768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544917,
+              "ppid": 544899,
+              "name": "Socket Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 40808448,
+              "pssBytes": 4150272,
+              "privateBytes": 1785856,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544939,
+              "ppid": 544899,
+              "name": "WebExtensions",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 123060224,
+              "pssBytes": 38247424,
+              "privateBytes": 30584832,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 544951,
+              "ppid": 544899,
+              "name": "RDD Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 47579136,
+              "pssBytes": 7907328,
+              "privateBytes": 4349952,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545033,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 100798464,
+              "pssBytes": 19090432,
+              "privateBytes": 12058624,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545172,
+              "ppid": 544899,
+              "name": "Isolated Web Co",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 167575552,
+              "pssBytes": 71644160,
+              "privateBytes": 61952000,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545207,
+              "ppid": 544899,
+              "name": "Utility Process",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 33521664,
+              "pssBytes": 3545088,
+              "privateBytes": 1638400,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545216,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 79966208,
+              "pssBytes": 13130752,
+              "privateBytes": 8757248,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545219,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81920000,
+              "pssBytes": 15149056,
+              "privateBytes": 10784768,
+              "swapPssBytes": 0
+            },
+            {
+              "pid": 545388,
+              "ppid": 544899,
+              "name": "Web Content",
+              "runner": false,
+              "browserProcess": true,
+              "rssBytes": 81653760,
+              "pssBytes": 15105024,
+              "privateBytes": 10760192,
+              "swapPssBytes": 0
+            }
+          ],
+          "tree": {
+            "rssBytes": 1664311296,
+            "pssBytes": 871890944,
+            "privateBytes": 780967936,
+            "swapPssBytes": 0
+          },
+          "browser": {
+            "rssBytes": 1517744128,
+            "pssBytes": 729929728,
+            "privateBytes": 639139840,
+            "swapPssBytes": 0
+          },
+          "coverage": {
+            "total": 12,
+            "readableSmaps": 12
+          }
+        }
+      ],
+      "browserHeap": null
+    }
+  ],
+  "cases": [
+    {
+      "mode": "frozen-010",
+      "vertices": 131841,
+      "triangles": 262144,
+      "indexBytes": 3145728,
+      "gpuBufferBytes": 3145728,
+      "gpuTextureBytes": 7385120,
+      "uploadBytesPerFrame": 32,
+      "backend": "webgl2",
+      "gpuTimerAvailable": false,
+      "renderer": "Intel(R) HD Graphics, or similar",
+      "contextAttributes": {
+        "alpha": false,
+        "antialias": false,
+        "depth": true,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": true,
+        "stencil": false
+      },
+      "samples": [
+        {
+          "round": 0,
+          "firstFrame": 0,
+          "drainedMs": 0.7199999999997999,
+          "submissionMs": [
+            0.09999999999854481,
+            0.020000000000436557,
+            0,
+            0,
+            0.06000000000130967,
+            0,
+            0.020000000000436557,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 0,
+          "firstFrame": 8,
+          "drainedMs": 1.3949999999999818,
+          "submissionMs": [
+            0.09999999999854481,
+            0.040000000000873115,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 0,
+          "firstFrame": 16,
+          "drainedMs": 1.9075000000002547,
+          "submissionMs": [
+            0.12000000000261934,
+            0.01999999999679858,
+            0.020000000000436557,
+            0,
+            0.020000000000436557,
+            0,
+            0.020000000000436557,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 0,
+          "firstFrame": 24,
+          "drainedMs": 1.212500000000091,
+          "submissionMs": [
+            0.15999999999985448,
+            0.020000000000436557,
+            0,
+            0.020000000000436557,
+            0,
+            0.01999999999679858,
+            0,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 0,
+          "firstFrame": 32,
+          "drainedMs": 0.9825000000000728,
+          "submissionMs": [
+            0.13999999999941792,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 0,
+          "firstFrame": 40,
+          "drainedMs": 1.2824999999998,
+          "submissionMs": [
+            0.11999999999898137,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 0,
+          "drainedMs": 1.0299999999997453,
+          "submissionMs": [
+            0.13999999999941792,
+            0.020000000000436557,
+            0.020000000000436557,
+            0,
+            0.01999999999679858,
+            0,
+            0.020000000000436557,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 8,
+          "drainedMs": 1.3875000000002728,
+          "submissionMs": [
+            0.22000000000116415,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.020000000000436557,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 16,
+          "drainedMs": 1.4274999999997817,
+          "submissionMs": [
+            0.11999999999898137,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 24,
+          "drainedMs": 1.930000000000291,
+          "submissionMs": [
+            0.18000000000029104,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 32,
+          "drainedMs": 1.5824999999999818,
+          "submissionMs": [
+            0.12000000000261934,
+            0.020000000000436557,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.01999999999679858
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 1,
+          "firstFrame": 40,
+          "drainedMs": 2.5075000000001637,
+          "submissionMs": [
+            0.46000000000276486,
+            0.020000000000436557,
+            0.020000000000436557,
+            0.020000000000436557,
+            0.020000000000436557,
+            0.020000000000436557,
+            0.020000000000436557,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 0,
+          "drainedMs": 0.9850000000001273,
+          "submissionMs": [
+            0.09999999999854481,
+            0,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 8,
+          "drainedMs": 1.650000000000091,
+          "submissionMs": [
+            0.15999999999985448,
+            0,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 16,
+          "drainedMs": 1.7749999999996362,
+          "submissionMs": [
+            0.13999999999941792,
+            0,
+            0,
+            0,
+            0.01999999999679858,
+            0,
+            0,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 24,
+          "drainedMs": 1.4574999999999818,
+          "submissionMs": [
+            0.22000000000116415,
+            0,
+            0,
+            0.020000000000436557,
+            0,
+            0.020000000000436557,
+            0,
+            0
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 32,
+          "drainedMs": 2.2474999999999454,
+          "submissionMs": [
+            0.2599999999983993,
+            0.020000000000436557,
+            0.020000000000436557,
+            0,
+            0.020000000000436557,
+            0,
+            0,
+            0.020000000000436557
+          ],
+          "gpuMs": null
+        },
+        {
+          "round": 2,
+          "firstFrame": 40,
+          "drainedMs": 1.1774999999997817,
+          "submissionMs": [
+            0.23999999999796273,
+            0.020000000004074536,
+            0,
+            0,
+            0.01999999999679858,
+            0,
+            0,
+            0.020000000004074536
+          ],
+          "gpuMs": null
+        }
+      ],
+      "sustained": {
+        "startUnixMs": 1793975219504,
+        "endUnixMs": 1793975222507,
+        "frames": 1440,
+        "elapsedMs": 3002.8199999999997,
+        "note": "Continuous offscreen batches with synchronous readback; throughput is not displayed FPS."
+      }
+    }
+  ],
+  "errors": [],
+  "sourceHashes": {
+    "scripts/benchmarks/memory.mjs": "56260aa45f8c92e838d7855a2dcefa962e11e3cfa7bc24f00c98ba78953f4e53",
+    "scripts/lib/process-memory.mjs": "e5adfdb19a5d47aabdadba2d0c58b0668b7e56a402c1ddee2879360684bb5b47",
+    "scripts/lib/telemetry.mjs": "b2c57e0d17e7f39de88a0efc85c5daadcb2adb7fd86071c579610efb8396c9b9",
+    "scripts/lib/drm-stats.mjs": "c2c581f03f1b278a0c237768c377d3cfa0b05c420540c52110bcec8f1f3fef59",
+    "scripts/lib/browser.mjs": "1e5b17c7095a2391d46211d1848054a3c04706a7e27934550934c8a0dff2cdf6",
+    "scripts/lib/firefox-bidi.mjs": "eaecd6bb8b6931f96d15ff9aa9f46fdef53f1521cd2b920e22792140f410d8c4",
+    "scripts/lib/test-workspace.mjs": "08663799596bc1ea61cbd8bf5ab9be6993a9f5951d58cfafd8c169f55e0a6c49",
+    "experiments/baselines/surface-010.js": "2735339776c8bb9be96bb684fe21f98ded09fa58eb90d1368864afa6f82fea4f",
+    "experiments/baselines/surface-010.json": "245f6197179c97f74fff5bd7e87a9d6eeff9b70744aa34636411ec3b3089d0a6",
+    "experiments/parity/browser-suite.js": "18989974cbc3b638913ca910cb6778bff28d9040bc8b4d06962a87b866be7abb",
+    "experiments/parity/compare.py": "183e01f12f3c00620b0068b657f86d3a72bbda3e06a40df51b19b98ebacf2267",
+    "src/surface/model.js": "f6a7bb9b8b1ce6ba94f68f71b890ada7f357c1d5ee3783336b60f7da6d9cbf78",
+    "src/surface/shaders.js": "13ecabedeef5a60fd204d48b49de05023a4bf364013cf02aca3139c89f889591",
+    "src/surface/webgl2.js": "3a9ee69c68622560eb2d5df621142d6994424110a925360a8d1089fc4a833ff1",
+    "package-lock.json": "001580644dadf1366fbff59822a3a9cfdf37fced3c7eb3d802a69c81754ecbfc"
+  },
+  "windowPlacement": {
+    "workspace": 5,
+    "silent": true,
+    "windowClass": "manim-js-benchmark",
+    "rule": "hl.window_rule({ name = \"manim-js-benchmark\", match = { class = \"^manim-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+    "observedWorkspaces": [
+      5
+    ],
+    "activeWorkspace": 2
+  },
+  "browserVersion": "158.0.1",
+  "metadata": {
+    "mode": "tiled",
+    "vertices": 131841,
+    "triangles": 262144,
+    "indexBytes": 3145728,
+    "gpuBufferBytes": 3145728,
+    "gpuTextureBytes": 7385120,
+    "uploadBytesPerFrame": 32,
+    "backend": "webgl2",
+    "gpuTimerAvailable": false,
+    "renderer": "Intel(R) HD Graphics, or similar",
+    "contextAttributes": {
+      "alpha": false,
+      "antialias": false,
+      "depth": true,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "default",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": false
+    }
+  },
+  "parity": {
+    "passed": true,
+    "limits": {
+      "meanAbsoluteChannelError": 0.5,
+      "interiorP99ChannelError": 2,
+      "coverageMismatchFraction": 0.002,
+      "edgeRadiusPixels": 1
+    },
+    "frames": [
+      {
+        "mode": "frozen-010",
+        "phase": 0,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000016276041666666666,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": null
+      },
+      {
+        "mode": "frozen-010",
+        "phase": 0.7,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000015552662037037038,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 9.644114221643518
+      },
+      {
+        "mode": "frozen-010",
+        "phase": 1.9,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000016999421296296295,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 13.664990596064815
+      },
+      {
+        "mode": "frozen-010",
+        "phase": 3.4,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.00001808449074074074,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 13.616962528935185
+      },
+      {
+        "mode": "frozen-010",
+        "phase": 5.6,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000017722800925925927,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 16.163371672453703
+      }
+    ],
+    "note": "Pixel and silhouette gates plus nonempty output and change across animation times. Full-resolution PNGs are the evidence; contact sheets are previews."
+  }
+}

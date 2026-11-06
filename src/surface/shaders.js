@@ -6,6 +6,7 @@ export function surfaceVertexShader(mode) {
 precision highp float;
 precision highp int;
 uniform int nv;
+uniform int tilesV;
 uniform ivec2 shape;
 uniform float phase;
 uniform vec4 motion;
@@ -52,7 +53,12 @@ vec3 lit(vec3 color,vec3 p,vec3 normal) {
   return color;
 }
 void main() {
-  ivec2 rc=ivec2(gl_VertexID/nv,gl_VertexID%nv);
+  ${
+    mode === 'instanced'
+      ? `ivec2 rc=ivec2(gl_InstanceID/tilesV,gl_InstanceID%tilesV)*8+ivec2(gl_VertexID/9,gl_VertexID%9);
+  rc=min(rc,shape-1);`
+      : `ivec2 rc=ivec2(gl_VertexID/nv,gl_VertexID%nv);`
+  }
   vec3 p=pointAt(rc);
   vec3 du=pointAt(rc+ivec2(1,0))-pointAt(rc-ivec2(1,0));
   vec3 dv=pointAt(rc+ivec2(0,1))-pointAt(rc-ivec2(0,1));

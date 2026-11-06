@@ -8,7 +8,7 @@ A torus carries travelling radial waves and rotates in three dimensions. Both im
 
 The reference precomputes separable trigonometric factors, updates coordinates with vectorized NumPy operations, and calls `Camera.capture(surface)` directly. High-level scene playback, CLI startup, and video encoding are excluded. Its render bundles and batching remain enabled. The native GPU timestamp wrapper adds optional timestamp writes without changing rendering. WGPU timestamp ticks are multiplied by the native device's timestamp period.
 
-ManimJS moves parametric evaluation into the vertex shader. The `direct` mode evaluates trigonometry in the shader. `basis` uses compact one-dimensional tables and angle-addition identities. `tiled` uses the same basis shader and orders identical triangles in 8×8 blocks to improve vertex reuse. The tile ordering is independently tested to preserve the exact oriented triangle set. The general motivation for triangle locality is described in [meshoptimizer's vertex-cache documentation](https://github.com/zeux/meshoptimizer#vertex-cache-optimization); no meshoptimizer runtime or code is included.
+ManimJS moves parametric evaluation into the vertex shader. The `direct` mode evaluates trigonometry in the shader. `basis` uses compact one-dimensional tables and angle-addition identities. `tiled` uses the same basis shader and orders identical triangles in 8×8 blocks to improve vertex reuse. The newer default, `instanced`, reuses a single 8×8 patch with 16-bit indices and reconstructs each patch location from the instance ID. Partial edge patches clamp extra vertices to degenerate triangles. The tile ordering is independently tested to preserve the exact oriented triangle set. The general motivation for triangle locality is described in [meshoptimizer's vertex-cache documentation](https://github.com/zeux/meshoptimizer#vertex-cache-optimization); no meshoptimizer runtime or code is included.
 
 Projection, shading, and normal construction are adapted from ManimGL's MIT-licensed shaders. Attribution is preserved in source, the distribution banner, and [third-party notices](../THIRD_PARTY_NOTICES.md).
 
@@ -29,7 +29,7 @@ npm run report:parity
 
 ManimPango may require Pango/Cairo development headers. Use an existing checkout if `vendor/manimgl` already exists. `MANIM_JS_PYTHON` selects another Python environment. The reference explicitly selects an Intel adapter by default; `MANIM_JS_REFERENCE_ADAPTER` can select another adapter. Browser and native results must identify the same physical GPU for a same-device comparison.
 
-`--quick` is a smaller screening run, not the full workload. `--browser=chromium`, `--browser=firefox`, or `--browser=none` select browser comparisons or a native-only repeat. `--modes=direct,basis,tiled` compares all modes. The default compares `basis,tiled` with alternating order across three rounds.
+`--quick` is a smaller screening run, not the full workload. `--browser=chromium`, `--browser=firefox`, or `--browser=none` select browser comparisons or a native-only repeat. `--modes=direct,basis,tiled,instanced` compares all modes. The default compares `tiled,instanced` with alternating order across three rounds.
 
 ## Measurement scope
 
@@ -48,3 +48,13 @@ See [the generated report](../results/experiment-009.md) for metrics, resource s
 ## Single-file integration check
 
 `npm run build && npm run check:surface` loads the actual built bundle and HTML example in both browsers, captures three deterministic canvas frames, exercises playback controls, and verifies disposal. The recorded bundle captures were also compared against native reference phases 0, 0.7, and 3.4: every channel differed by at most one 8-bit value. [Combined visual preview](../results/parity-comparison.png).
+
+## Memory follow-up
+
+[Experiment 010](../results/experiment-010.md) freezes the earlier tiled renderer and compares it with instanced indices, leaner context attributes, direct canvas rendering, and terminal context disposal. Run `npm run bench:memory && npm run report:memory`. It reuses the committed native reference captures and camera; Python dependencies are still required for pixel comparisons. A fresh browser is used for every variant, with reversed order on the second pass.
+
+The logs retain three `/proc/PID/smaps_rollup` snapshots per checkpoint, browser-only and whole-tree RSS/PSS/private memory, JavaScript heap where exposed, CPU and DRM GPU samples, frame completion, errors, and five image comparisons. PNG capture occurs after active-scene RAM measurements. A 12-cycle creation/disposal check tests resource retention without forcing garbage collection. The 15-second Firefox follow-up separates startup noise from the initial 1.5-second protocol.
+
+The default remains offscreen rendering with instanced patches. Direct canvas rendering is opt-in; its explicit texture count excludes browser-owned framebuffer allocations. Capture the canvas synchronously after `render()` because preserved drawing buffers are disabled. `dispose({ releaseContext: true })` is intended for a canvas being permanently discarded. Ordinary `dispose()` retains context reuse.
+
+`npm run check:surface` additionally tests partial meshes against the frozen renderer, reusing a canvas after disposal, and explicit terminal context loss in both browsers.

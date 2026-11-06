@@ -55,13 +55,13 @@ export async function createWaveTorus(canvas, options = {}) {
       previous = undefined;
       loop.pause();
     },
-    dispose() {
+    dispose(options) {
       if (disposed) return;
       disposed = true;
       loop.dispose();
       observer?.disconnect();
       doc?.removeEventListener('visibilitychange', visibility);
-      renderer.dispose();
+      renderer.dispose(options);
     },
   };
 }

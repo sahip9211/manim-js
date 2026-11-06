@@ -56,6 +56,10 @@ It uses WebGL2 in both Firefox and Chromium. `set({ phase })`, `play()`, `pause(
 
 [ManimGL comparison and frame captures](results/experiment-009.md) document matching images, timing, and CPU/RAM/GPU measurements. On the recorded dense-torus workload, the tiled renderer completes frames about 13× faster in Chromium and 16× faster in Firefox even against the fastest full native repeat. These are offscreen throughput results, not displayed FPS or whole-library speedups. Browser process-tree RAM is higher despite smaller geometry buffers. [Reproduce the comparison](docs/manimgl-parity.md).
 
+The surface now reuses one 768-byte index patch instead of a 3 MiB index mesh. [Memory experiment 010](results/experiment-010.md) separates blank-browser overhead from scene allocations: Chromium scene-added PSS fell from 20.5 to 8.6 MiB in the paired runs, while total browser PSS fell about 3%. Firefox measurements include startup variation; the longer follow-up used less RAM but completed frames about 20% slower. `{ mode: 'tiled' }` remains available. Captured frames still match the ManimGL reference.
+
+Use `scene.dispose({ releaseContext: true })` when permanently discarding a surface canvas; ordinary `dispose()` lets you create another surface on the same canvas. Canvas captures must follow `scene.render(phase)` synchronously in the same task because the drawing buffer is not preserved. The default uses an offscreen render target; `{ renderTarget: 'canvas' }` on a fresh canvas is an explicit experimental alternative with different memory and timing behavior.
+
 ## Rendering and compatibility
 
 The grid uses WebGL2 by default. Pass `{ backend: 'webgpu' }` on a fresh canvas to explicitly select WebGPU where supported; it requires a secure context. Animation pauses when hidden or offscreen. Call `dispose()` to release a scene. Canvas resizing currently requires recreating the grid to recalculate its pixel-error budget. Lines are thin and un-antialiased.

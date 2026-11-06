@@ -62,3 +62,28 @@ test('the combined travelling wave and rotation close after four wave cycles', (
     b = torusPoint(0.7, 1.2, 8 * Math.PI);
   for (let i = 0; i < 3; i++) assert.ok(Math.abs(a[i] - b[i]) < 1e-6);
 });
+
+test('instanced patches preserve the complete mesh, including partial edge patches', () => {
+  const patch = surfaceIndices(9, 9);
+  const triangles = (indices) =>
+    Array.from({ length: indices.length / 3 }, (_, i) =>
+      Array.from(indices.slice(i * 3, i * 3 + 3)).join(','),
+    ).sort();
+  for (const [nu, nv] of [
+    [4, 4],
+    [20, 18],
+    [33, 17],
+  ]) {
+    const decoded = [];
+    for (let u = 0; u < nu - 1; u += 8)
+      for (let v = 0; v < nv - 1; v += 8)
+        for (let i = 0; i < patch.length; i += 3) {
+          const ids = Array.from(
+            patch.subarray(i, i + 3),
+            (id) => Math.min(u + Math.floor(id / 9), nu - 1) * nv + Math.min(v + (id % 9), nv - 1),
+          );
+          if (new Set(ids).size === 3) decoded.push(...ids);
+        }
+    assert.deepEqual(triangles(decoded), triangles(surfaceIndices(nu, nv)));
+  }
+});

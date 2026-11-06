@@ -9,12 +9,12 @@ const exec = promisify(execFile);
 const quick = process.argv.includes('--quick');
 const python = process.env.MANIM_JS_PYTHON ?? 'vendor/manimgl-venv/bin/python';
 const requested = process.argv.find((x) => x.startsWith('--browser='))?.slice(10) ?? 'both';
-const modes = (process.argv.find((x) => x.startsWith('--modes='))?.slice(8) ?? 'basis,tiled').split(
-  ',',
-);
+const modes = (
+  process.argv.find((x) => x.startsWith('--modes='))?.slice(8) ?? 'tiled,instanced'
+).split(',');
 if (
   !['both', 'chromium', 'firefox', 'none'].includes(requested) ||
-  modes.some((m) => !['direct', 'basis', 'tiled'].includes(m))
+  modes.some((m) => !['direct', 'basis', 'tiled', 'instanced'].includes(m))
 )
   throw new Error('Invalid browser or mode');
 const sourceFiles = [
