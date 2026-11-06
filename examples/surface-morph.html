@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManimJS — parametric surface transform</title>
+    <style>
+      body {
+        margin: 0;
+        background: #11131a;
+        color: #e7ebf3;
+        font:
+          16px system-ui,
+          sans-serif;
+        max-width: 1040px;
+        padding: 28px;
+        margin: auto;
+      }
+      canvas {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #000;
+        border-radius: 12px;
+      }
+      button,
+      input {
+        accent-color: #68c8ee;
+      }
+      button {
+        padding: 10px 20px;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      label {
+        display: block;
+        margin: 20px 0;
+      }
+      input {
+        width: min(600px, 80%);
+      }
+      p {
+        line-height: 1.6;
+        color: #adb7ca;
+      }
+      a {
+        color: #68c8ee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A surface becomes another surface</h1>
+    <p>
+      Drag through the transformation or play it. The same parameter grid connects both shapes,
+      including their colors.
+    </p>
+    <canvas
+      id="view"
+      width="1280"
+      height="720"
+      aria-label="A shaded torus morphing into a tilted, wavy surface"
+    ></canvas>
+    <label
+      >Progress <input id="progress" type="range" min="0" max="1" step="0.001" value="0"
+    /></label>
+    <button id="play" disabled>Play</button><button id="pause" disabled>Pause</button>
+    <p id="status">Loading…</p>
+    <script src="../dist/manim.js"></script>
+    <script>
+      const canvas = document.querySelector('#view');
+      const map = (u, v) => [
+        (2 + 0.6 * Math.cos(v)) * Math.cos(u),
+        (2 + 0.6 * Math.cos(v)) * Math.sin(u),
+        0.6 * Math.sin(v),
+      ];
+      const targetMap = (u, v) => {
+        const r = 0.65 + 0.15 * Math.sin(3 * u + 2 * v),
+          x = (1.8 + r * Math.cos(v)) * Math.cos(u),
+          y = (1.8 + r * Math.cos(v)) * Math.sin(u),
+          z = r * Math.sin(v) + 0.3 * Math.sin(2 * u);
+        return [x, 0.7 * y - 0.7 * z, 0.7 * y + 0.7 * z];
+      };
+      ManimJS.experimental
+        .createSurface(canvas, {
+          map,
+          targetMap,
+          uRange: [0, 2 * Math.PI],
+          vRange: [0, 2 * Math.PI],
+          uSegments: 256,
+          vSegments: 128,
+          color: [0.2, 0.65, 0.9],
+          targetColor: [0.95, 0.45, 0.65],
+          duration: 4,
+        })
+        .then((scene) => {
+          document.querySelector('#play').disabled = false;
+          document.querySelector('#pause').disabled = false;
+          let controlFrame = null;
+          const syncProgress = () => {
+            controlFrame = null;
+            document.querySelector('#progress').value = scene.progress;
+            if (scene.playing) controlFrame = requestAnimationFrame(syncProgress);
+          };
+          document.querySelector('#play').onclick = () => {
+            scene.play();
+            if (controlFrame === null) syncProgress();
+          };
+          document.querySelector('#pause').onclick = () => {
+            scene.pause();
+            if (controlFrame !== null) cancelAnimationFrame(controlFrame);
+            controlFrame = null;
+            syncProgress();
+          };
+          document.querySelector('#progress').oninput = (e) => {
+            scene.pause();
+            scene.seek(Number(e.target.value));
+          };
+          document.querySelector('#status').textContent =
+            'Drag to seek. Playback uses smooth easing and stops at the target.';
+        })
+        .catch((error) => (document.querySelector('#status').textContent = error.message));
+    </script>
+  </body>
+</html>

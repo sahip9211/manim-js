@@ -1,3 +1,6 @@
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+const exec = promisify(execFile);
 import { writeFile, readFile } from 'node:fs/promises';
 import { openBrowser } from '../lib/browser.mjs';
 import { startTelemetry } from '../lib/telemetry.mjs';
@@ -22,7 +25,7 @@ for (const engine of ['chromium', 'firefox']) {
       canvas.height = 720;
       document.body.replaceChildren(canvas);
       const scene = await ManimJS.experimental.createWaveTorus(canvas);
-      if (scene.metadata.indexBytes !== 768) throw new Error('Instanced default not active');
+      if (scene.metadata.indexBytes !== 12288) throw new Error('Instanced default not active');
       const captures = [];
       for (const phase of [0, 0.7, 3.4]) {
         scene.render(phase);
@@ -116,6 +119,77 @@ for (const engine of ['chromium', 'firefox']) {
       'canvas context reuse, incompatible target rejection and terminal context release',
       'partial instanced meshes match frozen renderer in both targets',
     ];
+    await session.page.goto('https://manim-js.test/examples/surface-morph.html');
+    await session.page.waitForFunction(
+      () => document.querySelector('#status').textContent !== 'Loading…',
+    );
+    if (!(await session.page.locator('#play').isEnabled()))
+      throw new Error('Morph example did not initialize');
+    await session.page.locator('#play').click();
+    await session.page.locator('#pause').click();
+    result.referenceDirectory = 'results/runs/2026-11-06T15-13-06-441Z-623413-morph-manimgl';
+    const reference = JSON.parse(await readFile(`${result.referenceDirectory}/result.json`));
+    result.config = reference.config;
+    result.cases = [{ mode: 'bundle' }];
+    const morph = await session.page.evaluate(async (config) => {
+      const { morphOptions } = await import('/experiments/parity/morph-suite.js');
+      const canvas = document.createElement('canvas');
+      canvas.width = config.width;
+      canvas.height = config.height;
+      document.body.replaceChildren(canvas);
+      const scene = await ManimJS.experimental.createSurface(canvas, {
+        ...morphOptions(config),
+        easing: 'linear',
+      });
+      const captures = [];
+      for (const alpha of config.validationPhases) {
+        scene.seek(alpha);
+        captures.push(canvas.toDataURL('image/png').split(',')[1]);
+      }
+      scene.play();
+      scene.pause();
+      scene.seek(0.5);
+      const metadata = scene.metadata;
+      scene.dispose();
+      scene.dispose();
+      let rejectsDisposed = false;
+      try {
+        scene.seek(0);
+      } catch {
+        rejectsDisposed = true;
+      }
+      if (!rejectsDisposed) throw new Error('Disposed morph accepted seek');
+      const staticSurface = await ManimJS.experimental.createSurface(canvas, {
+        map: (u, v) => [u, v, 0],
+        uSegments: 3,
+        vSegments: 3,
+      });
+      const expected = 4 * 4 * 16 + config.width * config.height * 8;
+      if (staticSurface.metadata.gpuTextureBytes !== expected)
+        throw new Error('Static surface did not share endpoint texture');
+      staticSurface.seek(0);
+      staticSurface.dispose({ releaseContext: true });
+      if (!canvas.getContext('webgl2').isContextLost())
+        throw new Error('Morph context not released');
+      return { captures, metadata };
+    }, reference.config);
+    for (let i = 0; i < morph.captures.length; i++)
+      await writeFile(
+        `${telemetry.directory}/bundle-${i}.png`,
+        Buffer.from(morph.captures[i], 'base64'),
+      );
+    result.morphMetadata = morph.metadata;
+    result.checks.push(
+      'public parametric Surface API and five native-reference progress captures',
+      'morph example controls',
+      'static endpoint texture sharing and canvas reuse',
+    );
+    await writeFile(`${telemetry.directory}/result.json`, JSON.stringify(result, null, 2) + '\n');
+    await exec(process.env.MANIM_JS_PYTHON ?? 'vendor/manimgl-venv/bin/python', [
+      'experiments/parity/compare.py',
+      telemetry.directory,
+    ]);
+    result.parity = JSON.parse(await readFile(`${telemetry.directory}/parity.json`));
     result.bundleManifest = JSON.parse(await readFile('dist/manifest.json'));
     result.windowPlacement = session.placement;
     result.browserVersion = session.browser.version();

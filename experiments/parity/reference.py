@@ -15,23 +15,26 @@ import time
 parser = argparse.ArgumentParser()
 parser.add_argument('--output', required=True)
 parser.add_argument('--quick', action='store_true')
+parser.add_argument('--morph', action='store_true')
 args = parser.parse_args()
 # ManimGL parses argv when imported; the benchmark options belong to this runner.
 sys.argv = [sys.argv[0]]
 import numpy as np
 import wgpu
 from wgpu.backends.wgpu_native._ffi import lib
-from manimlib import Camera, Surface
+from manimlib import Camera, Surface, Transform, linear
 from manimlib.renderer.gpu import RenderPass
 
 root = Path(__file__).resolve().parents[2]
 config = json.loads((root / 'experiments/parity/workload.json').read_text())
+if args.morph:
+    config.update(validationPhases=[0, .2, .5, .8, 1])
 if args.quick:
     config.update(uSegments=128, vSegments=64, frames=16, rounds=1)
 output = Path(args.output)
 output.mkdir(parents=True, exist_ok=True)
 started = time.perf_counter()
-report = dict(experiment='009-manim-parity', engine='manimgl', status='running',
+report = dict(experiment='012-surface-morph' if args.morph else '009-manim-parity', engine='manimgl', status='running',
               config=config, samples=[], errors=[], frames=[])
 
 # Explicitly use the same integrated GPU used by the browser benchmark.
@@ -58,6 +61,8 @@ colors[..., 0] = 0.25 + 0.3 * (cu + 1)
 colors[..., 1] = 0.35 + 0.15 * (sv + 1)
 colors[..., 2] = 0.8
 colors[..., 3] = 1
+if args.morph:
+    colors[..., :3] = np.floor(colors[..., :3] * 255 + .5) / 255
 
 def geometry(phase):
     sp, cp = np.sin(phase), np.cos(phase)
@@ -79,6 +84,25 @@ class WaveSurface(Surface):
 try:
     surface = WaveSurface(resolution=(nu, nv), shading=tuple(config['shading']))
     surface.set_rgba_array(colors.reshape((-1, 4)))
+    if args.morph:
+        target = surface.copy()
+        target.set_points(geometry(2.8).copy())
+        target_colors = colors.copy()
+        target_colors[..., :3] = np.floor((1 - colors[..., :3]) * 255 + .5) / 255
+        target.set_rgba_array(target_colors.reshape((-1, 4)))
+        transform = Transform(surface, target, rate_func=linear)
+        transform.begin()
+    def set_phase(phase):
+        if args.morph:
+            transform.interpolate(phase)
+        else:
+            surface.set_points(geometry(phase))
+    def parameter(frame):
+        return (1 if args.morph else 2*np.pi) * frame / config['frames']
+    def oracle(phase):
+        set_phase(phase)
+        return surface.get_points()
+    report['animation'] = 'Transform(Surface, target, rate_func=linear)' if args.morph else 'procedural wave'
     camera = Camera(resolution=(config['width'], config['height']), samples=0)
     # Match a closer framing while keeping the native perspective model.
     camera.frame.set_height(6)
@@ -110,18 +134,18 @@ try:
         camera.gpu.render_pass = timed_pass
 
     for phase in [0, .3, .6]:
-        surface.set_points(geometry(phase))
+        set_phase(phase)
         camera.capture(surface)
     queue.on_submitted_work_done_sync()
     report['setupMs'] = (time.perf_counter()-started)*1000
     for i, phase in enumerate(config['validationPhases']):
-        surface.set_points(geometry(phase))
+        set_phase(phase)
         camera.capture(surface)
         camera.get_image().save(output / f'reference-{i}.png')
         report['frames'].append(dict(phase=phase, png=f'reference-{i}.png'))
     # Small coordinate oracle, including seam and interior samples.
     ids = np.unique(np.linspace(0, nu*nv-1, 137).astype(int))
-    report['geometryChecks'] = [dict(phase=p, indices=ids.tolist(), points=geometry(p)[ids].tolist()) for p in config['validationPhases']]
+    report['geometryChecks'] = [dict(phase=p, indices=ids.tolist(), points=oracle(p)[ids].tolist()) for p in config['validationPhases']]
     for round_index in range(config['rounds']):
         for start in range(0, config['frames'], batch):
             query_index = 0
@@ -130,7 +154,7 @@ try:
             updates, submissions = [], []
             for f in range(start, start+batch):
                 tick = time.perf_counter()
-                surface.set_points(geometry(2*np.pi*f/config['frames']))
+                set_phase(parameter(f))
                 updated = time.perf_counter()
                 camera.capture(surface)
                 submitted = time.perf_counter()
@@ -155,12 +179,13 @@ try:
     sustained_frames = 0
     while time.perf_counter()-sustained_start < (1 if args.quick else 3):
         for _ in range(batch):
-            surface.set_points(geometry(2*np.pi*(sustained_frames % config['frames'])/config['frames']))
+            set_phase(parameter(sustained_frames % config['frames']))
             camera.capture(surface)
             sustained_frames += 1
         queue.on_submitted_work_done_sync()
     report['sustained'] = dict(startUnixMs=sustained_unix_ms,endUnixMs=time.time()*1000,frames=sustained_frames,elapsedMs=(time.perf_counter()-sustained_start)*1000,processCPUMs=(time.process_time()-sustained_cpu)*1000)
     report['gpuTextureBytes'] = config['width']*config['height']*8
+    report['retainedSurfaceDataBytes'] = sum(mob.data.array.nbytes for mob in ([surface, target, transform.starting_mobject] if args.morph else [surface]))
     report['cpuGeometryBytes'] = points.nbytes + colors.nbytes + sum(a.nbytes for a in [u,v,cu,su,cv,sv,s3,c3,s6v,c6v])
     report['gpuBufferBytes'] = sum(b.buffer.size for b in camera.gpu.shared_buffers.values()) + camera.gpu.frame_buffer.size
     report['peakProcessRSSBytes'] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024

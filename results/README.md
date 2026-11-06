@@ -23,6 +23,10 @@ Regenerate aggregate tables with `npm run report:runs`, `npm run report:optimiza
 
 [Experiment 010](experiment-010.md) compares the frozen tiled renderer with instanced patches and direct canvas rendering. It separates blank-browser overhead from scene allocations using RSS, PSS, private memory, and repeated disposal checkpoints. Run `npm run report:memory` to regenerate the report.
 
+## Surface performance and feature parity
+
+[Experiment 011](experiment-011.md) tests patch sizes and factored discrete normals against the frozen memory-optimized renderer. [Experiment 012](experiment-012.md) adds general parametric surfaces and same-grid morphs compared with native ManimGL `Transform`. Run `npm run report:surfaces` to regenerate both reports.
+
 ## Interpreting the data
 
 GPU pass times, CPU submission time, queue completion, and displayed-frame latency are different measurements. Whole-run memory/CPU values include setup, validation, and sampling. Process-tree RSS may count shared pages more than once. GPU buffer accounting excludes driver allocations. Unavailable counters are null, not zero. Experimental WebGPU settings and background-workspace measurements are labeled in each run.

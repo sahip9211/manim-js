@@ -2,7 +2,7 @@
 
 Mathematical graphics and animation for the browser, inspired by [ManimGL](https://github.com/3b1b/manim). ManimJS uses its own renderer and ships as a self-contained JavaScript file with no runtime dependencies.
 
-**Early research prototype.** The current API provides a frame scheduler, an experimental animated grid, and a shaded animated torus. A general scene API, text, equations, and a complete animation system are still under development. Python ManimGL scenes cannot run directly in this library.
+**Early research prototype.** The current API provides a frame scheduler, an experimental animated grid, a shaded animated torus, and user-defined parametric surface morphs. A general scene API, text, equations, and a complete animation system are still under development. Python ManimGL scenes cannot run directly in this library.
 
 ## Try it
 
@@ -56,9 +56,30 @@ It uses WebGL2 in both Firefox and Chromium. `set({ phase })`, `play()`, `pause(
 
 [ManimGL comparison and frame captures](results/experiment-009.md) document matching images, timing, and CPU/RAM/GPU measurements. On the recorded dense-torus workload, the tiled renderer completes frames about 13× faster in Chromium and 16× faster in Firefox even against the fastest full native repeat. These are offscreen throughput results, not displayed FPS or whole-library speedups. Browser process-tree RAM is higher despite smaller geometry buffers. [Reproduce the comparison](docs/manimgl-parity.md).
 
-The surface now reuses one 768-byte index patch instead of a 3 MiB index mesh. [Memory experiment 010](results/experiment-010.md) separates blank-browser overhead from scene allocations: Chromium scene-added PSS fell from 20.5 to 8.6 MiB in the paired runs, while total browser PSS fell about 3%. Firefox measurements include startup variation; the longer follow-up used less RAM but completed frames about 20% slower. `{ mode: 'tiled' }` remains available. Captured frames still match the ManimGL reference.
+The current torus uses a reusable 12 KiB index patch and factored discrete normals. [Experiment 011](results/experiment-011.md) measured about 11% lower completion time in Chromium and 4% in Firefox in the longer-batch follow-up, with matching images. The patch adds 11 KiB over the previous 768-byte default while remaining 256× smaller than the original 3 MiB index mesh. [Experiment 010](results/experiment-010.md) preserves the earlier memory measurements and their browser-overhead caveats.
 
 Use `scene.dispose({ releaseContext: true })` when permanently discarding a surface canvas; ordinary `dispose()` lets you create another surface on the same canvas. Canvas captures must follow `scene.render(phase)` synchronously in the same task because the drawing buffer is not preserved. The default uses an offscreen render target; `{ renderTarget: 'canvas' }` on a fresh canvas is an explicit experimental alternative with different memory and timing behavior.
+
+## Parametric surfaces and morphing
+
+[The surface morph example](examples/surface-morph.html) provides playback and a progress slider. Define your own maps and interpolate them on the GPU:
+
+```js
+const surface = await ManimJS.experimental.createSurface(canvas, {
+  map: (u, v) => [u, v, 0],
+  targetMap: (u, v) => [u, v, Math.sin(u) * Math.cos(v)],
+  uRange: [-2, 2],
+  vRange: [-1.5, 1.5],
+  duration: 3,
+});
+surface.play();
+// surface.pause();
+// surface.seek(0.5);
+```
+
+Endpoint maps run once during creation. Each rendered frame uploads one alpha float; interpolation and normals run on the GPU. Static surfaces share a single endpoint texture. Playback stops when complete or hidden. The API currently supports opaque, same-grid straight-path transforms with linear or smooth easing. [Feature coverage and API details](docs/feature-parity.md) explain the implemented subset and remaining gaps.
+
+[Experiment 012](results/experiment-012.md) compares the actual native ManimGL `Transform` with the JavaScript implementation, including five image comparisons, timing and resource statistics. These results apply to the recorded workload, not full-library parity.
 
 ## Rendering and compatibility
 

@@ -1,0 +1,247 @@
+{
+  "engine": "firefox",
+  "status": "passed",
+  "checks": [
+    "standalone classic-script load",
+    "example initialization and controls",
+    "three distinct deterministic canvas captures",
+    "play, pause, set and render",
+    "idempotent disposal and rejection after disposal",
+    "canvas context reuse, incompatible target rejection and terminal context release",
+    "partial instanced meshes match frozen renderer in both targets",
+    "public parametric Surface API and five native-reference progress captures",
+    "morph example controls",
+    "static endpoint texture sharing and canvas reuse"
+  ],
+  "errors": [],
+  "partialMeshes": [
+    {
+      "uSegments": 3,
+      "vSegments": 3,
+      "renderTarget": "offscreen",
+      "maxError": 0
+    },
+    {
+      "uSegments": 3,
+      "vSegments": 3,
+      "renderTarget": "canvas",
+      "maxError": 0
+    },
+    {
+      "uSegments": 19,
+      "vSegments": 17,
+      "renderTarget": "offscreen",
+      "maxError": 1
+    },
+    {
+      "uSegments": 19,
+      "vSegments": 17,
+      "renderTarget": "canvas",
+      "maxError": 1
+    },
+    {
+      "uSegments": 32,
+      "vSegments": 16,
+      "renderTarget": "offscreen",
+      "maxError": 0
+    },
+    {
+      "uSegments": 32,
+      "vSegments": 16,
+      "renderTarget": "canvas",
+      "maxError": 0
+    }
+  ],
+  "referenceDirectory": "results/runs/2026-11-06T15-13-06-441Z-623413-morph-manimgl",
+  "config": {
+    "name": "travelling-wave-torus",
+    "width": 1280,
+    "height": 720,
+    "uSegments": 512,
+    "vSegments": 256,
+    "frames": 48,
+    "rounds": 3,
+    "batchSize": 8,
+    "validationPhases": [
+      0,
+      0.2,
+      0.5,
+      0.8,
+      1
+    ],
+    "background": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "shading": [
+      0.3,
+      0.2,
+      0.4
+    ],
+    "imageLimits": {
+      "meanAbsoluteChannelError": 0.5,
+      "interiorP99ChannelError": 2,
+      "coverageMismatchFraction": 0.002,
+      "edgeRadiusPixels": 1
+    }
+  },
+  "cases": [
+    {
+      "mode": "bundle"
+    }
+  ],
+  "morphMetadata": {
+    "mode": "instanced",
+    "renderTarget": "offscreen",
+    "vertices": 131841,
+    "triangles": 262144,
+    "instanceCount": 128,
+    "patchSize": 32,
+    "geometry": "sampled",
+    "normalMode": "difference",
+    "indexBytes": 12288,
+    "gpuBufferBytes": 12288,
+    "gpuTextureBytes": 11591712,
+    "defaultFramebufferDepthBits": 0,
+    "uploadBytesPerFrame": 4,
+    "backend": "webgl2",
+    "gpuTimerAvailable": false,
+    "renderer": "Intel(R) HD Graphics, or similar",
+    "experimental": true
+  },
+  "parity": {
+    "passed": true,
+    "limits": {
+      "meanAbsoluteChannelError": 0.5,
+      "interiorP99ChannelError": 2,
+      "coverageMismatchFraction": 0.002,
+      "edgeRadiusPixels": 1
+    },
+    "frames": [
+      {
+        "mode": "bundle",
+        "phase": 0,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.00008174189814814814,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": null
+      },
+      {
+        "mode": "bundle",
+        "phase": 0.2,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000055338541666666664,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 10.425471643518518
+      },
+      {
+        "mode": "bundle",
+        "phase": 0.5,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.000006510416666666667,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 11.137727141203703
+      },
+      {
+        "mode": "bundle",
+        "phase": 0.8,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.00005714699074074074,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 9.866677155671296
+      },
+      {
+        "mode": "bundle",
+        "phase": 1,
+        "passed": true,
+        "nonempty": true,
+        "meanAbsoluteChannelError": 0.00009150752314814815,
+        "maxChannelError": 1,
+        "interiorP99ChannelError": 0,
+        "coverageMismatchFraction": 0,
+        "motionFromPreviousMeanError": 8.079509910300926
+      }
+    ],
+    "note": "Pixel and silhouette gates plus nonempty output and change across animation times. Full-resolution PNGs are the evidence; contact sheets are previews."
+  },
+  "bundleManifest": {
+    "createdAt": "2026-11-06T15:20:43.218Z",
+    "outputs": [
+      {
+        "path": "dist/manim.js",
+        "bytes": 28200,
+        "gzipBytes": 10851,
+        "brotliBytes": 9468,
+        "sha256": "d5ed9849626200574aa243335c8ede5928817bac6aafa59fbeaca3f86f3930b9",
+        "inputs": [
+          "src/frame-loop.js",
+          "experiments/grid/model.js",
+          "experiments/representation/model.js",
+          "experiments/representation/webgpu.js",
+          "experiments/representation/webgl2.js",
+          "src/experimental-grid.js",
+          "src/surface/model.js",
+          "src/surface/shaders.js",
+          "src/surface/webgl2.js",
+          "src/experimental-surface.js",
+          "src/surface/sample.js",
+          "src/surface/playback.js",
+          "src/experimental-parametric-surface.js",
+          "src/experimental.js",
+          "src/index.js"
+        ],
+        "externalImports": 0
+      },
+      {
+        "path": "dist/manim.module.js",
+        "bytes": 27821,
+        "gzipBytes": 10686,
+        "brotliBytes": 9316,
+        "sha256": "d1cdf500ecc9f02830540b3922a8c83383ee5a57387c9b591dd75eda65bfd404",
+        "inputs": [
+          "src/frame-loop.js",
+          "experiments/grid/model.js",
+          "experiments/representation/model.js",
+          "experiments/representation/webgpu.js",
+          "experiments/representation/webgl2.js",
+          "src/experimental-grid.js",
+          "src/surface/model.js",
+          "src/surface/shaders.js",
+          "src/surface/webgl2.js",
+          "src/experimental-surface.js",
+          "src/surface/sample.js",
+          "src/surface/playback.js",
+          "src/experimental-parametric-surface.js",
+          "src/experimental.js",
+          "src/index.js"
+        ],
+        "externalImports": 0
+      }
+    ]
+  },
+  "windowPlacement": {
+    "workspace": 5,
+    "silent": true,
+    "windowClass": "manim-js-benchmark",
+    "rule": "hl.window_rule({ name = \"manim-js-benchmark\", match = { class = \"^manim-js-benchmark$\" }, workspace = \"5 silent\", no_initial_focus = true, focus_on_activate = false, suppress_event = \"activate activatefocus\" })",
+    "observedWorkspaces": [
+      5
+    ],
+    "activeWorkspace": 1
+  },
+  "browserVersion": "158.0.1"
+}

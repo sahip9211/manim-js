@@ -6,6 +6,14 @@ export function createSurfaceRenderer(canvas, options = {}) {
     mode = options.mode ?? 'instanced';
   if (!['direct', 'basis', 'tiled', 'instanced'].includes(mode))
     throw new RangeError('Unknown surface mode');
+  const sampled = !!options.geometry;
+  const factored = (options.normalMode ?? (sampled ? 'difference' : 'factored')) === 'factored';
+  if (options.normalMode !== undefined && !['difference', 'factored'].includes(options.normalMode))
+    throw new RangeError('Unknown normal mode');
+  if (sampled && (options.geometry.nu !== nu || options.geometry.nv !== nv))
+    throw new RangeError('Surface geometry dimensions differ');
+  const patchSize = options.patchSize ?? (Math.min(nu, nv) >= 33 ? 32 : 8);
+  if (![8, 16, 32, 64].includes(patchSize)) throw new RangeError('Invalid patch size');
   const renderTarget = options.renderTarget ?? 'offscreen';
   if (!['offscreen', 'canvas'].includes(renderTarget))
     throw new RangeError('Unknown render target');
@@ -35,7 +43,10 @@ export function createSurfaceRenderer(canvas, options = {}) {
     return s;
   };
   const program = gl.createProgram();
-  gl.attachShader(program, compile(gl.VERTEX_SHADER, surfaceVertexShader(mode)));
+  gl.attachShader(
+    program,
+    compile(gl.VERTEX_SHADER, surfaceVertexShader(mode, patchSize, { sampled, factored })),
+  );
   gl.attachShader(program, compile(gl.FRAGMENT_SHADER, surfaceFragmentShader));
   gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS))
@@ -49,6 +60,8 @@ export function createSurfaceRenderer(canvas, options = {}) {
       'phase',
       'motion',
       'spin',
+      'uStep',
+      'vStep',
       'view',
       'rescale',
       'cameraPosition',
@@ -60,10 +73,10 @@ export function createSurfaceRenderer(canvas, options = {}) {
   const vao = gl.createVertexArray();
   gl.bindVertexArray(vao);
   const instanced = mode === 'instanced';
-  const tilesV = Math.ceil((nv - 1) / 8);
-  const instanceCount = instanced ? Math.ceil((nu - 1) / 8) * tilesV : 1;
+  const tilesV = Math.ceil((nv - 1) / patchSize);
+  const instanceCount = instanced ? Math.ceil((nu - 1) / patchSize) * tilesV : 1;
   const indices = instanced
-      ? new Uint16Array(surfaceIndices(9, 9))
+      ? new Uint16Array(surfaceIndices(patchSize + 1, patchSize + 1, 8))
       : surfaceIndices(nu, nv, mode === 'tiled' ? 8 : 0),
     index = gl.createBuffer();
   buffers.push(index);
@@ -73,6 +86,11 @@ export function createSurfaceRenderer(canvas, options = {}) {
     ['u', nu, 0],
     ['v', nv, 1],
   ]) {
+    if (sampled && unit === 1 && options.geometry.end === options.geometry.start) {
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, textures[0]);
+      continue;
+    }
     const texture = gl.createTexture();
     textures.push(texture);
     gl.activeTexture(gl.TEXTURE0 + unit);
@@ -83,14 +101,19 @@ export function createSurfaceRenderer(canvas, options = {}) {
       gl.TEXTURE_2D,
       0,
       gl.RGBA32F,
-      count,
-      1,
+      sampled ? nv : count,
+      sampled ? nu : 1,
       0,
       gl.RGBA,
       gl.FLOAT,
-      surfaceBasis(count, axis),
+      sampled ? options.geometry[unit === 0 ? 'start' : 'end'] : surfaceBasis(count, axis),
     );
   }
+  const hu = (2 * Math.PI) / (nu - 1),
+    hv = (2 * Math.PI) / (nv - 1);
+  gl.uniform4f(uniform.uStep, Math.cos(hu), Math.sin(hu), Math.sin(3 * hu), Math.sin(6 * hu));
+  gl.uniform4f(uniform.vStep, Math.cos(hv), Math.sin(hv), Math.sin(2 * hv), Math.cos(2 * hv));
+  const geometryTextureBytes = sampled ? options.geometry.cpuBytes : (nu + nv) * 16;
   gl.uniform1i(uniform.basisU, 0);
   gl.uniform1i(uniform.basisV, 1);
   gl.uniform1i(uniform.nv, nv);
@@ -150,11 +173,15 @@ export function createSurfaceRenderer(canvas, options = {}) {
       vertices: nu * nv,
       triangles: (nu - 1) * (nv - 1) * 2,
       instanceCount,
+      patchSize,
+      geometry: sampled ? 'sampled' : 'wave-torus',
+      normalMode: factored && !sampled ? 'factored' : 'difference',
       indexBytes,
       gpuBufferBytes: indexBytes,
-      gpuTextureBytes: (nu + nv) * 16 + (renderTarget === 'offscreen' ? width * height * 8 : 0),
+      gpuTextureBytes:
+        geometryTextureBytes + (renderTarget === 'offscreen' ? width * height * 8 : 0),
       defaultFramebufferDepthBits,
-      uploadBytesPerFrame: 32,
+      uploadBytesPerFrame: sampled ? 4 : 28,
       backend: 'webgl2',
       gpuTimerAvailable: !!ext,
       renderer: gl.getParameter(gl.RENDERER),
@@ -162,13 +189,17 @@ export function createSurfaceRenderer(canvas, options = {}) {
     draw(phase, { present = true, query = null } = {}) {
       check();
       if (!Number.isFinite(phase)) throw new RangeError('Expected finite phase');
+      if (sampled && (phase < 0 || phase > 1))
+        throw new RangeError('Expected morph alpha between zero and one');
       gl.useProgram(program);
       gl.bindVertexArray(vao);
       gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
       gl.viewport(0, 0, width, height);
       gl.uniform1f(uniform.phase, phase);
-      gl.uniform4f(uniform.motion, Math.sin(phase), Math.cos(phase), 0, 0);
-      gl.uniform2f(uniform.spin, Math.sin(0.25 * phase), Math.cos(0.25 * phase));
+      if (!sampled) {
+        gl.uniform4f(uniform.motion, Math.sin(phase), Math.cos(phase), 0, 0);
+        gl.uniform2f(uniform.spin, Math.sin(0.25 * phase), Math.cos(0.25 * phase));
+      }
       if (query) gl.beginQuery(ext.TIME_ELAPSED_EXT, query);
       gl.clearColor(0, 0, 0, 1);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);

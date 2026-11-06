@@ -64,26 +64,30 @@ test('the combined travelling wave and rotation close after four wave cycles', (
 });
 
 test('instanced patches preserve the complete mesh, including partial edge patches', () => {
-  const patch = surfaceIndices(9, 9);
-  const triangles = (indices) =>
-    Array.from({ length: indices.length / 3 }, (_, i) =>
-      Array.from(indices.slice(i * 3, i * 3 + 3)).join(','),
-    ).sort();
-  for (const [nu, nv] of [
-    [4, 4],
-    [20, 18],
-    [33, 17],
-  ]) {
-    const decoded = [];
-    for (let u = 0; u < nu - 1; u += 8)
-      for (let v = 0; v < nv - 1; v += 8)
-        for (let i = 0; i < patch.length; i += 3) {
-          const ids = Array.from(
-            patch.subarray(i, i + 3),
-            (id) => Math.min(u + Math.floor(id / 9), nu - 1) * nv + Math.min(v + (id % 9), nv - 1),
-          );
-          if (new Set(ids).size === 3) decoded.push(...ids);
-        }
-    assert.deepEqual(triangles(decoded), triangles(surfaceIndices(nu, nv)));
+  for (const patchSize of [8, 16, 32, 64]) {
+    const patch = surfaceIndices(patchSize + 1, patchSize + 1, 8);
+    const triangles = (indices) =>
+      Array.from({ length: indices.length / 3 }, (_, i) =>
+        Array.from(indices.slice(i * 3, i * 3 + 3)).join(','),
+      ).sort();
+    for (const [nu, nv] of [
+      [4, 4],
+      [20, 18],
+      [33, 17],
+    ]) {
+      const decoded = [];
+      for (let u = 0; u < nu - 1; u += patchSize)
+        for (let v = 0; v < nv - 1; v += patchSize)
+          for (let i = 0; i < patch.length; i += 3) {
+            const ids = Array.from(
+              patch.subarray(i, i + 3),
+              (id) =>
+                Math.min(u + Math.floor(id / (patchSize + 1)), nu - 1) * nv +
+                Math.min(v + (id % (patchSize + 1)), nv - 1),
+            );
+            if (new Set(ids).size === 3) decoded.push(...ids);
+          }
+      assert.deepEqual(triangles(decoded), triangles(surfaceIndices(nu, nv)));
+    }
   }
 });
